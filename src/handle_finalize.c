@@ -5,17 +5,25 @@ void handle_finalize(void *parameters) {
     context_t *context = (context_t *) msg->pluginContext;
 
     msg->uiType = ETH_UI_TYPE_GENERIC;
+    
+    msg->numScreens = 2; //At least 2, amount + vault
 
-    // EDIT THIS: Set the total number of screen you will need.
-    msg->numScreens = 2;
-    // If the beneficiary is NOT the sender, we will need an additional screen to display it.
-    if (memcmp(msg->address, context->beneficiary, ADDRESS_LENGTH) != 0) {
-        msg->numScreens += 1;
+    switch (context->selectorIndex) {
+        case DEPOSIT_TO:
+            if (memcmp(msg->address, context->recipient, ADDRESS_LENGTH) != 0) {
+                msg->numScreens += 1;
+            }
+            break;
+        case WITHDRAW_TO:
+            if (memcmp(msg->address, context->recipient, ADDRESS_LENGTH) != 0) {
+                msg->numScreens += 1;
+            }
+            break;
+        case WITHDRAW_TO_SLIPPAGE:
+            msg->numScreens += 2;
+            break;
+        default:
+            break;
     }
-
-    // EDIT THIS: set `tokenLookup1` (and maybe `tokenLookup2`) to point to
-    // token addresses you will info for (such as decimals, ticker...).
-    msg->tokenLookup1 = context->token_received;
-
     msg->result = ETH_PLUGIN_RESULT_OK;
 }

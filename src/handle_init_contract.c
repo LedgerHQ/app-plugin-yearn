@@ -28,7 +28,7 @@ void handle_init_contract(void *parameters) {
     // Look for the index of the selectorIndex passed in by `msg`.
     uint8_t i;
     for (i = 0; i < NUM_SELECTORS; i++) {
-        if (memcmp((uint8_t *) PIC(BOILERPLATE_SELECTORS[i]), msg->selector, SELECTOR_SIZE) == 0) {
+        if (memcmp((uint8_t *) PIC(YEARN_SELECTORS[i]), msg->selector, SELECTOR_SIZE) == 0) {
             context->selectorIndex = i;
             break;
         }
@@ -40,15 +40,26 @@ void handle_init_contract(void *parameters) {
     }
 
     // Set `next_param` to be the first field we expect to parse.
-    // EDIT THIS: Adapt the `cases`, and set the `next_param` to be the first parameter you expect
-    // to parse.
     switch (context->selectorIndex) {
-        case SWAP_EXACT_ETH_FOR_TOKENS:
-            context->next_param = MIN_AMOUNT_RECEIVED;
+        case DEPOSIT_ALL:
             break;
-        case BOILERPLATE_DUMMY_2:
-            context->next_param = TOKEN_RECEIVED;
-        // Keep this
+        case DEPOSIT:
+            context->next_param = AMOUNT_TO_DEPOSIT;
+            break;
+        case DEPOSIT_TO:
+            context->next_param = AMOUNT_TO_DEPOSIT;
+            break;
+        case WITHDRAW_ALL:
+            break;
+        case WITHDRAW:
+            context->next_param = AMOUNT_TO_WITHDRAW;
+            break;
+        case WITHDRAW_TO:
+            context->next_param = AMOUNT_TO_WITHDRAW;
+            break;
+        case WITHDRAW_TO_SLIPPAGE:
+            context->next_param = AMOUNT_TO_WITHDRAW;
+            break;
         default:
             PRINTF("Missing selectorIndex: %d\n", context->selectorIndex);
             msg->result = ETH_PLUGIN_RESULT_ERROR;

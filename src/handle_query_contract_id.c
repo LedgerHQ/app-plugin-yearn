@@ -12,8 +12,26 @@ void handle_query_contract_id(void *parameters) {
 
     // EDIT THIS: Adapt the cases by modifying the strings you pass to `strlcpy`.
     switch (context->selectorIndex) {
-        case SWAP_EXACT_ETH_FOR_TOKENS:
-            strlcpy(msg->version, "Swap", msg->versionLength);
+        case DEPOSIT_ALL:
+            strlcpy(msg->version, "Deposit", msg->versionLength);
+            break;
+        case DEPOSIT:
+            strlcpy(msg->version, "Deposit", msg->versionLength);
+            break;
+        case DEPOSIT_TO:
+            strlcpy(msg->version, "Deposit", msg->versionLength);
+            break;
+        case WITHDRAW_ALL:
+            strlcpy(msg->version, "Withdraw", msg->versionLength);
+            break;
+        case WITHDRAW:
+            strlcpy(msg->version, "Withdraw", msg->versionLength);
+            break;
+        case WITHDRAW_TO:
+            strlcpy(msg->version, "Withdraw", msg->versionLength);
+            break;
+        case WITHDRAW_TO_SLIPPAGE:
+            strlcpy(msg->version, "Withdraw", msg->versionLength);
             break;
         // Keep this
         default:

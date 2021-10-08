@@ -2,7 +2,7 @@
 // You will also need to create a `b2c.json` file that will hold the methodIDs and location of
 // the erc20 tokens that should get displayed.
 // EDIT THIS: replace with the name of your plugin (lowercase)
-const pluginFolder = "boilerplate";
+const pluginFolder = "yearn";
 
 function serialize_data(pluginName, contractAddress, selector) {
 	const len = Buffer.from([pluginName.length]);
@@ -40,7 +40,7 @@ function generate_plugin_config() {
 	}
 	
 	// Load the b2c.json file
-	const b2c = require(`../boilerplate/b2c.json`);
+	const b2c = require(`../yearn/b2c.json`);
 	
 	let res = {};
 	

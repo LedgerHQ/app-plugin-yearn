@@ -26,15 +26,25 @@
 
 // List of selectors supported by this plugin.
 // EDIT THIS: Adapt the variable names and change the `0x` values to match your selectors.
-static const uint8_t SWAP_EXACT_ETH_FOR_TOKENS_SELECTOR[SELECTOR_SIZE] = {0x7f, 0xf3, 0x6a, 0xb5};
-static const uint8_t BOILERPLATE_DUMMY_SELECTOR_2[SELECTOR_SIZE] = {0x13, 0x37, 0x42, 0x42};
+static const uint8_t DEPOSIT_ALL_SELECTOR[SELECTOR_SIZE] = {0xd0, 0xe3, 0x0d, 0xb0};
+static const uint8_t DEPOSIT_SELECTOR[SELECTOR_SIZE] = {0xb6, 0xb5, 0x5f, 0x25};
+static const uint8_t DEPOSIT_TO_SELECTOR[SELECTOR_SIZE] = {0x6e, 0x55, 0x3f, 0x65};
+static const uint8_t WITHDRAW_ALL_SELECTOR[SELECTOR_SIZE] = {0x3c, 0xcf, 0xd6, 0x0b};
+static const uint8_t WITHDRAW_SELECTOR[SELECTOR_SIZE] = {0x2e, 0x1a, 0x7d, 0x4d};
+static const uint8_t WITHDRAW_TO_SELECTOR[SELECTOR_SIZE] = {0x00, 0xf7, 0x14, 0xce};
+static const uint8_t WITHDRAW_TO_SLIPPAGE_SELECTOR[SELECTOR_SIZE] = {0xe6, 0x36, 0x97, 0xc8};
 
 // Array of all the different boilerplate selectors. Make sure this follows the same order as the
 // enum defined in `boilerplate_plugin.h`
 // EDIT THIS: Use the names of the array declared above.
-const uint8_t *const BOILERPLATE_SELECTORS[NUM_SELECTORS] = {
-    SWAP_EXACT_ETH_FOR_TOKENS_SELECTOR,
-    BOILERPLATE_DUMMY_SELECTOR_2,
+const uint8_t *const YEARN_SELECTORS[NUM_SELECTORS] = {
+    DEPOSIT_ALL_SELECTOR,
+    DEPOSIT_SELECTOR,
+    DEPOSIT_TO_SELECTOR,
+    WITHDRAW_ALL_SELECTOR,
+    WITHDRAW_SELECTOR,
+    WITHDRAW_TO_SELECTOR,
+    WITHDRAW_TO_SLIPPAGE_SELECTOR,
 };
 
 // Function to dispatch calls from the ethereum app.
