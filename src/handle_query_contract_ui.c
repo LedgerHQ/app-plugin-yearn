@@ -9,9 +9,9 @@ static void copy_parameter(uint8_t *dst, size_t dst_len, uint8_t *src) {
 }
 
 void amountToPercent(const uint8_t *amount,
-                    uint8_t amount_size,
-                    char *out_buffer,
-                    uint8_t out_buffer_size) {
+                     uint8_t amount_size,
+                     char *out_buffer,
+                     uint8_t out_buffer_size) {
     char tmp_buffer[100] = {0};
 
     amountToString(amount, amount_size, 2, "", tmp_buffer, 100);
@@ -22,17 +22,20 @@ void amountToPercent(const uint8_t *amount,
 }
 
 
-static void set_amount_ui(ethQueryContractUI_t *msg, context_t *context, bool isDeposit, bool isAll) {
+static void set_amount_ui(ethQueryContractUI_t *msg,
+                          context_t *context,
+                          bool isDeposit,
+                          bool isAll) {
     strlcpy(msg->title, "Amount", msg->titleLength);
     if (isAll) {
         strlcpy(msg->msg, "ALL", msg->msgLength);
     } else if (isDeposit) {
         amountToString(context->amount_to_deposit,
-                    sizeof(context->amount_to_deposit),
-                    context->decimals,
-                    context->ticker,
-                    msg->msg,
-                    msg->msgLength);
+                       sizeof(context->amount_to_deposit),
+                       context->decimals,
+                       context->ticker,
+                       msg->msg,
+                       msg->msgLength);
     } else {
         amountToString(context->amount_to_withdraw,
                        sizeof(context->amount_to_withdraw),
@@ -46,10 +49,7 @@ static void set_amount_ui(ethQueryContractUI_t *msg, context_t *context, bool is
 static void set_slippage_ui(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->title, "Slippage", msg->titleLength);
 
-    amountToPercent(context->slippage,
-                   sizeof(context->slippage),
-                   msg->msg,
-                   msg->msgLength);
+    amountToPercent(context->slippage, sizeof(context->slippage), msg->msg, msg->msgLength);
 }
 
 static void set_recipient_ui(ethQueryContractUI_t *msg, context_t *context) {
@@ -57,7 +57,10 @@ static void set_recipient_ui(ethQueryContractUI_t *msg, context_t *context) {
     msg->msg[0] = '0';
     msg->msg[1] = 'x';
     uint64_t chainid = 0;
-    getEthAddressStringFromBinary(context->recipient, msg->msg + 2, msg->pluginSharedRW->sha3, chainid);
+    getEthAddressStringFromBinary(context->recipient,
+                                  msg->msg + 2,
+                                  msg->pluginSharedRW->sha3,
+                                  chainid);
 }
 
 static void set_vault_ui(ethQueryContractUI_t *msg, context_t *context) {
@@ -65,7 +68,10 @@ static void set_vault_ui(ethQueryContractUI_t *msg, context_t *context) {
     msg->msg[0] = '0';
     msg->msg[1] = 'x';
     uint64_t chainid = 0;
-    getEthAddressStringFromBinary(context->vault_address, msg->msg + 2, msg->pluginSharedRW->sha3, chainid);
+    getEthAddressStringFromBinary(context->vault_address,
+                                  msg->msg + 2,
+                                  msg->pluginSharedRW->sha3,
+                                  chainid);
 }
 
 void handle_query_contract_ui(void *parameters) {
@@ -83,7 +89,9 @@ void handle_query_contract_ui(void *parameters) {
 
     // Copy the vault address prior to any process
     ethPluginSharedRO_t *pluginSharedRO = (ethPluginSharedRO_t *) msg->pluginSharedRO;
-    copy_parameter(context->vault_address, sizeof(context->vault_address), pluginSharedRO->txContent->destination);
+    copy_parameter(context->vault_address,
+                   sizeof(context->vault_address),
+                   pluginSharedRO->txContent->destination);
 
     switch (msg->screenIndex) {
         case 0:
