@@ -1,7 +1,7 @@
 {
     "chainId": 1,
     "contracts": [{
-        "address": "0xBFa4D8AA6d8a379aBFe7793399D3DdaCC5bBECBB",
+        "address": "0xbfa4d8aa6d8a379abfe7793399d3ddacc5bbecbb",
         "contractName": "DAI",
         "selectors": {
             "0x3ccfd60b": {
@@ -21,7 +21,7 @@
             }
         }
     }, {
-        "address": "0xe2F6b9773BF3A015E2aA70741Bde1498bdB9425b",
+        "address": "0xe2f6b9773bf3a015e2aa70741bde1498bdb9425b",
         "contractName": "USDC",
         "selectors": {
             "0x3ccfd60b": {
@@ -41,7 +41,7 @@
             }
         }
     }, {
-        "address": "0xe11ba472F74869176652C35D30dB89854b5ae84D",
+        "address": "0xe11ba472f74869176652c35d30db89854b5ae84d",
         "contractName": "HEGIC",
         "selectors": {
             "0xd0e30db0": {
@@ -81,7 +81,7 @@
             }
         }
     }, {
-        "address": "0x19D3364A399d251E894aC732651be8B0E4e85001",
+        "address": "0x19d3364a399d251e894ac732651be8b0e4e85001",
         "contractName": "DAI",
         "selectors": {
             "0x3ccfd60b": {
@@ -106,7 +106,7 @@
             }
         }
     }, {
-        "address": "0x5f18C75AbDAe578b483E5F43f12a39cF75b973a9",
+        "address": "0x5f18c75abdae578b483e5f43f12a39cf75b973a9",
         "contractName": "USDC",
         "selectors": {
             "0xd0e30db0": {
@@ -146,7 +146,7 @@
             }
         }
     }, {
-        "address": "0xdCD90C7f6324cfa40d7169ef80b12031770B4325",
+        "address": "0xdcd90c7f6324cfa40d7169ef80b12031770b4325",
         "contractName": "Curve stETH",
         "selectors": {
             "0xd0e30db0": {
@@ -186,7 +186,7 @@
             }
         }
     }, {
-        "address": "0xcB550A6D4C8e3517A939BC79d0c7093eb7cF56B5",
+        "address": "0xcb550a6d4c8e3517a939bc79d0c7093eb7cf56b5",
         "contractName": "WBTC",
         "selectors": {
             "0x3ccfd60b": {
@@ -211,7 +211,7 @@
             }
         }
     }, {
-        "address": "0x986b4AFF588a109c09B50A03f42E4110E29D353F",
+        "address": "0x986b4aff588a109c09b50a03f42e4110e29d353f",
         "contractName": "Curve sETH",
         "selectors": {
             "0xd0e30db0": {
@@ -251,7 +251,7 @@
             }
         }
     }, {
-        "address": "0xa9fE4601811213c340e850ea305481afF02f5b28",
+        "address": "0xa9fe4601811213c340e850ea305481aff02f5b28",
         "contractName": "ETH",
         "selectors": {
             "0x3ccfd60b": {
@@ -276,7 +276,7 @@
             }
         }
     }, {
-        "address": "0xE14d13d8B3b85aF791b2AADD661cDBd5E6097Db1",
+        "address": "0xe14d13d8b3b85af791b2aadd661cdbd5e6097db1",
         "contractName": "YFI",
         "selectors": {
             "0x3ccfd60b": {
@@ -301,7 +301,7 @@
             }
         }
     }, {
-        "address": "0xB8C3B7A2A618C552C23B1E4701109a9E756Bab67",
+        "address": "0xb8c3b7a2a618c552c23b1e4701109a9e756bab67",
         "contractName": "1INCH",
         "selectors": {
             "0xd0e30db0": {
@@ -341,7 +341,7 @@
             }
         }
     }, {
-        "address": "0x27b7b1ad7288079A66d12350c828D3C00A6F07d7",
+        "address": "0x27b7b1ad7288079a66d12350c828d3c00a6f07d7",
         "contractName": "Curve Iron Bank",
         "selectors": {
             "0xd0e30db0": {
@@ -381,7 +381,7 @@
             }
         }
     }, {
-        "address": "0x625b7DF2fa8aBe21B0A976736CDa4775523aeD1E",
+        "address": "0x625b7df2fa8abe21b0a976736cda4775523aed1e",
         "contractName": "Curve HBTC",
         "selectors": {
             "0xd0e30db0": {
@@ -421,7 +421,7 @@
             }
         }
     }, {
-        "address": "0x9d409a0A012CFbA9B15F6D4B36Ac57A46966Ab9a",
+        "address": "0x9d409a0a012cfba9b15f6d4b36ac57a46966ab9a",
         "contractName": "yveCRV",
         "selectors": {
             "0xd0e30db0": {
@@ -461,7 +461,7 @@
             }
         }
     }, {
-        "address": "0x8414Db07a7F743dEbaFb402070AB01a4E0d2E45e",
+        "address": "0x8414db07a7f743debafb402070ab01a4e0d2e45e",
         "contractName": "Curve sBTC",
         "selectors": {
             "0xd0e30db0": {
@@ -501,7 +501,7 @@
             }
         }
     }, {
-        "address": "0x7047F90229a057C13BF847C0744D646CFb6c9E1A",
+        "address": "0x7047f90229a057c13bf847c0744d646cfb6c9e1a",
         "contractName": "Curve renBTC",
         "selectors": {
             "0xd0e30db0": {
@@ -541,7 +541,7 @@
             }
         }
     }, {
-        "address": "0xb4D1Be44BfF40ad6e506edf43156577a3f8672eC",
+        "address": "0xb4d1be44bff40ad6e506edf43156577a3f8672ec",
         "contractName": "Curve sAave",
         "selectors": {
             "0xd0e30db0": {
@@ -581,7 +581,7 @@
             }
         }
     }, {
-        "address": "0xe9Dc63083c464d6EDcCFf23444fF3CFc6886f6FB",
+        "address": "0xe9dc63083c464d6edccff23444ff3cfc6886f6fb",
         "contractName": "Curve oBTC",
         "selectors": {
             "0xd0e30db0": {
@@ -621,7 +621,7 @@
             }
         }
     }, {
-        "address": "0x3c5DF3077BcF800640B5DAE8c91106575a4826E6",
+        "address": "0x3c5df3077bcf800640b5dae8c91106575a4826e6",
         "contractName": "Curve pBTC",
         "selectors": {
             "0xd0e30db0": {
@@ -661,7 +661,7 @@
             }
         }
     }, {
-        "address": "0x5fA5B62c8AF877CB37031e0a3B2f34A78e3C56A6",
+        "address": "0x5fa5b62c8af877cb37031e0a3b2f34a78e3c56a6",
         "contractName": "Curve LUSD",
         "selectors": {
             "0xd0e30db0": {
@@ -701,7 +701,7 @@
             }
         }
     }, {
-        "address": "0x8fA3A9ecd9EFb07A8CE90A6eb014CF3c0E3B32Ef",
+        "address": "0x8fa3a9ecd9efb07a8ce90a6eb014cf3c0e3b32ef",
         "contractName": "Curve BBTC",
         "selectors": {
             "0xd0e30db0": {
@@ -741,7 +741,7 @@
             }
         }
     }, {
-        "address": "0x23D3D0f1c697247d5e0a9efB37d8b0ED0C464f7f",
+        "address": "0x23d3d0f1c697247d5e0a9efb37d8b0ed0c464f7f",
         "contractName": "Curve tBTC",
         "selectors": {
             "0xd0e30db0": {
@@ -781,7 +781,7 @@
             }
         }
     }, {
-        "address": "0x7Da96a3891Add058AdA2E826306D812C638D87a7",
+        "address": "0x7da96a3891add058ada2e826306d812c638d87a7",
         "contractName": "USDT",
         "selectors": {
             "0xd0e30db0": {
@@ -821,7 +821,7 @@
             }
         }
     }, {
-        "address": "0xA696a63cc78DfFa1a63E9E50587C197387FF6C7E",
+        "address": "0xa696a63cc78dffa1a63e9e50587c197387ff6c7e",
         "contractName": "WBTC",
         "selectors": {
             "0xd0e30db0": {
@@ -861,7 +861,7 @@
             }
         }
     }, {
-        "address": "0xB4AdA607B9d6b2c9Ee07A275e9616B84AC560139",
+        "address": "0xb4ada607b9d6b2c9ee07a275e9616b84ac560139",
         "contractName": "Curve FRAX",
         "selectors": {
             "0xd0e30db0": {
@@ -901,7 +901,7 @@
             }
         }
     }, {
-        "address": "0xFBEB78a723b8087fD2ea7Ef1afEc93d35E8Bed42",
+        "address": "0xfbeb78a723b8087fd2ea7ef1afec93d35e8bed42",
         "contractName": "UNI",
         "selectors": {
             "0xd0e30db0": {
@@ -941,7 +941,7 @@
             }
         }
     }, {
-        "address": "0x8ee57c05741aA9DB947A744E713C15d4d19D8822",
+        "address": "0x8ee57c05741aa9db947a744e713c15d4d19d8822",
         "contractName": "Curve yBUSD",
         "selectors": {
             "0xd0e30db0": {
@@ -981,7 +981,7 @@
             }
         }
     }, {
-        "address": "0xD6Ea40597Be05c201845c0bFd2e96A60bACde267",
+        "address": "0xd6ea40597be05c201845c0bfd2e96a60bacde267",
         "contractName": "Curve Compound",
         "selectors": {
             "0xd0e30db0": {
@@ -1021,7 +1021,7 @@
             }
         }
     }, {
-        "address": "0x2a38B9B0201Ca39B17B460eD2f11e4929559071E",
+        "address": "0x2a38b9b0201ca39b17b460ed2f11e4929559071e",
         "contractName": "Curve GUSD",
         "selectors": {
             "0xd0e30db0": {
@@ -1061,7 +1061,7 @@
             }
         }
     }, {
-        "address": "0x4B5BfD52124784745c1071dcB244C6688d2533d3",
+        "address": "0x4b5bfd52124784745c1071dcb244c6688d2533d3",
         "contractName": "Curve yCRV",
         "selectors": {
             "0xd0e30db0": {
@@ -1101,7 +1101,7 @@
             }
         }
     }, {
-        "address": "0x84E13785B5a27879921D6F685f041421C7F482dA",
+        "address": "0x84e13785b5a27879921d6f685f041421c7f482da",
         "contractName": "Curve 3Crv",
         "selectors": {
             "0xd0e30db0": {
@@ -1141,7 +1141,7 @@
             }
         }
     }, {
-        "address": "0xf8768814b88281DE4F532a3beEfA5b85B69b9324",
+        "address": "0xf8768814b88281de4f532a3beefa5b85b69b9324",
         "contractName": "Curve TUSD",
         "selectors": {
             "0xd0e30db0": {
@@ -1181,7 +1181,7 @@
             }
         }
     }, {
-        "address": "0x6Ede7F19df5df6EF23bD5B9CeDb651580Bdf56Ca",
+        "address": "0x6ede7f19df5df6ef23bd5b9cedb651580bdf56ca",
         "contractName": "Curve BUSD",
         "selectors": {
             "0xd0e30db0": {
@@ -1221,7 +1221,7 @@
             }
         }
     }, {
-        "address": "0x30FCf7c6cDfC46eC237783D94Fc78553E79d4E9C",
+        "address": "0x30fcf7c6cdfc46ec237783d94fc78553e79d4e9c",
         "contractName": "Curve DUSD",
         "selectors": {
             "0xd0e30db0": {
@@ -1261,7 +1261,7 @@
             }
         }
     }, {
-        "address": "0x1C6a9783F812b3Af3aBbf7de64c3cD7CC7D1af44",
+        "address": "0x1c6a9783f812b3af3abbf7de64c3cd7cc7d1af44",
         "contractName": "Curve UST",
         "selectors": {
             "0xd0e30db0": {
@@ -1301,7 +1301,7 @@
             }
         }
     }, {
-        "address": "0x8cc94ccd0f3841a468184aCA3Cc478D2148E1757",
+        "address": "0x8cc94ccd0f3841a468184aca3cc478d2148e1757",
         "contractName": "Curve mUSD",
         "selectors": {
             "0xd0e30db0": {
@@ -1341,7 +1341,7 @@
             }
         }
     }, {
-        "address": "0xa5cA62D95D24A4a350983D5B8ac4EB8638887396",
+        "address": "0xa5ca62d95d24a4a350983d5b8ac4eb8638887396",
         "contractName": "sUSD",
         "selectors": {
             "0xd0e30db0": {
@@ -1381,7 +1381,7 @@
             }
         }
     }, {
-        "address": "0xF29AE508698bDeF169B89834F76704C3B205aedf",
+        "address": "0xf29ae508698bdef169b89834f76704c3b205aedf",
         "contractName": "SNX",
         "selectors": {
             "0xd0e30db0": {
@@ -1421,7 +1421,7 @@
             }
         }
     }, {
-        "address": "0x5a770DbD3Ee6bAF2802D29a901Ef11501C44797A",
+        "address": "0x5a770dbd3ee6baf2802d29a901ef11501c44797a",
         "contractName": "Curve sUSD",
         "selectors": {
             "0xd0e30db0": {
@@ -1461,7 +1461,7 @@
             }
         }
     }, {
-        "address": "0xf2db9a7c0ACd427A680D640F02d90f6186E71725",
+        "address": "0xf2db9a7c0acd427a680d640f02d90f6186e71725",
         "contractName": "Curve LINK",
         "selectors": {
             "0xd0e30db0": {
@@ -1501,7 +1501,7 @@
             }
         }
     }, {
-        "address": "0x3B96d491f067912D18563d56858Ba7d6EC67a6fa",
+        "address": "0x3b96d491f067912d18563d56858ba7d6ec67a6fa",
         "contractName": "Curve USDN",
         "selectors": {
             "0xd0e30db0": {
@@ -1541,7 +1541,7 @@
             }
         }
     }, {
-        "address": "0xC4dAf3b5e2A9e93861c3FBDd25f1e943B8D87417",
+        "address": "0xc4daf3b5e2a9e93861c3fbdd25f1e943b8d87417",
         "contractName": "Curve USDP",
         "selectors": {
             "0xd0e30db0": {
@@ -1581,7 +1581,7 @@
             }
         }
     }, {
-        "address": "0xA74d4B67b3368E83797a35382AFB776bAAE4F5C8",
+        "address": "0xa74d4b67b3368e83797a35382afb776baae4f5c8",
         "contractName": "Curve alUSD",
         "selectors": {
             "0xd0e30db0": {
@@ -1621,7 +1621,7 @@
             }
         }
     }, {
-        "address": "0xBfedbcbe27171C418CDabC2477042554b1904857",
+        "address": "0xbfedbcbe27171c418cdabc2477042554b1904857",
         "contractName": "Curve rETH",
         "selectors": {
             "0xd0e30db0": {
@@ -1661,7 +1661,7 @@
             }
         }
     }, {
-        "address": "0x132d8D2C76Db3812403431fAcB00F3453Fc42125",
+        "address": "0x132d8d2c76db3812403431facb00f3453fc42125",
         "contractName": "Curve aETHc",
         "selectors": {
             "0xd0e30db0": {
@@ -1701,7 +1701,7 @@
             }
         }
     }, {
-        "address": "0x39CAF13a104FF567f71fd2A4c68C026FDB6E740B",
+        "address": "0x39caf13a104ff567f71fd2a4c68c026fdb6e740b",
         "contractName": "Curve Aave",
         "selectors": {
             "0xd0e30db0": {
@@ -1741,7 +1741,7 @@
             }
         }
     }, {
-        "address": "0x054AF22E1519b020516D72D749221c24756385C9",
+        "address": "0x054af22e1519b020516d72d749221c24756385c9",
         "contractName": "Curve HUSD",
         "selectors": {
             "0xd0e30db0": {
@@ -1781,7 +1781,7 @@
             }
         }
     }, {
-        "address": "0x25212Df29073FfFA7A67399AcEfC2dd75a831A1A",
+        "address": "0x25212df29073fffa7a67399acefc2dd75a831a1a",
         "contractName": "Curve EURS",
         "selectors": {
             "0xd0e30db0": {
@@ -1821,7 +1821,7 @@
             }
         }
     }, {
-        "address": "0x671a912C10bba0CFA74Cfc2d6Fba9BA1ed9530B2",
+        "address": "0x671a912c10bba0cfa74cfc2d6fba9ba1ed9530b2",
         "contractName": "LINK",
         "selectors": {
             "0xd0e30db0": {
@@ -1861,7 +1861,7 @@
             }
         }
     }, {
-        "address": "0x873fB544277FD7b977B196a826459a69E27eA4ea",
+        "address": "0x873fb544277fd7b977b196a826459a69e27ea4ea",
         "contractName": "RAI",
         "selectors": {
             "0xd0e30db0": {
@@ -1901,7 +1901,7 @@
             }
         }
     }, {
-        "address": "0xa258C4606Ca8206D8aA700cE2143D7db854D168c",
+        "address": "0xa258c4606ca8206d8aa700ce2143d7db854d168c",
         "contractName": "ETH",
         "selectors": {
             "0xd0e30db0": {
@@ -1941,7 +1941,7 @@
             }
         }
     }, {
-        "address": "0x3D980E50508CFd41a13837A60149927a11c03731",
+        "address": "0x3d980e50508cfd41a13837a60149927a11c03731",
         "contractName": "Curve triCrypto",
         "selectors": {
             "0xd0e30db0": {
@@ -1981,7 +1981,7 @@
             }
         }
     }, {
-        "address": "0x80bbeE2fa460dA291e796B9045e93d19eF948C6A",
+        "address": "0x80bbee2fa460da291e796b9045e93d19ef948c6a",
         "contractName": "Curve PAX",
         "selectors": {
             "0xd0e30db0": {
@@ -2021,7 +2021,7 @@
             }
         }
     }, {
-        "address": "0x28a5b95C101df3Ded0C0d9074DB80C438774B6a9",
+        "address": "0x28a5b95c101df3ded0c0d9074db80c438774b6a9",
         "contractName": "Curve USDT",
         "selectors": {
             "0xd0e30db0": {
@@ -2061,7 +2061,7 @@
             }
         }
     }, {
-        "address": "0x3D27705c64213A5DcD9D26880c1BcFa72d5b6B0E",
+        "address": "0x3d27705c64213a5dcd9d26880c1bcfa72d5b6b0e",
         "contractName": "Curve USDK",
         "selectors": {
             "0xd0e30db0": {
@@ -2101,7 +2101,7 @@
             }
         }
     }, {
-        "address": "0xC116dF49c02c5fD147DE25Baa105322ebF26Bd97",
+        "address": "0xc116df49c02c5fd147de25baa105322ebf26bd97",
         "contractName": "Curve RSV",
         "selectors": {
             "0xd0e30db0": {
@@ -2141,7 +2141,7 @@
             }
         }
     }, {
-        "address": "0xdA816459F1AB5631232FE5e97a05BBBb94970c95",
+        "address": "0xda816459f1ab5631232fe5e97a05bbbb94970c95",
         "contractName": "DAI",
         "selectors": {
             "0xd0e30db0": {
@@ -2181,7 +2181,7 @@
             }
         }
     }, {
-        "address": "0xE537B5cc158EB71037D4125BDD7538421981E6AA",
+        "address": "0xe537b5cc158eb71037d4125bdd7538421981e6aa",
         "contractName": "Curve 3Crypto",
         "selectors": {
             "0xd0e30db0": {
@@ -2221,7 +2221,7 @@
             }
         }
     }, {
-        "address": "0xd9788f3931Ede4D5018184E198699dC6d66C1915",
+        "address": "0xd9788f3931ede4d5018184e198699dc6d66c1915",
         "contractName": "AAVE",
         "selectors": {
             "0xd0e30db0": {
@@ -2261,7 +2261,7 @@
             }
         }
     }, {
-        "address": "0x4A3FE75762017DB0eD73a71C9A06db7768DB5e66",
+        "address": "0x4a3fe75762017db0ed73a71c9a06db7768db5e66",
         "contractName": "COMP",
         "selectors": {
             "0xd0e30db0": {
@@ -2301,7 +2301,7 @@
             }
         }
     }, {
-        "address": "0x6d765CbE5bC922694afE112C140b8878b9FB0390",
+        "address": "0x6d765cbe5bc922694afe112c140b8878b9fb0390",
         "contractName": "SUSHI",
         "selectors": {
             "0xd0e30db0": {
@@ -2341,7 +2341,7 @@
             }
         }
     }, {
-        "address": "0xFD0877d9095789cAF24c98F7CCe092fa8E120775",
+        "address": "0xfd0877d9095789caf24c98f7cce092fa8e120775",
         "contractName": "TUSD",
         "selectors": {
             "0xd0e30db0": {
@@ -2381,7 +2381,7 @@
             }
         }
     }, {
-        "address": "0x0d4EA8536F9A13e4FBa16042a46c30f092b06aA5",
+        "address": "0x0d4ea8536f9a13e4fba16042a46c30f092b06aa5",
         "contractName": "Curve EURT",
         "selectors": {
             "0xd0e30db0": {
@@ -2421,7 +2421,7 @@
             }
         }
     }, {
-        "address": "0x2DfB14E32e2F8156ec15a2c21c3A6c053af52Be8",
+        "address": "0x2dfb14e32e2f8156ec15a2c21c3a6c053af52be8",
         "contractName": "Curve MIM",
         "selectors": {
             "0xd0e30db0": {
@@ -2461,7 +2461,7 @@
             }
         }
     }, {
-        "address": "0x4560b99C904aAD03027B5178CCa81584744AC01f",
+        "address": "0x4560b99c904aad03027b5178cca81584744ac01f",
         "contractName": "Curve cvxCRV",
         "selectors": {
             "0xd0e30db0": {
@@ -2501,7 +2501,7 @@
             }
         }
     }, {
-        "address": "0x67e019bfbd5a67207755D04467D6A70c0B75bF60",
+        "address": "0x67e019bfbd5a67207755d04467d6a70c0b75bf60",
         "contractName": "Curve ibEUR",
         "selectors": {
             "0xd0e30db0": {
@@ -2541,7 +2541,7 @@
             }
         }
     }, {
-        "address": "0x528D50dC9a333f01544177a924893FA1F5b9F748",
+        "address": "0x528d50dc9a333f01544177a924893fa1f5b9f748",
         "contractName": "Curve ibKRW",
         "selectors": {
             "0xd0e30db0": {
@@ -2581,7 +2581,7 @@
             }
         }
     }, {
-        "address": "0x595a68a8c9D5C230001848B69b1947ee2A607164",
+        "address": "0x595a68a8c9d5c230001848b69b1947ee2a607164",
         "contractName": "Curve ibGBP",
         "selectors": {
             "0xd0e30db0": {
@@ -2621,7 +2621,7 @@
             }
         }
     }, {
-        "address": "0x1b905331F7dE2748F4D6a0678e1521E20347643F",
+        "address": "0x1b905331f7de2748f4d6a0678e1521e20347643f",
         "contractName": "Curve ibAUD",
         "selectors": {
             "0xd0e30db0": {
@@ -2661,7 +2661,7 @@
             }
         }
     }, {
-        "address": "0x490bD0886F221A5F79713D3E84404355A9293C50",
+        "address": "0x490bd0886f221a5f79713d3e84404355a9293c50",
         "contractName": "Curve ibCHF",
         "selectors": {
             "0xd0e30db0": {
@@ -2701,7 +2701,7 @@
             }
         }
     }, {
-        "address": "0x59518884EeBFb03e90a18ADBAAAB770d4666471e",
+        "address": "0x59518884eebfb03e90a18adbaaab770d4666471e",
         "contractName": "Curve ibJPY",
         "selectors": {
             "0xd0e30db0": {
@@ -2741,7 +2741,7 @@
             }
         }
     }, {
-        "address": "0xdb25cA703181E7484a155DD612b06f57E12Be5F0",
+        "address": "0xdb25ca703181e7484a155dd612b06f57e12be5f0",
         "contractName": "YFI",
         "selectors": {
             "0xd0e30db0": {
@@ -2781,7 +2781,7 @@
             }
         }
     }, {
-        "address": "0x6FAfCA7f49B4Fd9dC38117469cd31A1E5aec91F5",
+        "address": "0x6fafca7f49b4fd9dc38117469cd31a1e5aec91f5",
         "contractName": "Curve USDM",
         "selectors": {
             "0xd0e30db0": {
@@ -2821,7 +2821,7 @@
             }
         }
     }, {
-        "address": "0x718AbE90777F5B778B52D553a5aBaa148DD0dc5D",
+        "address": "0x718abe90777f5b778b52d553a5abaa148dd0dc5d",
         "contractName": "Curve alETH",
         "selectors": {
             "0xd0e30db0": {
@@ -2861,7 +2861,7 @@
             }
         }
     }, {
-        "address": "0x8b9C0c24307344B6D7941ab654b2Aeee25347473",
+        "address": "0x8b9c0c24307344b6d7941ab654b2aeee25347473",
         "contractName": "Curve EURN",
         "selectors": {
             "0xd0e30db0": {
@@ -2901,7 +2901,7 @@
             }
         }
     }, {
-        "address": "0xd8C620991b8E626C099eAaB29B1E3eEa279763bb",
+        "address": "0xd8c620991b8e626c099eaab29b1e3eea279763bb",
         "contractName": "Curve MIM-UST",
         "selectors": {
             "0xd0e30db0": {
