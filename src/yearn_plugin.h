@@ -8,7 +8,7 @@
 #define NUM_SELECTORS 7
 
 // Name of the plugin.
-#define PLUGIN_NAME "Yearn"
+#define PLUGIN_NAME          "Yearn"
 #define MAX_VAULT_TICKER_LEN 19  // 17 characters + ' ' + '\0'
 
 // Enumeration of the different selectors possible.
@@ -49,7 +49,6 @@ typedef struct yearnVaultDefinition_t {
 #define NUM_YEARN_VAULTS 76
 
 extern yearnVaultDefinition_t const YEARN_VAULTS[NUM_YEARN_VAULTS];
-
 
 // Shared global memory with Ethereum app. Must be at most 5 * 32 bytes.
 // EDIT THIS: This struct is used by your plugin to save the parameters you parse. You

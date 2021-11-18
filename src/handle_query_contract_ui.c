@@ -39,7 +39,6 @@ void amountWithTicker(const uint8_t *amount,
     out_buffer[out_buffer_size - 1] = '\0';
 }
 
-
 static void set_amount_ui(ethQueryContractUI_t *msg,
                           context_t *context,
                           bool isDeposit,
@@ -84,9 +83,9 @@ static void set_recipient_ui(ethQueryContractUI_t *msg, context_t *context) {
 }
 
 void setVaultName(const char *vaultName,
-                     uint8_t vaultName_size,
-                     char *out_buffer,
-                     uint8_t out_buffer_size) {
+                  uint8_t vaultName_size,
+                  char *out_buffer,
+                  uint8_t out_buffer_size) {
     char tmp_buffer[100] = {0};
 
     strlcpy(tmp_buffer, vaultName, vaultName_size);
