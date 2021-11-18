@@ -1,4 +1,4 @@
-#include "boilerplate_plugin.h"
+#include "yearn_plugin.h"
 
 // Called once to init.
 void handle_init_contract(void *parameters) {

@@ -1,4 +1,4 @@
-#include "boilerplate_plugin.h"
+#include "yearn_plugin.h"
 
 // Copies the whole parameter (32 bytes long) from `src` to `dst`.
 // Useful for numbers, data...
@@ -30,9 +30,7 @@ static void handle_deposit_all(ethPluginProvideParameter_t *msg, context_t *cont
 static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT_TO_DEPOSIT:
-            copy_parameter(context->amount_to_deposit,
-                           sizeof(context->amount_to_deposit),
-                           msg->parameter);
+            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -44,9 +42,7 @@ static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context)
 static void handle_deposit_to(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT_TO_DEPOSIT:
-            copy_parameter(context->amount_to_deposit,
-                           sizeof(context->amount_to_deposit),
-                           msg->parameter);
+            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
             context->next_param = RECIPIENT;
             break;
         case RECIPIENT:
@@ -71,9 +67,7 @@ static void handle_withdraw_all(ethPluginProvideParameter_t *msg, context_t *con
 static void handle_withdraw(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT_TO_WITHDRAW:
-            copy_parameter(context->amount_to_withdraw,
-                           sizeof(context->amount_to_withdraw),
-                           msg->parameter);
+            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -85,9 +79,7 @@ static void handle_withdraw(ethPluginProvideParameter_t *msg, context_t *context
 static void handle_withdraw_to(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT_TO_WITHDRAW:
-            copy_parameter(context->amount_to_withdraw,
-                           sizeof(context->amount_to_withdraw),
-                           msg->parameter);
+            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
             context->next_param = RECIPIENT;
             break;
         case RECIPIENT:
@@ -104,9 +96,7 @@ static void handle_withdraw_to(ethPluginProvideParameter_t *msg, context_t *cont
 static void handle_withdraw_to_slippage(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT_TO_WITHDRAW:
-            copy_parameter(context->amount_to_withdraw,
-                           sizeof(context->amount_to_withdraw),
-                           msg->parameter);
+            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
             context->next_param = RECIPIENT;
             break;
         case RECIPIENT:
