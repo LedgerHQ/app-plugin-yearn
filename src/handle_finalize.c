@@ -5,8 +5,8 @@ void handle_finalize(void *parameters) {
     context_t *context = (context_t *) msg->pluginContext;
 
     msg->uiType = ETH_UI_TYPE_GENERIC;
-    
-    msg->numScreens = 2; //At least 2, amount + vault
+
+    msg->numScreens = 2;  // At least 2, amount + vault
 
     switch (context->selectorIndex) {
         case DEPOSIT_TO:
