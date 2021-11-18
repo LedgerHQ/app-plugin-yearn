@@ -10,6 +10,12 @@
 // Name of the plugin.
 #define PLUGIN_NAME "Yearn"
 
+#define TOKEN_6_YVUSDC_1 "0xe2F6b9773BF3A015E2aA70741Bde1498bdB9425b"
+#define TOKEN_6_YVUSDC_2 "0x5f18C75AbDAe578b483E5F43f12a39cF75b973a9"
+#define TOKEN_6_YVUSDT_1 "0x7Da96a3891Add058AdA2E826306D812C638D87a7"
+#define TOKEN_8_YVWBTC_1 "0xA696a63cc78DfFa1a63E9E50587C197387FF6C7E"
+#define TOKEN_8_YVWBTC_2 "0xcB550A6D4C8e3517A939BC79d0c7093eb7cF56B5"
+
 // Enumeration of the different selectors possible.
 // Should follow the exact same order as the array declared in main.c
 // EDIT THIS: Change the naming (`selector_t`), and add your selector names.

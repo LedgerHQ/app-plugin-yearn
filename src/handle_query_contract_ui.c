@@ -24,6 +24,18 @@ void amountToPercent(const uint8_t *amount,
 
 static void set_amount_ui(ethQueryContractUI_t *msg, context_t *context, bool isDeposit, bool isAll) {
     strlcpy(msg->title, "Amount", msg->titleLength);
+    context->decimals = 18;
+    if (
+        memcmp(context->vault_address, TOKEN_6_YVUSDC_1, ADDRESS_LENGTH) != 0 ||
+        memcmp(context->vault_address, TOKEN_6_YVUSDC_2, ADDRESS_LENGTH) != 0 ||
+        memcmp(context->vault_address, TOKEN_6_YVUSDT_1, ADDRESS_LENGTH) != 0) {
+        context->decimals = 6;
+    } else if (
+        memcmp(context->vault_address, TOKEN_8_YVWBTC_1, ADDRESS_LENGTH) != 0 ||
+        memcmp(context->vault_address, TOKEN_8_YVWBTC_2, ADDRESS_LENGTH) != 0) {
+        context->decimals = 8;
+    }
+
     if (isAll) {
         strlcpy(msg->msg, "ALL", msg->msgLength);
     } else if (isDeposit) {
