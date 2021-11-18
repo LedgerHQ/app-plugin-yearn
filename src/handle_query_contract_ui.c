@@ -21,7 +21,6 @@ void amountToPercent(const uint8_t *amount,
     out_buffer[out_buffer_size - 1] = '\0';
 }
 
-
 static void set_amount_ui(ethQueryContractUI_t *msg,
                           context_t *context,
                           bool isDeposit,
