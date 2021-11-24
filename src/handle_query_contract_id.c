@@ -4,13 +4,8 @@
 void handle_query_contract_id(void *parameters) {
     ethQueryContractID_t *msg = (ethQueryContractID_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
-    // msg->name will be the upper sentence displayed on the screen.
-    // msg->version will be the lower sentence displayed on the screen.
-
-    // For the first screen, display the plugin name.
     strlcpy(msg->name, PLUGIN_NAME, msg->nameLength);
 
-    // EDIT THIS: Adapt the cases by modifying the strings you pass to `strlcpy`.
     switch (context->selectorIndex) {
         case DEPOSIT_ALL:
             strlcpy(msg->version, "Deposit", msg->versionLength);
@@ -33,7 +28,9 @@ void handle_query_contract_id(void *parameters) {
         case WITHDRAW_TO_SLIPPAGE:
             strlcpy(msg->version, "Withdraw", msg->versionLength);
             break;
-        // Keep this
+        case ZAP_IN:
+            strlcpy(msg->version, "Zap In", msg->versionLength);
+            break;
         default:
             PRINTF("Selector index: %d not supported\n", context->selectorIndex);
             msg->result = ETH_PLUGIN_RESULT_ERROR;

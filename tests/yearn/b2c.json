@@ -1,6 +1,16 @@
 {
     "chainId": 1,
     "contracts": [{
+        "address": "0x92be6adb6a12da0ca607f9d87db2f9978cd6ec3e",
+        "contractName": "Zap In",
+        "selectors": {
+            "0x38b32e68": {
+                "erc20OfInterest": ["fromToken"],
+                "method": "ZapIn",
+                "plugin": "Yearn"
+            }
+        }
+    }, {
         "address": "0xbfa4d8aa6d8a379abfe7793399d3ddacc5bbecbb",
         "contractName": "DAI",
         "selectors": {

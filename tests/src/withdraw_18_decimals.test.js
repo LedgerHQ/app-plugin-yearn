@@ -5,7 +5,7 @@ import { ethers } from "ethers";
 
 const contractAddr = "0x054af22e1519b020516d72d749221c24756385c9";
 const AMOUNT_TO_DEPOSIT = '345123456789352738273'; // 345.123456789352738273
-const BASE_SCREENS_S = (1 + 2 + 1 + 3 + 1) //YEARN + AMOUNT + GAS_FEES + VAULT + APPROVE
+const BASE_SCREENS_S = (1 + 2 + 1 + 1 + 1) //YEARN + AMOUNT + GAS_FEES + VAULT + APPROVE
 const BASE_SCREENS_X = (1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + GAS_FEES + VAULT + APPROVE
 
 // Nanos S test
