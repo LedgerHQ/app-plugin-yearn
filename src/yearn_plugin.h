@@ -5,7 +5,7 @@
 #include <string.h>
 
 #define PLUGIN_NAME          "Yearn"
-#define NUM_SELECTORS        8
+#define NUM_SELECTORS        13
 #define MAX_VAULT_TICKER_LEN 18  // 17 characters + '\0'
 
 // Enumeration of the different selectors possible.
@@ -19,6 +19,11 @@ typedef enum {
     WITHDRAW_TO,
     WITHDRAW_TO_SLIPPAGE,
     ZAP_IN,
+    IB_MINT,
+    IB_REDEEM,
+    IB_REDEEM_UNDERLYING,
+    IB_BORROW,
+    IB_REPAY_BORROW
 } selector_t;
 
 // Enumeration used to parse the smart contract data.
@@ -37,9 +42,6 @@ typedef enum {
 extern const uint8_t *const YEARN_SELECTORS[NUM_SELECTORS];
 
 typedef struct yearnVaultDefinition_t {
-#ifdef HAVE_CONTRACT_NAME_IN_DESCRIPTOR
-    uint8_t contractName[ADDRESS_LENGTH];
-#endif
     uint8_t address[ADDRESS_LENGTH];
     char want[MAX_VAULT_TICKER_LEN];
     char vault[MAX_VAULT_TICKER_LEN];
@@ -47,8 +49,9 @@ typedef struct yearnVaultDefinition_t {
 } yearnVaultDefinition_t;
 
 #define NUM_YEARN_VAULTS 76
-
 extern yearnVaultDefinition_t const YEARN_VAULTS[NUM_YEARN_VAULTS];
+#define NUM_IRON_BANK 32
+extern yearnVaultDefinition_t const IRON_BANK[NUM_IRON_BANK];
 
 // Shared global memory with Ethereum app. Must be at most 5 * 32 bytes.
 typedef struct context_t {
