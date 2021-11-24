@@ -10,16 +10,16 @@ void handle_provide_token(void *parameters) {
     PRINTF("======================================================\n");
     PRINTF("YEARN plugin provide token: 0x%p, 0x%p\n", msg->token1, msg->token2);
     PRINTF("======================================================\n");
-    
+
     if (memcmp(context->extra_address, NULL_ETH_ADDRESS, ADDRESS_LENGTH) == 0) {
         context->decimals = 18;
-        strlcpy(context->want, " ETH", sizeof(context->want));
+        strlcpy(context->want, "ETH", sizeof(context->want));
     } else if (msg->token1) {
         context->decimals = msg->token1->decimals;
         strlcpy(context->want, (char *) msg->token1->ticker, sizeof(context->want));
     } else {
         context->decimals = 18;
-        strlcpy(context->want, " ???", sizeof(context->want));
+        strlcpy(context->want, "???", sizeof(context->want));
     }
 
     msg->result = ETH_PLUGIN_RESULT_OK;

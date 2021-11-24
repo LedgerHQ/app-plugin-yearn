@@ -48,7 +48,6 @@ static void set_slippage_ui(ethQueryContractUI_t *msg, context_t *context) {
                             1,
                             msg->msg,
                             msg->msgLength);
-
 }
 
 /******************************************************************************
@@ -137,7 +136,6 @@ static void set_vault_name(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->title, "Vault", msg->titleLength);
     strlcpy(msg->msg, context->vault, msg->msgLength);
 }
-
 
 void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *context) {
     uint8_t i;
