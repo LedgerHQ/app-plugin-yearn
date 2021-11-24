@@ -130,7 +130,6 @@ static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) 
     }
 }
 
-
 static void handle_iron_bank(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT:
@@ -142,7 +141,6 @@ static void handle_iron_bank(ethPluginProvideParameter_t *msg, context_t *contex
             break;
     }
 }
-
 
 void handle_provide_parameter(void *parameters) {
     ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;

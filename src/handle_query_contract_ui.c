@@ -131,7 +131,6 @@ static void set_amount_with_bank(ethQueryContractUI_t *msg, context_t *context) 
                             msg->msgLength);
 }
 
-
 /******************************************************************************
 **  Will display ALL to indicate that the full balance should be deposited or
 **  withdrawn.
@@ -164,7 +163,6 @@ static void set_bank_name(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->title, "Market", msg->titleLength);
     strlcpy(msg->msg, context->vault, msg->msgLength);
 }
-
 
 void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *context) {
     uint8_t i;
@@ -289,7 +287,6 @@ void handle_query_contract_ui_ironbank(ethQueryContractUI_t *msg, context_t *con
             return;
     }
 }
-
 
 void handle_query_contract_ui(void *parameters) {
     ethQueryContractUI_t *msg = (ethQueryContractUI_t *) parameters;
