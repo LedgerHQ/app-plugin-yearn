@@ -11,6 +11,7 @@ test('[Nano S] IB Borrow', zemu("nanos", async (sim, eth) => {
     "44'/60'/0'/0/0",
     "f88b821d938511ed8ec200830c076894950027632fbd6adadfe82644bfb64647642b6c0980a4c5ebeaec000000000000000000000000000000000000000000000000000003f6e2afa50026a03a4830cc8db3c3f95ac6b1859cb8671a9665936fcae065c41c12df930c630175a03b9048cfc1efdc309ce2a44fd463e340ce6e498e04f02cd2aa0482fa3d32fa42"
   );
+  
 
   await waitForAppScreen(sim);
   await sim.navigateAndCompareSnapshots('.', 'nanos_ib_borrow', [BASE_SCREENS_S, 0]);

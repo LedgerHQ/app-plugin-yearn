@@ -2,8 +2,8 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import { waitForAppScreen, zemu } from './test.fixture';
 
-const BASE_SCREENS_S = (1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + VAULT + GAS_FEES + APPROVE
-const BASE_SCREENS_X = (1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + VAULT + GAS_FEES + APPROVE
+const BASE_SCREENS_S = (1 + 1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + VAULT + NETWORK + GAS_FEES + APPROVE
+const BASE_SCREENS_X = (1 + 1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + VAULT + NETWORK + GAS_FEES + APPROVE
 
 test('[Nano S] IB Repay Borrow', zemu("nanos", async (sim, eth) => {
   // Original TX: https://etherscan.io/tx/0x7bbd85e2d3f685f43905b5ad556f5339f1afac36686187e4619f637c60c4c7c3
