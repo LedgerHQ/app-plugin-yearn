@@ -597,8 +597,7 @@ const yearnVaultDefinition_t IRON_BANK[NUM_IRON_BANK] = {
       0xB1, 0x77, 0xDb, 0xae, 0xad, 0xcb, 0xb3, 0x0B, 0xF4, 0x0B},
      "ZAR",
      "cyZAR",
-     18}
-};
+     18}};
 
 // Function to dispatch calls from the ethereum app.
 void dispatch_plugin_calls(int message, void *parameters) {
