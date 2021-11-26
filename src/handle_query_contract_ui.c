@@ -1,118 +1,235 @@
-#include "boilerplate_plugin.h"
+#include "yearn_plugin.h"
 
-// Copies the whole parameter (32 bytes long) from `src` to `dst`.
-// Useful for numbers, data...
 static void copy_parameter(uint8_t *dst, size_t dst_len, uint8_t *src) {
-    // Take the minimum between dst_len and parameter_length to make sure we don't overwrite memory.
     size_t len = MIN(dst_len, PARAMETER_LENGTH);
     memcpy(dst, src, len);
 }
 
-void amountToPercent(const uint8_t *amount,
-                    uint8_t amount_size,
-                    char *out_buffer,
-                    uint8_t out_buffer_size) {
+void copy_amount_with_ticker(const uint8_t *amount,
+                             uint8_t amount_size,
+                             uint8_t amount_decimals,
+                             char *ticker,
+                             uint8_t ticker_size,
+                             char *out_buffer,
+                             uint8_t out_buffer_size) {
     char tmp_buffer[100] = {0};
-
-    amountToString(amount, amount_size, 2, "", tmp_buffer, 100);
+    amountToString(amount, amount_size, amount_decimals, "", tmp_buffer, 100);
     uint8_t amount_len = strnlen(tmp_buffer, sizeof(tmp_buffer));
     memcpy(out_buffer, tmp_buffer, amount_len);
-    memcpy(out_buffer + amount_len, " %", 2);
+    memcpy(out_buffer + amount_len, " ", 1);
+    memcpy(out_buffer + amount_len + 1, ticker, ticker_size);
     out_buffer[out_buffer_size - 1] = '\0';
 }
 
+void copy_vault_name(const char *vaultName,
+                     uint8_t vaultName_size,
+                     char *out_buffer,
+                     uint8_t out_buffer_size) {
+    char tmp_buffer[100] = {0};
 
-static void set_amount_ui(ethQueryContractUI_t *msg, context_t *context, bool isDeposit, bool isAll) {
-    strlcpy(msg->title, "Amount", msg->titleLength);
-    if (isAll) {
-        strlcpy(msg->msg, "ALL", msg->msgLength);
-    } else if (isDeposit) {
-        amountToString(context->amount_to_deposit,
-                    sizeof(context->amount_to_deposit),
-                    context->decimals,
-                    context->ticker,
-                    msg->msg,
-                    msg->msgLength);
-    } else {
-        amountToString(context->amount_to_withdraw,
-                       sizeof(context->amount_to_withdraw),
-                       context->decimals,
-                       context->ticker,
-                       msg->msg,
-                       msg->msgLength);
-    }
+    strlcpy(tmp_buffer, vaultName, vaultName_size);
+    uint8_t amount_len = strnlen(tmp_buffer, sizeof(tmp_buffer));
+    memcpy(out_buffer, tmp_buffer, amount_len);
+    memcpy(out_buffer + amount_len, " vault", 6);
+    out_buffer[out_buffer_size - 1] = '\0';
 }
 
+/******************************************************************************
+**  Will display the splipage used for this transaction.
+**  | Slippage |
+**  |   10 %   |
+******************************************************************************/
 static void set_slippage_ui(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->title, "Slippage", msg->titleLength);
-
-    amountToPercent(context->slippage,
-                   sizeof(context->slippage),
-                   msg->msg,
-                   msg->msgLength);
+    copy_amount_with_ticker(context->slippage,
+                            sizeof(context->slippage),
+                            2,
+                            "%",
+                            1,
+                            msg->msg,
+                            msg->msgLength);
 }
 
+/******************************************************************************
+**  Will display the recipient's address (withdraw)
+**  |                   Recipient                  |
+**  |  0x28bC240B2433B65d3C64EBF168862E60fAb019E4  |
+******************************************************************************/
 static void set_recipient_ui(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->title, "Recipient", msg->titleLength);
     msg->msg[0] = '0';
     msg->msg[1] = 'x';
     uint64_t chainid = 0;
-    getEthAddressStringFromBinary(context->recipient, msg->msg + 2, msg->pluginSharedRW->sha3, chainid);
+    getEthAddressStringFromBinary(context->extra_address,
+                                  msg->msg + 2,
+                                  msg->pluginSharedRW->sha3,
+                                  chainid);
 }
 
+/******************************************************************************
+**  Will display the address of the vault
+**  |                     Vault                    |
+**  |  0x28bC240B2433B65d3C64EBF168862E60fAb019E4  |
+******************************************************************************/
 static void set_vault_ui(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->title, "Vault", msg->titleLength);
+
     msg->msg[0] = '0';
     msg->msg[1] = 'x';
     uint64_t chainid = 0;
-    getEthAddressStringFromBinary(context->vault_address, msg->msg + 2, msg->pluginSharedRW->sha3, chainid);
+    getEthAddressStringFromBinary(context->vault_address,
+                                  msg->msg + 2,
+                                  msg->pluginSharedRW->sha3,
+                                  chainid);
 }
 
-void handle_query_contract_ui(void *parameters) {
-    ethQueryContractUI_t *msg = (ethQueryContractUI_t *) parameters;
-    context_t *context = (context_t *) msg->pluginContext;
+/******************************************************************************
+**  Will display the amount of token to be deposit in the vault.
+**  |   Amount  |
+**  |  200 DAI  |
+******************************************************************************/
+static void set_amount_with_want(ethQueryContractUI_t *msg, context_t *context) {
+    strlcpy(msg->title, "Amount", msg->titleLength);
+    copy_amount_with_ticker(context->amount,
+                            sizeof(context->amount),
+                            context->decimals,
+                            context->want,
+                            sizeof(context->want),
+                            msg->msg,
+                            msg->msgLength);
+}
 
-    // msg->title is the upper line displayed on the device.
-    // msg->msg is the lower line displayed on the device.
+/******************************************************************************
+**  Will display the amount of token to be withdrawn from the vault.
+**  |    Amount   |
+**  |  200 yvDAI  |
+******************************************************************************/
+static void set_amount_with_vault(ethQueryContractUI_t *msg, context_t *context) {
+    strlcpy(msg->title, "Amount", msg->titleLength);
+    copy_amount_with_ticker(context->amount,
+                            sizeof(context->amount),
+                            context->decimals,
+                            context->vault,
+                            sizeof(context->vault),
+                            msg->msg,
+                            msg->msgLength);
+}
 
-    // Clean the display fields.
-    memset(msg->title, 0, msg->titleLength);
-    memset(msg->msg, 0, msg->msgLength);
+/******************************************************************************
+**  Will display the amount of token to be withdrawn from the vault.
+**  |    Amount   |
+**  |  200 yvDAI  |
+******************************************************************************/
+static void set_amount_with_bank(ethQueryContractUI_t *msg, context_t *context) {
+    strlcpy(msg->title, "Amount", msg->titleLength);
+    copy_amount_with_ticker(context->amount,
+                            sizeof(context->amount),
+                            8,
+                            context->vault,
+                            sizeof(context->vault),
+                            msg->msg,
+                            msg->msgLength);
+}
 
-    msg->result = ETH_PLUGIN_RESULT_OK;
+/******************************************************************************
+**  Will display ALL to indicate that the full balance should be deposited or
+**  withdrawn.
+**  |  Amount |
+**  |   ALL   |
+******************************************************************************/
+static void set_amount_with_all(ethQueryContractUI_t *msg) {
+    strlcpy(msg->title, "Amount", msg->titleLength);
+    strlcpy(msg->msg, "ALL", msg->msgLength);
+}
 
-    // Copy the vault address prior to any process
-    ethPluginSharedRO_t *pluginSharedRO = (ethPluginSharedRO_t *) msg->pluginSharedRO;
-    copy_parameter(context->vault_address, sizeof(context->vault_address), pluginSharedRO->txContent->destination);
+/******************************************************************************
+**  Will display the Vault name. The vaults are defined in main.c in the
+**  YEARN_VAULTS variable.
+**  | Vault |
+**  | yvDAI |
+******************************************************************************/
+static void set_vault_name(ethQueryContractUI_t *msg, context_t *context) {
+    strlcpy(msg->title, "Vault", msg->titleLength);
+    strlcpy(msg->msg, context->vault, msg->msgLength);
+}
+
+/******************************************************************************
+**  Will display the Bank name. The banks are defined in main.c in the
+**  IRON_BANK variable.
+**  |  BANK  |
+**  | cyWETH |
+******************************************************************************/
+static void set_bank_name(ethQueryContractUI_t *msg, context_t *context) {
+    strlcpy(msg->title, "Market", msg->titleLength);
+    strlcpy(msg->msg, context->vault, msg->msgLength);
+}
+
+void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *context) {
+    uint8_t i;
+    yearnVaultDefinition_t *currentVault = NULL;
+    for (i = 0; i < NUM_YEARN_VAULTS; i++) {
+        currentVault = (yearnVaultDefinition_t *) PIC(&YEARN_VAULTS[i]);
+        if (memcmp(currentVault->address, context->vault_address, ADDRESS_LENGTH) == 0) {
+            memcpy(context->vault, currentVault->vault, MAX_VAULT_TICKER_LEN);
+            break;
+        }
+    }
 
     switch (msg->screenIndex) {
         case 0:
+            set_amount_with_want(msg, context);
+            break;
+        case 1:
+            set_vault_name(msg, context);
+            break;
+        default:
+            PRINTF("Received an invalid screenIndex\n");
+            msg->result = ETH_PLUGIN_RESULT_ERROR;
+            return;
+    }
+}
+
+void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *context) {
+    // Copy the vault address prior to any process
+    ethPluginSharedRO_t *pluginSharedRO = (ethPluginSharedRO_t *) msg->pluginSharedRO;
+    copy_parameter(context->vault_address,
+                   sizeof(context->vault_address),
+                   pluginSharedRO->txContent->destination);
+
+    // find information about vault
+    uint8_t i;
+    yearnVaultDefinition_t *currentVault = NULL;
+    for (i = 0; i < NUM_YEARN_VAULTS; i++) {
+        currentVault = (yearnVaultDefinition_t *) PIC(&YEARN_VAULTS[i]);
+        if (memcmp(currentVault->address, context->vault_address, ADDRESS_LENGTH) == 0) {
+            context->decimals = currentVault->decimals;
+            memcpy(context->want, currentVault->want, MAX_VAULT_TICKER_LEN);
+            memcpy(context->vault, currentVault->vault, MAX_VAULT_TICKER_LEN);
+            break;
+        }
+    }
+    switch (msg->screenIndex) {
+        case 0:
             switch (context->selectorIndex) {
+                case WITHDRAW_ALL:
                 case DEPOSIT_ALL:
-                    set_amount_ui(msg, context, true, true);
-                    break;
-                case DEPOSIT:
-                    set_amount_ui(msg, context, true, false);
+                    set_amount_with_all(msg);
                     break;
                 case DEPOSIT_TO:
-                    set_amount_ui(msg, context, true, false);
-                    break;
-                case WITHDRAW_ALL:
-                    set_amount_ui(msg, context, false, true);
-                    break;
-                case WITHDRAW:
-                    set_amount_ui(msg, context, false, false);
-                    break;
-                case WITHDRAW_TO:
-                    set_amount_ui(msg, context, false, false);
+                case DEPOSIT:
+                    set_amount_with_want(msg, context);
                     break;
                 case WITHDRAW_TO_SLIPPAGE:
-                    set_amount_ui(msg, context, false, false);
+                case WITHDRAW_TO:
+                case WITHDRAW:
+                    set_amount_with_vault(msg, context);
+                    break;
+                default:
                     break;
             }
             break;
         case 1:
-            set_vault_ui(msg, context);
+            set_vault_name(msg, context);
             break;
         case 2:
             set_recipient_ui(msg, context);
@@ -124,6 +241,74 @@ void handle_query_contract_ui(void *parameters) {
         default:
             PRINTF("Received an invalid screenIndex\n");
             msg->result = ETH_PLUGIN_RESULT_ERROR;
+            return;
+    }
+}
+
+void handle_query_contract_ui_ironbank(ethQueryContractUI_t *msg, context_t *context) {
+    ethPluginSharedRO_t *pluginSharedRO = (ethPluginSharedRO_t *) msg->pluginSharedRO;
+    copy_parameter(context->vault_address,
+                   sizeof(context->vault_address),
+                   pluginSharedRO->txContent->destination);
+
+    uint8_t i;
+    yearnVaultDefinition_t *currentVault = NULL;
+    for (i = 0; i < NUM_IRON_BANK; i++) {
+        currentVault = (yearnVaultDefinition_t *) PIC(&IRON_BANK[i]);
+        if (memcmp(currentVault->address, context->vault_address, ADDRESS_LENGTH) == 0) {
+            context->decimals = currentVault->decimals;
+            memcpy(context->want, currentVault->want, MAX_VAULT_TICKER_LEN);
+            memcpy(context->vault, currentVault->vault, MAX_VAULT_TICKER_LEN);
+            break;
+        }
+    }
+    switch (msg->screenIndex) {
+        case 0:
+            switch (context->selectorIndex) {
+                case IB_MINT:
+                case IB_REDEEM_UNDERLYING:
+                    set_amount_with_want(msg, context);
+                    break;
+                case IB_REDEEM:
+                case IB_BORROW:
+                case IB_REPAY_BORROW:
+                    set_amount_with_bank(msg, context);
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 1:
+            set_bank_name(msg, context);
+            break;
+        default:
+            PRINTF("Received an invalid screenIndex\n");
+            msg->result = ETH_PLUGIN_RESULT_ERROR;
+            return;
+    }
+}
+
+void handle_query_contract_ui(void *parameters) {
+    ethQueryContractUI_t *msg = (ethQueryContractUI_t *) parameters;
+    context_t *context = (context_t *) msg->pluginContext;
+    memset(msg->title, 0, msg->titleLength);
+    memset(msg->msg, 0, msg->msgLength);
+
+    msg->result = ETH_PLUGIN_RESULT_OK;
+
+    switch (context->selectorIndex) {
+        case ZAP_IN:
+            handle_query_contract_ui_zap_in(msg, context);
+            break;
+        case IB_MINT:
+        case IB_REDEEM:
+        case IB_REDEEM_UNDERLYING:
+        case IB_BORROW:
+        case IB_REPAY_BORROW:
+            handle_query_contract_ui_ironbank(msg, context);
+            break;
+        default:
+            handle_query_contract_ui_vaults(msg, context);
             return;
     }
 }

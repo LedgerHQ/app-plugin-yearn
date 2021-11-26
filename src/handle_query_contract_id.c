@@ -1,39 +1,48 @@
-#include "boilerplate_plugin.h"
+#include "yearn_plugin.h"
 
 // Sets the first screen to display.
 void handle_query_contract_id(void *parameters) {
     ethQueryContractID_t *msg = (ethQueryContractID_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
-    // msg->name will be the upper sentence displayed on the screen.
-    // msg->version will be the lower sentence displayed on the screen.
 
-    // For the first screen, display the plugin name.
-    strlcpy(msg->name, PLUGIN_NAME, msg->nameLength);
-
-    // EDIT THIS: Adapt the cases by modifying the strings you pass to `strlcpy`.
     switch (context->selectorIndex) {
-        case DEPOSIT_ALL:
-            strlcpy(msg->version, "Deposit", msg->versionLength);
-            break;
         case DEPOSIT:
-            strlcpy(msg->version, "Deposit", msg->versionLength);
-            break;
         case DEPOSIT_TO:
+        case DEPOSIT_ALL:
+            strlcpy(msg->name, PLUGIN_NAME, msg->nameLength);
             strlcpy(msg->version, "Deposit", msg->versionLength);
-            break;
-        case WITHDRAW_ALL:
-            strlcpy(msg->version, "Withdraw", msg->versionLength);
             break;
         case WITHDRAW:
-            strlcpy(msg->version, "Withdraw", msg->versionLength);
-            break;
         case WITHDRAW_TO:
-            strlcpy(msg->version, "Withdraw", msg->versionLength);
-            break;
+        case WITHDRAW_ALL:
         case WITHDRAW_TO_SLIPPAGE:
+            strlcpy(msg->name, PLUGIN_NAME, msg->nameLength);
             strlcpy(msg->version, "Withdraw", msg->versionLength);
             break;
-        // Keep this
+        case ZAP_IN:
+            strlcpy(msg->name, PLUGIN_NAME, msg->nameLength);
+            strlcpy(msg->version, "Zap In", msg->versionLength);
+            break;
+        case IB_MINT:
+            strlcpy(msg->name, "IronBank", msg->nameLength);
+            strlcpy(msg->version, "Supply", msg->versionLength);
+            break;
+        case IB_REDEEM:
+            strlcpy(msg->name, "IronBank", msg->nameLength);
+            strlcpy(msg->version, "Redeem", msg->versionLength);
+            break;
+        case IB_REDEEM_UNDERLYING:
+            strlcpy(msg->name, "IronBank", msg->nameLength);
+            strlcpy(msg->version, "Redeem", msg->versionLength);
+            break;
+        case IB_BORROW:
+            strlcpy(msg->name, "IronBank", msg->nameLength);
+            strlcpy(msg->version, "Borrow", msg->versionLength);
+            break;
+        case IB_REPAY_BORROW:
+            strlcpy(msg->name, "IronBank", msg->nameLength);
+            strlcpy(msg->version, "Repay", msg->versionLength);
+            break;
         default:
             PRINTF("Selector index: %d not supported\n", context->selectorIndex);
             msg->result = ETH_PLUGIN_RESULT_ERROR;
