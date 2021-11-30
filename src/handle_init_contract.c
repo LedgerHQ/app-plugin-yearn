@@ -32,6 +32,7 @@ void handle_init_contract(void *parameters) {
     switch (context->selectorIndex) {
         case DEPOSIT_ALL:
         case WITHDRAW_ALL:
+        case CLAIM:
             break;
         case DEPOSIT:
         case DEPOSIT_TO:

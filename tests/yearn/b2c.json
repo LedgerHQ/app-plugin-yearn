@@ -12,7 +12,27 @@
         }
     },
     
-
+    {
+        "address": "0xc5bddf9843308380375a611c18b50fb9341f502a",
+        "contractName": "yveCRV",
+        "selectors": {
+            "0xde5f6268": {
+                "erc20OfInterest": [],
+                "method": "deposit_all",
+                "plugin": "Yearn"
+            },
+            "0xb6b55f25": {
+                "erc20OfInterest": [],
+                "method": "deposit",
+                "plugin": "Yearn"
+            },
+            "0x4e71d92d": {
+                "erc20OfInterest": [],
+                "method": "claim",
+                "plugin": "Yearn"
+            }
+        }
+    },
     
     {
         "address": "0xbfa4d8aa6d8a379abfe7793399d3ddacc5bbecbb",

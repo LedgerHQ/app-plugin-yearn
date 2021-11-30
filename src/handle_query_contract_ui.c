@@ -213,6 +213,7 @@ void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
             switch (context->selectorIndex) {
                 case WITHDRAW_ALL:
                 case DEPOSIT_ALL:
+                case CLAIM:
                     set_amount_with_all(msg);
                     break;
                 case DEPOSIT_TO:

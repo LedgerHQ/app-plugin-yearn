@@ -37,6 +37,7 @@ static const uint8_t IB_REDEEM_SELECTOR[SELECTOR_SIZE] = {0xdb, 0x00, 0x6a, 0x75
 static const uint8_t IB_REDEEM_UNDERLYING_SELECTOR[SELECTOR_SIZE] = {0x85, 0x2a, 0x12, 0xe3};
 static const uint8_t IB_BORROW_SELECTOR[SELECTOR_SIZE] = {0xc5, 0xeb, 0xea, 0xec};
 static const uint8_t IB_REPAY_BORROW_SELECTOR[SELECTOR_SIZE] = {0x0e, 0x75, 0x27, 0x02};
+static const uint8_t CLAIM_SELECTOR[SELECTOR_SIZE] = {0x4e, 0x71, 0xd9, 0x2d};
 
 // Array of all the different boilerplate selectors. Make sure this follows the same order as the
 // enum defined in `yearn_plugin.h`
@@ -52,7 +53,8 @@ const uint8_t *const YEARN_SELECTORS[NUM_SELECTORS] = {DEPOSIT_ALL_SELECTOR,
                                                        IB_REDEEM_SELECTOR,
                                                        IB_REDEEM_UNDERLYING_SELECTOR,
                                                        IB_BORROW_SELECTOR,
-                                                       IB_REPAY_BORROW_SELECTOR};
+                                                       IB_REPAY_BORROW_SELECTOR,
+                                                       CLAIM_SELECTOR};
 
 const yearnVaultDefinition_t YEARN_VAULTS[NUM_YEARN_VAULTS] = {
     {{0xbf, 0xa4, 0xd8, 0xaa, 0x6d, 0x8a, 0x37, 0x9a, 0xbf, 0xe7,
@@ -434,6 +436,11 @@ const yearnVaultDefinition_t YEARN_VAULTS[NUM_YEARN_VAULTS] = {
       0xaa, 0xb2, 0x9b, 0x1e, 0x3e, 0xea, 0x27, 0x97, 0x63, 0xbb},
      "MIMUST",
      "yvCurve-MIMUST",
+     18},
+    {{0xc5, 0xbd, 0xdf, 0x98, 0x43, 0x30, 0x83, 0x80, 0x37, 0x5a,
+      0x61, 0x1c, 0x18, 0xb5, 0x0f, 0xb9, 0x34, 0x1f, 0x50, 0x2a},
+     "CRV",
+     "yveCRV",
      18},
 };
 
