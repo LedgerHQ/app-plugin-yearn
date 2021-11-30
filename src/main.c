@@ -32,12 +32,15 @@ static const uint8_t WITHDRAW_SELECTOR[SELECTOR_SIZE] = {0x2e, 0x1a, 0x7d, 0x4d}
 static const uint8_t WITHDRAW_TO_SELECTOR[SELECTOR_SIZE] = {0x00, 0xf7, 0x14, 0xce};
 static const uint8_t WITHDRAW_TO_SLIPPAGE_SELECTOR[SELECTOR_SIZE] = {0xe6, 0x36, 0x97, 0xc8};
 static const uint8_t ZAP_IN_SELECTOR[SELECTOR_SIZE] = {0x38, 0xb3, 0x2e, 0x68};
+static const uint8_t ZAP_IN_PICKLE_SELECTOR[SELECTOR_SIZE] = {0x28, 0x93, 0x20, 0x94};
 static const uint8_t IB_MINT_SELECTOR[SELECTOR_SIZE] = {0xa0, 0x71, 0x2d, 0x68};
 static const uint8_t IB_REDEEM_SELECTOR[SELECTOR_SIZE] = {0xdb, 0x00, 0x6a, 0x75};
 static const uint8_t IB_REDEEM_UNDERLYING_SELECTOR[SELECTOR_SIZE] = {0x85, 0x2a, 0x12, 0xe3};
 static const uint8_t IB_BORROW_SELECTOR[SELECTOR_SIZE] = {0xc5, 0xeb, 0xea, 0xec};
 static const uint8_t IB_REPAY_BORROW_SELECTOR[SELECTOR_SIZE] = {0x0e, 0x75, 0x27, 0x02};
 static const uint8_t CLAIM_SELECTOR[SELECTOR_SIZE] = {0x4e, 0x71, 0xd9, 0x2d};
+static const uint8_t EXIT_SELECTOR[SELECTOR_SIZE] = {0xe9, 0xfa, 0xd8, 0xee};
+static const uint8_t GET_REWARDS_SELECTOR[SELECTOR_SIZE] = {0x3d, 0x18, 0xb9, 0x12};
 
 // Array of all the different boilerplate selectors. Make sure this follows the same order as the
 // enum defined in `yearn_plugin.h`
@@ -49,12 +52,15 @@ const uint8_t *const YEARN_SELECTORS[NUM_SELECTORS] = {DEPOSIT_ALL_SELECTOR,
                                                        WITHDRAW_TO_SELECTOR,
                                                        WITHDRAW_TO_SLIPPAGE_SELECTOR,
                                                        ZAP_IN_SELECTOR,
+                                                       ZAP_IN_PICKLE_SELECTOR,
                                                        IB_MINT_SELECTOR,
                                                        IB_REDEEM_SELECTOR,
                                                        IB_REDEEM_UNDERLYING_SELECTOR,
                                                        IB_BORROW_SELECTOR,
                                                        IB_REPAY_BORROW_SELECTOR,
-                                                       CLAIM_SELECTOR};
+                                                       CLAIM_SELECTOR,
+                                                       EXIT_SELECTOR,
+                                                       GET_REWARDS_SELECTOR};
 
 const yearnVaultDefinition_t YEARN_VAULTS[NUM_YEARN_VAULTS] = {
     {{0xbf, 0xa4, 0xd8, 0xaa, 0x6d, 0x8a, 0x37, 0x9a, 0xbf, 0xe7,
@@ -441,6 +447,11 @@ const yearnVaultDefinition_t YEARN_VAULTS[NUM_YEARN_VAULTS] = {
       0x61, 0x1c, 0x18, 0xb5, 0x0f, 0xb9, 0x34, 0x1f, 0x50, 0x2a},
      "CRV",
      "yveCRV",
+     18},
+    {{0xda, 0x48, 0x1b, 0x27, 0x7d, 0xce, 0x30, 0x5b, 0x97, 0xf4,
+      0x09, 0x1b, 0xd6, 0x65, 0x95, 0xd5, 0x7c, 0xf3, 0x16, 0x34},
+     "Pickle SLP",
+     "pSLPyvBOOST-ETH",
      18},
 };
 
