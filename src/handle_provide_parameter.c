@@ -142,6 +142,16 @@ static void handle_iron_bank(ethPluginProvideParameter_t *msg, context_t *contex
     }
 }
 
+static void handle_claim(ethPluginProvideParameter_t *msg, context_t *context) {
+    switch (context->next_param) {
+        default:
+            PRINTF("Param not supported: %d\n", context->next_param);
+            msg->result = ETH_PLUGIN_RESULT_ERROR;
+            break;
+    }
+}
+
+
 void handle_provide_parameter(void *parameters) {
     ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
@@ -177,6 +187,9 @@ void handle_provide_parameter(void *parameters) {
             break;
         case ZAP_IN:
             handle_zap_in(msg, context);
+            break;
+        case CLAIM:
+            handle_claim(msg, context);
             break;
         case IB_MINT:
         case IB_REDEEM:

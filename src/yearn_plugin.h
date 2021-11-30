@@ -5,7 +5,7 @@
 #include <string.h>
 
 #define PLUGIN_NAME          "Yearn"
-#define NUM_SELECTORS        13
+#define NUM_SELECTORS        14
 #define MAX_VAULT_TICKER_LEN 18  // 17 characters + '\0'
 
 // Enumeration of the different selectors possible.
@@ -23,7 +23,8 @@ typedef enum {
     IB_REDEEM,
     IB_REDEEM_UNDERLYING,
     IB_BORROW,
-    IB_REPAY_BORROW
+    IB_REPAY_BORROW,
+    CLAIM,
 } selector_t;
 
 // Enumeration used to parse the smart contract data.
@@ -48,7 +49,7 @@ typedef struct yearnVaultDefinition_t {
     uint8_t decimals;
 } yearnVaultDefinition_t;
 
-#define NUM_YEARN_VAULTS 76
+#define NUM_YEARN_VAULTS 77
 extern yearnVaultDefinition_t const YEARN_VAULTS[NUM_YEARN_VAULTS];
 #define NUM_IRON_BANK 32
 extern yearnVaultDefinition_t const IRON_BANK[NUM_IRON_BANK];
