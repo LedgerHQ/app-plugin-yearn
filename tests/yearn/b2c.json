@@ -10,6 +10,56 @@
                 "plugin": "Yearn"
             }
         }
+    }, {
+        "address": "0xc695f73c1862e050059367b2e64489e66c525983",
+        "contractName": "Zap In Pickle",
+        "selectors": {
+            "0x28932094": {
+                "erc20OfInterest": ["fromToken"],
+                "method": "ZapIn",
+                "plugin": "Yearn"
+            }
+        }
+    }, {
+        "address": "0xda481b277dce305b97f4091bd66595d57cf31634",
+        "contractName": "Pickle Gauge",
+        "selectors": {
+            "0xd0e30db0": {
+                "erc20OfInterest": [],
+                "method": "deposit_all",
+                "plugin": "Yearn"
+            },
+            "0xb6b55f25": {
+                "erc20OfInterest": [],
+                "method": "deposit",
+                "plugin": "Yearn"
+            },
+            "0x6e553f65": {
+                "erc20OfInterest": [],
+                "method": "deposit_to",
+                "plugin": "Yearn"
+            },
+            "0x3ccfd60b": {
+                "erc20OfInterest": [],
+                "method": "withdraw_all",
+                "plugin": "Yearn"
+            },
+            "0x2e1a7d4d": {
+                "erc20OfInterest": [],
+                "method": "withdraw",
+                "plugin": "Yearn"
+            },
+            "0xe9fad8ee": {
+                "erc20OfInterest": [],
+                "method": "exit",
+                "plugin": "Yearn"
+            },
+            "0x3d18b912": {
+                "erc20OfInterest": [],
+                "method": "getReward",
+                "plugin": "Yearn"
+            }
+        }
     },
     
     {

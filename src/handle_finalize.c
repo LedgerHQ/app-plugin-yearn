@@ -18,6 +18,9 @@ void handle_finalize(void *parameters) {
         case ZAP_IN:
             msg->tokenLookup1 = context->extra_address;
             break;
+        case ZAP_IN_PICKLE:
+            msg->tokenLookup1 = context->extra_address;
+            break;
         default:
             break;
     }
