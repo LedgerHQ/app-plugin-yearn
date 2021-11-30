@@ -183,7 +183,7 @@ void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *conte
             if (context->selectorIndex == ZAP_IN_PICKLE) {
                 strlcpy(msg->title, "Vault", msg->titleLength);
                 strlcpy(msg->msg, "pSLPyvBOOST-ETH", msg->msgLength);
-                break;                
+                break;
             }
             set_vault_name(msg, context);
             break;
