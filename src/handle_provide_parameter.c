@@ -132,7 +132,6 @@ static void handle_none(ethPluginProvideParameter_t *msg, context_t *context) {
     }
 }
 
-
 void handle_provide_parameter(void *parameters) {
     ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
