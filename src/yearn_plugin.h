@@ -52,7 +52,7 @@ typedef struct yearnVaultDefinition_t {
     uint8_t decimals;
 } yearnVaultDefinition_t;
 
-#define NUM_YEARN_VAULTS 78
+#define NUM_YEARN_VAULTS 85
 extern yearnVaultDefinition_t const YEARN_VAULTS[NUM_YEARN_VAULTS];
 #define NUM_IRON_BANK 32
 extern yearnVaultDefinition_t const IRON_BANK[NUM_IRON_BANK];
