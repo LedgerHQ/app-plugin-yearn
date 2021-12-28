@@ -11,16 +11,6 @@ static void copy_address(uint8_t *dst, size_t dst_len, uint8_t *src) {
     memcpy(dst, &src[offset], len);
 }
 
-static void handle_deposit_all(ethPluginProvideParameter_t *msg, context_t *context) {
-    switch (context->next_param) {
-        // no params
-        default:
-            PRINTF("Param not supported: %d\n", context->next_param);
-            msg->result = ETH_PLUGIN_RESULT_ERROR;
-            break;
-    }
-}
-
 static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT:
@@ -42,15 +32,6 @@ static void handle_deposit_to(ethPluginProvideParameter_t *msg, context_t *conte
         case RECIPIENT:
             copy_address(context->extra_address, sizeof(context->extra_address), msg->parameter);
             break;
-        default:
-            PRINTF("Param not supported: %d\n", context->next_param);
-            msg->result = ETH_PLUGIN_RESULT_ERROR;
-            break;
-    }
-}
-
-static void handle_withdraw_all(ethPluginProvideParameter_t *msg, context_t *context) {
-    switch (context->next_param) {
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
             msg->result = ETH_PLUGIN_RESULT_ERROR;
@@ -142,6 +123,15 @@ static void handle_iron_bank(ethPluginProvideParameter_t *msg, context_t *contex
     }
 }
 
+static void handle_none(ethPluginProvideParameter_t *msg, context_t *context) {
+    switch (context->next_param) {
+        default:
+            PRINTF("Param not supported: %d\n", context->next_param);
+            msg->result = ETH_PLUGIN_RESULT_ERROR;
+            break;
+    }
+}
+
 void handle_provide_parameter(void *parameters) {
     ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
@@ -154,17 +144,18 @@ void handle_provide_parameter(void *parameters) {
     msg->result = ETH_PLUGIN_RESULT_OK;
 
     switch (context->selectorIndex) {
+        case WITHDRAW_ALL:
         case DEPOSIT_ALL:
-            handle_deposit_all(msg, context);
+        case CLAIM:
+        case EXIT:
+        case GET_REWARDS:
+            handle_none(msg, context);
             break;
         case DEPOSIT:
             handle_deposit(msg, context);
             break;
         case DEPOSIT_TO:
             handle_deposit_to(msg, context);
-            break;
-        case WITHDRAW_ALL:
-            handle_withdraw_all(msg, context);
             break;
         case WITHDRAW:
             handle_withdraw(msg, context);
@@ -176,6 +167,7 @@ void handle_provide_parameter(void *parameters) {
             handle_withdraw_to_slippage(msg, context);
             break;
         case ZAP_IN:
+        case ZAP_IN_PICKLE:
             handle_zap_in(msg, context);
             break;
         case IB_MINT:

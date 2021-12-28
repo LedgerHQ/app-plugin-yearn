@@ -32,6 +32,9 @@ void handle_init_contract(void *parameters) {
     switch (context->selectorIndex) {
         case DEPOSIT_ALL:
         case WITHDRAW_ALL:
+        case CLAIM:
+        case EXIT:
+        case GET_REWARDS:
             break;
         case DEPOSIT:
         case DEPOSIT_TO:
@@ -46,6 +49,7 @@ void handle_init_contract(void *parameters) {
             context->next_param = AMOUNT;
             break;
         case ZAP_IN:
+        case ZAP_IN_PICKLE:
             context->next_param = ZAP_TOKEN;
             break;
         default:

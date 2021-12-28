@@ -180,6 +180,11 @@ void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *conte
             set_amount_with_want(msg, context);
             break;
         case 1:
+            if (context->selectorIndex == ZAP_IN_PICKLE) {
+                strlcpy(msg->title, "Vault", msg->titleLength);
+                strlcpy(msg->msg, "pSLPyvBOOST-ETH", msg->msgLength);
+                break;
+            }
             set_vault_name(msg, context);
             break;
         default:
@@ -213,6 +218,9 @@ void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
             switch (context->selectorIndex) {
                 case WITHDRAW_ALL:
                 case DEPOSIT_ALL:
+                case CLAIM:
+                case GET_REWARDS:
+                case EXIT:
                     set_amount_with_all(msg);
                     break;
                 case DEPOSIT_TO:
@@ -298,6 +306,7 @@ void handle_query_contract_ui(void *parameters) {
 
     switch (context->selectorIndex) {
         case ZAP_IN:
+        case ZAP_IN_PICKLE:
             handle_query_contract_ui_zap_in(msg, context);
             break;
         case IB_MINT:
