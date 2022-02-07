@@ -1,10 +1,5 @@
 #include "yearn_plugin.h"
 
-static void copy_parameter(uint8_t *dst, size_t dst_len, uint8_t *src) {
-    size_t len = MIN(dst_len, PARAMETER_LENGTH);
-    memcpy(dst, src, len);
-}
-
 void copy_amount_with_ticker(const uint8_t *amount,
                              uint8_t amount_size,
                              uint8_t amount_decimals,
@@ -198,8 +193,8 @@ void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
     // Copy the vault address prior to any process
     ethPluginSharedRO_t *pluginSharedRO = (ethPluginSharedRO_t *) msg->pluginSharedRO;
     copy_parameter(context->vault_address,
-                   sizeof(context->vault_address),
-                   pluginSharedRO->txContent->destination);
+                   pluginSharedRO->txContent->destination,
+                   sizeof(context->vault_address));
 
     // find information about vault
     uint8_t i;
@@ -256,8 +251,8 @@ void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
 void handle_query_contract_ui_ironbank(ethQueryContractUI_t *msg, context_t *context) {
     ethPluginSharedRO_t *pluginSharedRO = (ethPluginSharedRO_t *) msg->pluginSharedRO;
     copy_parameter(context->vault_address,
-                   sizeof(context->vault_address),
-                   pluginSharedRO->txContent->destination);
+                   pluginSharedRO->txContent->destination,
+                   sizeof(context->vault_address));
 
     uint8_t i;
     yearnVaultDefinition_t *currentVault = NULL;

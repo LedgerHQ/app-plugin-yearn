@@ -1,20 +1,9 @@
 #include "yearn_plugin.h"
 
-static void copy_parameter(uint8_t *dst, size_t dst_len, uint8_t *src) {
-    size_t len = MIN(dst_len, PARAMETER_LENGTH);
-    memcpy(dst, src, len);
-}
-
-static void copy_address(uint8_t *dst, size_t dst_len, uint8_t *src) {
-    size_t offset = PARAMETER_LENGTH - ADDRESS_LENGTH;
-    size_t len = MIN(dst_len, ADDRESS_LENGTH);
-    memcpy(dst, &src[offset], len);
-}
-
 static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT:
-            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
+            copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -26,11 +15,11 @@ static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context)
 static void handle_deposit_to(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT:
-            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
+            copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
             context->next_param = RECIPIENT;
             break;
         case RECIPIENT:
-            copy_address(context->extra_address, sizeof(context->extra_address), msg->parameter);
+            copy_address(context->extra_address, msg->parameter, sizeof(context->extra_address));
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -42,7 +31,7 @@ static void handle_deposit_to(ethPluginProvideParameter_t *msg, context_t *conte
 static void handle_withdraw(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT:
-            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
+            copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -54,11 +43,11 @@ static void handle_withdraw(ethPluginProvideParameter_t *msg, context_t *context
 static void handle_withdraw_to(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT:
-            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
+            copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
             context->next_param = RECIPIENT;
             break;
         case RECIPIENT:
-            copy_address(context->extra_address, sizeof(context->extra_address), msg->parameter);
+            copy_address(context->extra_address, msg->parameter, sizeof(context->extra_address));
             context->next_param = UNEXPECTED_PARAMETER;
             break;
         default:
@@ -71,15 +60,15 @@ static void handle_withdraw_to(ethPluginProvideParameter_t *msg, context_t *cont
 static void handle_withdraw_to_slippage(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT:
-            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
+            copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
             context->next_param = RECIPIENT;
             break;
         case RECIPIENT:
-            copy_address(context->extra_address, sizeof(context->extra_address), msg->parameter);
+            copy_address(context->extra_address, msg->parameter, sizeof(context->extra_address));
             context->next_param = SLIPPAGE;
             break;
         case SLIPPAGE:
-            copy_parameter(context->slippage, sizeof(context->slippage), msg->parameter);
+            copy_parameter(context->slippage, msg->parameter, sizeof(context->slippage));
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -91,15 +80,15 @@ static void handle_withdraw_to_slippage(ethPluginProvideParameter_t *msg, contex
 static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case ZAP_TOKEN:
-            copy_address(context->extra_address, sizeof(context->extra_address), msg->parameter);
+            copy_address(context->extra_address, msg->parameter, sizeof(context->extra_address));
             context->next_param = ZAP_AMOUNT;
             break;
         case ZAP_AMOUNT:
-            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
+            copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
             context->next_param = ZAP_TO_VAULT;
             break;
         case ZAP_TO_VAULT:
-            copy_address(context->vault_address, sizeof(context->vault_address), msg->parameter);
+            copy_address(context->vault_address, msg->parameter, sizeof(context->vault_address));
             context->next_param = ZAP_REST;
             break;
         case ZAP_REST:
@@ -114,7 +103,7 @@ static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) 
 static void handle_iron_bank(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT:
-            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
+            copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
