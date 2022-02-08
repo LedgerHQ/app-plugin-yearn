@@ -29,7 +29,6 @@ void handle_query_contract_id(void *parameters) {
             strlcpy(msg->version, "Exit", msg->versionLength);
             break;
         case ZAP_IN:
-        case ZAP_IN_PICKLE:
             strlcpy(msg->name, PLUGIN_NAME, msg->nameLength);
             strlcpy(msg->version, "Zap In", msg->versionLength);
             break;

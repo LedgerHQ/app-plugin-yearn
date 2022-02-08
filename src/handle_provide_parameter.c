@@ -144,7 +144,6 @@ void handle_provide_parameter(void *parameters) {
             handle_withdraw_to_slippage(msg, context);
             break;
         case ZAP_IN:
-        case ZAP_IN_PICKLE:
             handle_zap_in(msg, context);
             break;
         default:

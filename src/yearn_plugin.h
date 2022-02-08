@@ -5,7 +5,7 @@
 #include <string.h>
 
 #define PLUGIN_NAME          "Yearn"
-#define NUM_SELECTORS        17
+#define NUM_SELECTORS        11
 #define MAX_VAULT_TICKER_LEN 18  // 17 characters + '\0'
 
 // Enumeration of the different selectors possible.
@@ -19,11 +19,6 @@ typedef enum {
     WITHDRAW_TO,
     WITHDRAW_TO_SLIPPAGE,
     ZAP_IN,
-    ZAP_IN_PICKLE,
-    IB_REDEEM,
-    IB_REDEEM_UNDERLYING,
-    IB_BORROW,
-    IB_REPAY_BORROW,
     CLAIM,
     EXIT,
     GET_REWARDS,

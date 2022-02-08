@@ -42,7 +42,6 @@ void handle_init_contract(void *parameters) {
         case WITHDRAW_TO:
         case WITHDRAW_TO_SLIPPAGE:
         case ZAP_IN:
-        case ZAP_IN_PICKLE:
             context->next_param = ZAP_TOKEN;
             break;
         default:
