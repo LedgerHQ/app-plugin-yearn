@@ -33,26 +33,6 @@ void handle_query_contract_id(void *parameters) {
             strlcpy(msg->name, PLUGIN_NAME, msg->nameLength);
             strlcpy(msg->version, "Zap In", msg->versionLength);
             break;
-        case IB_MINT:
-            strlcpy(msg->name, "IronBank", msg->nameLength);
-            strlcpy(msg->version, "Supply", msg->versionLength);
-            break;
-        case IB_REDEEM:
-            strlcpy(msg->name, "IronBank", msg->nameLength);
-            strlcpy(msg->version, "Redeem", msg->versionLength);
-            break;
-        case IB_REDEEM_UNDERLYING:
-            strlcpy(msg->name, "IronBank", msg->nameLength);
-            strlcpy(msg->version, "Redeem", msg->versionLength);
-            break;
-        case IB_BORROW:
-            strlcpy(msg->name, "IronBank", msg->nameLength);
-            strlcpy(msg->version, "Borrow", msg->versionLength);
-            break;
-        case IB_REPAY_BORROW:
-            strlcpy(msg->name, "IronBank", msg->nameLength);
-            strlcpy(msg->version, "Repay", msg->versionLength);
-            break;
         default:
             PRINTF("Selector index: %d not supported\n", context->selectorIndex);
             msg->result = ETH_PLUGIN_RESULT_ERROR;

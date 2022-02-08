@@ -111,18 +111,6 @@ static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) 
     }
 }
 
-static void handle_iron_bank(ethPluginProvideParameter_t *msg, context_t *context) {
-    switch (context->next_param) {
-        case AMOUNT:
-            copy_parameter(context->amount, sizeof(context->amount), msg->parameter);
-            break;
-        default:
-            PRINTF("Param not supported: %d\n", context->next_param);
-            msg->result = ETH_PLUGIN_RESULT_ERROR;
-            break;
-    }
-}
-
 static void handle_none(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         default:
@@ -169,13 +157,6 @@ void handle_provide_parameter(void *parameters) {
         case ZAP_IN:
         case ZAP_IN_PICKLE:
             handle_zap_in(msg, context);
-            break;
-        case IB_MINT:
-        case IB_REDEEM:
-        case IB_REDEEM_UNDERLYING:
-        case IB_BORROW:
-        case IB_REPAY_BORROW:
-            handle_iron_bank(msg, context);
             break;
         default:
             PRINTF("Selector Index not supported: %d\n", context->selectorIndex);

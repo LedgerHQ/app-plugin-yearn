@@ -116,22 +116,6 @@ static void set_amount_with_vault(ethQueryContractUI_t *msg, context_t *context)
 }
 
 /******************************************************************************
-**  Will display the amount of token to be withdrawn from the vault.
-**  |    Amount   |
-**  |  200 yvDAI  |
-******************************************************************************/
-static void set_amount_with_bank(ethQueryContractUI_t *msg, context_t *context) {
-    strlcpy(msg->title, "Amount", msg->titleLength);
-    copy_amount_with_ticker(context->amount,
-                            sizeof(context->amount),
-                            8,
-                            context->vault,
-                            sizeof(context->vault),
-                            msg->msg,
-                            msg->msgLength);
-}
-
-/******************************************************************************
 **  Will display ALL to indicate that the full balance should be deposited or
 **  withdrawn.
 **  |  Amount |
@@ -150,17 +134,6 @@ static void set_amount_with_all(ethQueryContractUI_t *msg) {
 ******************************************************************************/
 static void set_vault_name(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->title, "Vault", msg->titleLength);
-    strlcpy(msg->msg, context->vault, msg->msgLength);
-}
-
-/******************************************************************************
-**  Will display the Bank name. The banks are defined in main.c in the
-**  IRON_BANK variable.
-**  |  BANK  |
-**  | cyWETH |
-******************************************************************************/
-static void set_bank_name(ethQueryContractUI_t *msg, context_t *context) {
-    strlcpy(msg->title, "Market", msg->titleLength);
     strlcpy(msg->msg, context->vault, msg->msgLength);
 }
 
@@ -253,49 +226,6 @@ void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
     }
 }
 
-void handle_query_contract_ui_ironbank(ethQueryContractUI_t *msg, context_t *context) {
-    ethPluginSharedRO_t *pluginSharedRO = (ethPluginSharedRO_t *) msg->pluginSharedRO;
-    copy_parameter(context->vault_address,
-                   sizeof(context->vault_address),
-                   pluginSharedRO->txContent->destination);
-
-    uint8_t i;
-    yearnVaultDefinition_t *currentVault = NULL;
-    for (i = 0; i < NUM_IRON_BANK; i++) {
-        currentVault = (yearnVaultDefinition_t *) PIC(&IRON_BANK[i]);
-        if (memcmp(currentVault->address, context->vault_address, ADDRESS_LENGTH) == 0) {
-            context->decimals = currentVault->decimals;
-            memcpy(context->want, currentVault->want, MAX_VAULT_TICKER_LEN);
-            memcpy(context->vault, currentVault->vault, MAX_VAULT_TICKER_LEN);
-            break;
-        }
-    }
-    switch (msg->screenIndex) {
-        case 0:
-            switch (context->selectorIndex) {
-                case IB_MINT:
-                case IB_REDEEM_UNDERLYING:
-                    set_amount_with_want(msg, context);
-                    break;
-                case IB_REDEEM:
-                case IB_BORROW:
-                case IB_REPAY_BORROW:
-                    set_amount_with_bank(msg, context);
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case 1:
-            set_bank_name(msg, context);
-            break;
-        default:
-            PRINTF("Received an invalid screenIndex\n");
-            msg->result = ETH_PLUGIN_RESULT_ERROR;
-            return;
-    }
-}
-
 void handle_query_contract_ui(void *parameters) {
     ethQueryContractUI_t *msg = (ethQueryContractUI_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
@@ -308,13 +238,6 @@ void handle_query_contract_ui(void *parameters) {
         case ZAP_IN:
         case ZAP_IN_PICKLE:
             handle_query_contract_ui_zap_in(msg, context);
-            break;
-        case IB_MINT:
-        case IB_REDEEM:
-        case IB_REDEEM_UNDERLYING:
-        case IB_BORROW:
-        case IB_REPAY_BORROW:
-            handle_query_contract_ui_ironbank(msg, context);
             break;
         default:
             handle_query_contract_ui_vaults(msg, context);
