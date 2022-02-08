@@ -20,7 +20,6 @@ typedef enum {
     WITHDRAW_TO_SLIPPAGE,
     ZAP_IN,
     ZAP_IN_PICKLE,
-    IB_MINT,
     IB_REDEEM,
     IB_REDEEM_UNDERLYING,
     IB_BORROW,
@@ -54,8 +53,6 @@ typedef struct yearnVaultDefinition_t {
 
 #define NUM_YEARN_VAULTS 85
 extern yearnVaultDefinition_t const YEARN_VAULTS[NUM_YEARN_VAULTS];
-#define NUM_IRON_BANK 32
-extern yearnVaultDefinition_t const IRON_BANK[NUM_IRON_BANK];
 
 // Shared global memory with Ethereum app. Must be at most 5 * 32 bytes.
 typedef struct context_t {

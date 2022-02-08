@@ -41,13 +41,6 @@ void handle_init_contract(void *parameters) {
         case WITHDRAW:
         case WITHDRAW_TO:
         case WITHDRAW_TO_SLIPPAGE:
-        case IB_MINT:
-        case IB_REDEEM:
-        case IB_REDEEM_UNDERLYING:
-        case IB_BORROW:
-        case IB_REPAY_BORROW:
-            context->next_param = AMOUNT;
-            break;
         case ZAP_IN:
         case ZAP_IN_PICKLE:
             context->next_param = ZAP_TOKEN;
