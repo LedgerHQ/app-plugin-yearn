@@ -13,6 +13,7 @@ const sim_options_generic = {
     logging: true,
     X11: true,
     startDelay: 5000,
+    startText: 'is ready',
     custom: '',
 };
 
@@ -24,6 +25,7 @@ const NANOX_ETH_PATH = Resolve('elfs/ethereum_nanox.elf');
 const NANOS_PLUGIN_PATH = Resolve('elfs/plugin_nanos.elf');
 const NANOX_PLUGIN_PATH = Resolve('elfs/plugin_nanox.elf');
 
+// Edit this: replace `Boilerplate` by your plugin name
 const NANOS_PLUGIN = { "Yearn": NANOS_PLUGIN_PATH };
 const NANOX_PLUGIN = { "Yearn": NANOX_PLUGIN_PATH };
 
@@ -97,7 +99,7 @@ function zemu(device, func) {
             await sim.start(sim_options);
             const transport = await sim.getTransport();
             const eth = new Eth(transport);
-            eth.setPluginsLoadConfig({
+            eth.setLoadConfig({
                 baseURL: null,
                 extraPlugins: boilerplateJSON,
             });

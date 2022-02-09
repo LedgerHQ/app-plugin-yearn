@@ -24,13 +24,13 @@ include $(BOLOS_SDK)/Makefile.defines
 # EDIT THIS: Put your plugin name
 APPNAME = "Yearn"
 
-APP_LOAD_PARAMS += --appFlags 0x800 --path "44'/60'" --path "45'" --curve secp256k1
+APP_LOAD_PARAMS += --appFlags 0x800 --path "44'/60'" --curve secp256k1
 
 APP_LOAD_PARAMS += $(COMMON_LOAD_PARAMS)
 
 APPVERSION_M     = 1
 APPVERSION_N     = 0
-APPVERSION_P     = 3
+APPVERSION_P     = 4
 APPVERSION       = "$(APPVERSION_M).$(APPVERSION_N).$(APPVERSION_P)"
 
 ifeq ($(TARGET_NAME), TARGET_NANOX)

@@ -7,7 +7,6 @@ void handle_query_contract_id(void *parameters) {
 
     switch (context->selectorIndex) {
         case DEPOSIT:
-        case DEPOSIT_TO:
         case DEPOSIT_ALL:
             strlcpy(msg->name, PLUGIN_NAME, msg->nameLength);
             strlcpy(msg->version, "Deposit", msg->versionLength);

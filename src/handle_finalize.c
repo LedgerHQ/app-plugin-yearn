@@ -6,7 +6,6 @@ void handle_finalize(void *parameters) {
     msg->numScreens = 2;  // At least 2, amount + vault
 
     switch (context->selectorIndex) {
-        case DEPOSIT_TO:
         case WITHDRAW_TO:
             if (memcmp(msg->address, context->extra_address, ADDRESS_LENGTH) != 0) {
                 msg->numScreens += 1;

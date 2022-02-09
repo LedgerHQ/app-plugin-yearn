@@ -62,23 +62,6 @@ static void set_recipient_ui(ethQueryContractUI_t *msg, context_t *context) {
 }
 
 /******************************************************************************
-**  Will display the address of the vault
-**  |                     Vault                    |
-**  |  0x28bC240B2433B65d3C64EBF168862E60fAb019E4  |
-******************************************************************************/
-static void set_vault_ui(ethQueryContractUI_t *msg, context_t *context) {
-    strlcpy(msg->title, "Vault", msg->titleLength);
-
-    msg->msg[0] = '0';
-    msg->msg[1] = 'x';
-    uint64_t chainid = 0;
-    getEthAddressStringFromBinary(context->vault_address,
-                                  msg->msg + 2,
-                                  msg->pluginSharedRW->sha3,
-                                  chainid);
-}
-
-/******************************************************************************
 **  Will display the amount of token to be deposit in the vault.
 **  |   Amount  |
 **  |  200 DAI  |
@@ -157,6 +140,43 @@ void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *conte
     }
 }
 
+void handle_query_contract_ui_track_in(ethQueryContractUI_t *msg, context_t *context) {
+    uint8_t i;
+    yearnVaultDefinition_t *currentVault = NULL;
+    for (i = 0; i < NUM_YEARN_VAULTS; i++) {
+        currentVault = (yearnVaultDefinition_t *) PIC(&YEARN_VAULTS[i]);
+        if (memcmp(currentVault->address, context->vault_address, ADDRESS_LENGTH) == 0) {
+            context->decimals = currentVault->decimals;
+            memcpy(context->want, currentVault->want, MAX_VAULT_TICKER_LEN);
+            memcpy(context->vault, currentVault->vault, MAX_VAULT_TICKER_LEN);
+            break;
+        }
+    }
+
+    switch (msg->screenIndex) {
+        case 0:
+            switch (context->selectorIndex) {
+                case DEPOSIT_ALL:
+                    set_amount_with_all(msg);
+                    break;
+                case DEPOSIT:
+                    set_amount_with_want(msg, context);
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 1:
+            set_vault_name(msg, context);
+            break;
+        default:
+            PRINTF("Received an invalid screenIndex\n");
+            msg->result = ETH_PLUGIN_RESULT_ERROR;
+            return;
+    }
+}
+
+
 void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *context) {
     // Copy the vault address prior to any process
     ethPluginSharedRO_t *pluginSharedRO = (ethPluginSharedRO_t *) msg->pluginSharedRO;
@@ -180,15 +200,10 @@ void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
         case 0:
             switch (context->selectorIndex) {
                 case WITHDRAW_ALL:
-                case DEPOSIT_ALL:
                 case CLAIM:
                 case GET_REWARDS:
                 case EXIT:
                     set_amount_with_all(msg);
-                    break;
-                case DEPOSIT_TO:
-                case DEPOSIT:
-                    set_amount_with_want(msg, context);
                     break;
                 case WITHDRAW_TO_SLIPPAGE:
                 case WITHDRAW_TO:
@@ -225,6 +240,10 @@ void handle_query_contract_ui(void *parameters) {
     msg->result = ETH_PLUGIN_RESULT_OK;
 
     switch (context->selectorIndex) {
+        case DEPOSIT:
+        case DEPOSIT_ALL:
+            handle_query_contract_ui_track_in(msg, context);
+            break;
         case ZAP_IN:
             handle_query_contract_ui_zap_in(msg, context);
             break;

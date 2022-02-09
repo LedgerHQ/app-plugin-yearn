@@ -35,6 +35,21 @@
                 "plugin": "Yearn"
             }
         }
+    }, {
+        "address": "0x8ee392a4787397126c163cb9844d7c447da419d8",
+        "contractName": "YearnPartnerTracker",
+        "selectors": {
+            "0x8340f549": {
+                "erc20OfInterest": [],
+                "method": "deposit",
+                "plugin": "Yearn"
+            },
+            "0xf9609f08": {
+                "erc20OfInterest": [],
+                "method": "deposit_all",
+                "plugin": "Yearn"
+            }
+        }
     },
     
     {

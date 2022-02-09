@@ -24,9 +24,8 @@
 
 #include "yearn_plugin.h"
 
-static const uint8_t DEPOSIT_ALL_SELECTOR[SELECTOR_SIZE] = {0xd0, 0xe3, 0x0d, 0xb0};
-static const uint8_t DEPOSIT_SELECTOR[SELECTOR_SIZE] = {0xb6, 0xb5, 0x5f, 0x25};
-static const uint8_t DEPOSIT_TO_SELECTOR[SELECTOR_SIZE] = {0x6e, 0x55, 0x3f, 0x65};
+static const uint8_t DEPOSIT_SELECTOR[SELECTOR_SIZE] = {0x83, 0x40, 0xf5, 0x49};
+static const uint8_t DEPOSIT_ALL_SELECTOR[SELECTOR_SIZE] = {0xf9, 0x60, 0x9f, 0x08};
 static const uint8_t WITHDRAW_ALL_SELECTOR[SELECTOR_SIZE] = {0x3c, 0xcf, 0xd6, 0x0b};
 static const uint8_t WITHDRAW_SELECTOR[SELECTOR_SIZE] = {0x2e, 0x1a, 0x7d, 0x4d};
 static const uint8_t WITHDRAW_TO_SELECTOR[SELECTOR_SIZE] = {0x00, 0xf7, 0x14, 0xce};
@@ -38,9 +37,8 @@ static const uint8_t GET_REWARDS_SELECTOR[SELECTOR_SIZE] = {0x3d, 0x18, 0xb9, 0x
 
 // Array of all the different boilerplate selectors. Make sure this follows the same order as the
 // enum defined in `yearn_plugin.h`
-const uint8_t *const YEARN_SELECTORS[NUM_SELECTORS] = {DEPOSIT_ALL_SELECTOR,
-                                                       DEPOSIT_SELECTOR,
-                                                       DEPOSIT_TO_SELECTOR,
+const uint8_t *const YEARN_SELECTORS[NUM_SELECTORS] = {DEPOSIT_SELECTOR,
+                                                       DEPOSIT_ALL_SELECTOR,
                                                        WITHDRAW_ALL_SELECTOR,
                                                        WITHDRAW_SELECTOR,
                                                        WITHDRAW_TO_SELECTOR,
@@ -486,7 +484,7 @@ void dispatch_plugin_calls(int message, void *parameters) {
         case ETH_PLUGIN_FINALIZE:
             handle_finalize(parameters);
             break;
-        case ETH_PLUGIN_PROVIDE_INFO:
+        case ETH_PLUGIN_PROVIDE_TOKEN:
             handle_provide_token(parameters);
             break;
         case ETH_PLUGIN_QUERY_CONTRACT_ID:

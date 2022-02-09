@@ -5,15 +5,14 @@
 #include <string.h>
 
 #define PLUGIN_NAME          "Yearn"
-#define NUM_SELECTORS        11
+#define NUM_SELECTORS        10
 #define MAX_VAULT_TICKER_LEN 18  // 17 characters + '\0'
 
 // Enumeration of the different selectors possible.
 // Should follow the exact same order as the array declared in main.c
 typedef enum {
-    DEPOSIT_ALL,
     DEPOSIT,
-    DEPOSIT_TO,
+    DEPOSIT_ALL,
     WITHDRAW_ALL,
     WITHDRAW,
     WITHDRAW_TO,
@@ -30,6 +29,10 @@ typedef enum {
     ZAP_AMOUNT = 1,
     ZAP_TO_VAULT = 2,
     ZAP_REST = 3,
+
+    TRACK_VAULT = 0,
+    TRACK_PARNER = 1,
+    TRACK_AMOUNT = 2,
 
     AMOUNT = 0,
     RECIPIENT,
