@@ -176,7 +176,6 @@ void handle_query_contract_ui_track_in(ethQueryContractUI_t *msg, context_t *con
     }
 }
 
-
 void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *context) {
     // Copy the vault address prior to any process
     ethPluginSharedRO_t *pluginSharedRO = (ethPluginSharedRO_t *) msg->pluginSharedRO;
