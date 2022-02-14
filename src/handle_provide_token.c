@@ -12,8 +12,8 @@ void handle_provide_token(void *parameters) {
         context->decimals = 18;
         strlcpy(context->want, "ETH", sizeof(context->want));
     } else if (msg->item1) {
-        context->decimals = msg->item1->decimals;
-        strlcpy(context->want, (char *) msg->item1->ticker, sizeof(context->want));
+        context->decimals = msg->item1->token->decimals;
+        strlcpy(context->want, (char *) msg->item1->token->ticker, sizeof(context->want));
     } else {
         context->decimals = 18;
         strlcpy(context->want, "???", sizeof(context->want));
