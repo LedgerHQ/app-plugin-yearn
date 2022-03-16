@@ -12,7 +12,7 @@ async function waitForAppScreen(sim) {
 const sim_options_generic = {
     logging: true,
     X11: true,
-    startDelay: 5000,
+    startDelay: 10000,
     startText: 'is ready',
     custom: '',
 };
@@ -45,7 +45,7 @@ let genericTx = {
     data: null,
 };
 
-const TIMEOUT = 1000000;
+const TIMEOUT = 2000000;
 
 // Generates a serializedTransaction from a rawHexTransaction copy pasted from etherscan.
 function txFromEtherscan(rawTx) {
