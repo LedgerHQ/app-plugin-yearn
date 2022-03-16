@@ -11,6 +11,10 @@ void handle_finalize(void *parameters) {
                 msg->numScreens += 1;
             }
             break;
+        case CLAIM:
+        case GET_REWARDS:
+            msg->numScreens -= 1;
+            break;
         case WITHDRAW_TO_SLIPPAGE:
             msg->numScreens += 2;
             break;
