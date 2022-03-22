@@ -15,7 +15,6 @@ test('[Nano S] Claim Lab yveCRV', zemu("nanos", async (sim, eth) => {
 
   await waitForAppScreen(sim);
   await sim.navigateAndCompareSnapshots('.', 'nanos_claim_yveCRV', [BASE_SCREENS_S, 0]);
-  await tx;
 }));
 
 test('[Nano X] Claim Lab yveCRV', zemu("nanox", async (sim, eth) => {
@@ -27,5 +26,4 @@ test('[Nano X] Claim Lab yveCRV', zemu("nanox", async (sim, eth) => {
 
   await waitForAppScreen(sim);
   await sim.navigateAndCompareSnapshots('.', 'nanox_claim_yveCRV', [BASE_SCREENS_X, 0]);
-  await tx;
 }));

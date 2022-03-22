@@ -15,7 +15,6 @@ test('[Nano S] Exit Lab Pickle', zemu("nanos", async (sim, eth) => {
 
   await waitForAppScreen(sim);
   await sim.navigateAndCompareSnapshots('.', 'nanos_exit_pickle', [BASE_SCREENS_S, 0]);
-  await tx;
 }));
 
 test('[Nano X] Exit Lab Pickle', zemu("nanox", async (sim, eth) => {
@@ -27,5 +26,4 @@ test('[Nano X] Exit Lab Pickle', zemu("nanox", async (sim, eth) => {
 
   await waitForAppScreen(sim);
   await sim.navigateAndCompareSnapshots('.', 'nanox_exit_pickle', [BASE_SCREENS_X, 0]);
-  await tx;
 }));
