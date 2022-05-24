@@ -25,7 +25,7 @@ static void set_slippage_ui(ethQueryContractUI_t *msg, context_t *context) {
     copy_amount_with_ticker(context->slippage,
                             sizeof(context->slippage),
                             2,
-                            "%",
+                            "%%",
                             1,
                             msg->msg,
                             msg->msgLength);
