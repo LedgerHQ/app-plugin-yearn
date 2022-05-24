@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "yearn_plugin.h"
 
 void copy_amount_with_ticker(const uint8_t *amount,
@@ -9,23 +10,8 @@ void copy_amount_with_ticker(const uint8_t *amount,
                              uint8_t out_buffer_size) {
     char tmp_buffer[100] = {0};
     amountToString(amount, amount_size, amount_decimals, "", tmp_buffer, 100);
-    uint8_t amount_len = strnlen(tmp_buffer, sizeof(tmp_buffer));
-    memcpy(out_buffer, tmp_buffer, amount_len);
-    memcpy(out_buffer + amount_len, " ", 1);
-    memcpy(out_buffer + amount_len + 1, ticker, ticker_size);
-    out_buffer[out_buffer_size - 1] = '\0';
-}
-
-void copy_vault_name(const char *vaultName,
-                     uint8_t vaultName_size,
-                     char *out_buffer,
-                     uint8_t out_buffer_size) {
-    char tmp_buffer[100] = {0};
-
-    strlcpy(tmp_buffer, vaultName, vaultName_size);
-    uint8_t amount_len = strnlen(tmp_buffer, sizeof(tmp_buffer));
-    memcpy(out_buffer, tmp_buffer, amount_len);
-    memcpy(out_buffer + amount_len, " vault", 6);
+    uint8_t stringLen = strnlen(tmp_buffer, sizeof(tmp_buffer)) + 1 + ticker_size;
+    snprintf(out_buffer, MIN(out_buffer_size, stringLen), "%s %s", tmp_buffer, ticker);
     out_buffer[out_buffer_size - 1] = '\0';
 }
 
