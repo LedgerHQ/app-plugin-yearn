@@ -26,7 +26,7 @@ static void set_slippage_ui(ethQueryContractUI_t *msg, context_t *context) {
                             sizeof(context->slippage),
                             2,
                             "%%",
-                            1,
+                            2,
                             msg->msg,
                             msg->msgLength);
 }
