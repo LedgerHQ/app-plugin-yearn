@@ -2,8 +2,8 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import { waitForAppScreen, zemu } from './test.fixture';
 
-const BASE_SCREENS_S = (1 + 1 + 2 + 1 + 1) //YEARN + AMOUNT + GAS_FEES + VAULT + APPROVE
-const BASE_SCREENS_X = (1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + GAS_FEES + VAULT + APPROVE
+const BASE_SCREENS_S = (1 + 1 + 1 + 1) //YEARN + AMOUNT + GAS_FEES + APPROVE
+const BASE_SCREENS_X = (1 + 1 + 1 + 1) //YEARN + AMOUNT + GAS_FEES + APPROVE
 
 // Nanos S test
 test('[Nano S] Get Rewards Lab Pickle', zemu("nanos", async (sim, eth) => {
@@ -15,7 +15,6 @@ test('[Nano S] Get Rewards Lab Pickle', zemu("nanos", async (sim, eth) => {
 
   await waitForAppScreen(sim);
   await sim.navigateAndCompareSnapshots('.', 'nanos_getRewards_pickle', [BASE_SCREENS_S, 0]);
-  await tx;
 }));
 
 test('[Nano X] Get Rewards Lab Pickle', zemu("nanox", async (sim, eth) => {
@@ -27,5 +26,4 @@ test('[Nano X] Get Rewards Lab Pickle', zemu("nanox", async (sim, eth) => {
 
   await waitForAppScreen(sim);
   await sim.navigateAndCompareSnapshots('.', 'nanox_getRewards_pickle', [BASE_SCREENS_X, 0]);
-  await tx;
 }));
