@@ -61,8 +61,33 @@ jobs:
             name: plugin-artifacts
             path: ./plugin_nanox.elf
 
+  job_build_debug_nano_sp:
+    name: Build debug Nano SP
+    runs-on: ubuntu-latest
+
+    container:
+      image: ghcr.io/ledgerhq/ledger-app-builder/ledger-app-builder:latest
+
+    steps:
+      - name: Clone
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Build plugin for Nano SP
+        run: |
+          make clean
+          make BOLOS_SDK=$NANOSP_SDK DEBUG=1
+          mv bin/app.elf plugin_nanosp.elf
+
+      - name: Upload plugin artifact for Nano SP
+        uses: actions/upload-artifact@v2
+        with:
+            name: plugin-artifacts
+            path: ./plugin_nanosp.elf
+
   jobs-e2e-tests:
-    needs: [job_build_debug_nano_s, job_build_debug_nano_x]
+    needs: [job_build_debug_nano_s, job_build_debug_nano_x, job_build_debug_nano_sp]
     runs-on: ubuntu-latest
     steps:
       - name: Test
