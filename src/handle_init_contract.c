@@ -31,25 +31,18 @@ void handle_init_contract(void *parameters) {
 
     switch (context->selectorIndex) {
         case DEPOSIT_ALL:
+        case DEPOSIT:
+            context->next_param = TRACK_VAULT;
+            break;
         case WITHDRAW_ALL:
         case CLAIM:
         case EXIT:
         case GET_REWARDS:
             break;
-        case DEPOSIT:
-        case DEPOSIT_TO:
         case WITHDRAW:
         case WITHDRAW_TO:
         case WITHDRAW_TO_SLIPPAGE:
-        case IB_MINT:
-        case IB_REDEEM:
-        case IB_REDEEM_UNDERLYING:
-        case IB_BORROW:
-        case IB_REPAY_BORROW:
-            context->next_param = AMOUNT;
-            break;
         case ZAP_IN:
-        case ZAP_IN_PICKLE:
             context->next_param = ZAP_TOKEN;
             break;
         default:

@@ -5,26 +5,19 @@
 #include <string.h>
 
 #define PLUGIN_NAME          "Yearn"
-#define NUM_SELECTORS        17
+#define NUM_SELECTORS        10
 #define MAX_VAULT_TICKER_LEN 18  // 17 characters + '\0'
 
 // Enumeration of the different selectors possible.
 // Should follow the exact same order as the array declared in main.c
 typedef enum {
-    DEPOSIT_ALL,
     DEPOSIT,
-    DEPOSIT_TO,
+    DEPOSIT_ALL,
     WITHDRAW_ALL,
     WITHDRAW,
     WITHDRAW_TO,
     WITHDRAW_TO_SLIPPAGE,
     ZAP_IN,
-    ZAP_IN_PICKLE,
-    IB_MINT,
-    IB_REDEEM,
-    IB_REDEEM_UNDERLYING,
-    IB_BORROW,
-    IB_REPAY_BORROW,
     CLAIM,
     EXIT,
     GET_REWARDS,
@@ -36,6 +29,10 @@ typedef enum {
     ZAP_AMOUNT = 1,
     ZAP_TO_VAULT = 2,
     ZAP_REST = 3,
+
+    TRACK_VAULT = 0,
+    TRACK_PARNER = 1,
+    TRACK_AMOUNT = 2,
 
     AMOUNT = 0,
     RECIPIENT,
@@ -52,10 +49,8 @@ typedef struct yearnVaultDefinition_t {
     uint8_t decimals;
 } yearnVaultDefinition_t;
 
-#define NUM_YEARN_VAULTS 85
+#define NUM_YEARN_VAULTS 95
 extern yearnVaultDefinition_t const YEARN_VAULTS[NUM_YEARN_VAULTS];
-#define NUM_IRON_BANK 32
-extern yearnVaultDefinition_t const IRON_BANK[NUM_IRON_BANK];
 
 // Shared global memory with Ethereum app. Must be at most 5 * 32 bytes.
 typedef struct context_t {

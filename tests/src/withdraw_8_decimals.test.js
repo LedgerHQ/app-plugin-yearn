@@ -39,3 +39,19 @@ test('[Nano X] Withdraw Tokens 8 decimals', zemu("nanox", async (sim, eth) => {
   await sim.navigateAndCompareSnapshots('.', 'nanox_withdraw_8', [BASE_SCREENS_X, 0]);
   await tx;
 }));
+
+test('[Nano SP] Withdraw Tokens 8 decimals', zemu("nanosp", async (sim, eth) => {
+  const contract = new ethers.Contract(contractAddr, ['function withdraw(uint256)']);
+  const {data} = await contract.populateTransaction.withdraw(AMOUNT_TO_DEPOSIT);
+
+  let unsignedTx = genericTx;
+  unsignedTx.to = contractAddr;
+  unsignedTx.data = data;
+
+  const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
+  const tx = eth.signTransaction("44'/60'/0'/0", serializedTx);
+
+  await waitForAppScreen(sim);
+  await sim.navigateAndCompareSnapshots('.', 'nanox_withdraw_8', [BASE_SCREENS_X, 0]);
+  await tx;
+}));

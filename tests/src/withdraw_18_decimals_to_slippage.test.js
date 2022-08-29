@@ -40,3 +40,19 @@ test('[Nano X] Withdraw Tokens with Recipient and Slippage 18 decimals', zemu("n
   await sim.navigateAndCompareSnapshots('.', 'nanox_withdraw_recipient_splippage_18', [BASE_SCREENS_X + 1 + 1, 0]);
   await tx;
 }));
+
+test('[Nano SP] Withdraw Tokens with Recipient and Slippage 18 decimals', zemu("nanosp", async (sim, eth) => {
+  const contract = new ethers.Contract(contractAddr, ['function withdraw(uint256, address, uint256)']);
+  const {data} = await contract.populateTransaction.withdraw(AMOUNT_TO_DEPOSIT, recipient, 1000);
+
+  let unsignedTx = genericTx;
+  unsignedTx.to = contractAddr;
+  unsignedTx.data = data;
+
+  const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
+  const tx = eth.signTransaction("44'/60'/0'/0", serializedTx);
+
+  await waitForAppScreen(sim);
+  await sim.navigateAndCompareSnapshots('.', 'nanox_withdraw_recipient_splippage_18', [BASE_SCREENS_X + 1 + 1, 0]);
+  await tx;
+}));

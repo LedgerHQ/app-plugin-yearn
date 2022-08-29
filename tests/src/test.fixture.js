@@ -12,7 +12,8 @@ async function waitForAppScreen(sim) {
 const sim_options_generic = {
     logging: true,
     X11: true,
-    startDelay: 5000,
+    startDelay: 10000,
+    startText: 'is ready',
     custom: '',
 };
 
@@ -20,12 +21,16 @@ const Resolve = require('path').resolve;
 
 const NANOS_ETH_PATH = Resolve('elfs/ethereum_nanos.elf');
 const NANOX_ETH_PATH = Resolve('elfs/ethereum_nanox.elf');
+const NANOSP_ETH_PATH = Resolve('elfs/ethereum_nanosp.elf');
 
 const NANOS_PLUGIN_PATH = Resolve('elfs/plugin_nanos.elf');
 const NANOX_PLUGIN_PATH = Resolve('elfs/plugin_nanox.elf');
+const NANOSP_PLUGIN_PATH = Resolve('elfs/plugin_nanosp.elf');
 
+// Edit this: replace `Boilerplate` by your plugin name
 const NANOS_PLUGIN = { "Yearn": NANOS_PLUGIN_PATH };
 const NANOX_PLUGIN = { "Yearn": NANOX_PLUGIN_PATH };
+const NANOSP_PLUGIN = { "Yearn": NANOSP_PLUGIN_PATH };
 
 const boilerplateJSON = generate_plugin_config();
 
@@ -43,7 +48,7 @@ let genericTx = {
     data: null,
 };
 
-const TIMEOUT = 1000000;
+const TIMEOUT = 2000000;
 
 // Generates a serializedTransaction from a rawHexTransaction copy pasted from etherscan.
 function txFromEtherscan(rawTx) {
@@ -80,15 +85,18 @@ function zemu(device, func) {
         let eth_path;
         let plugin;
         let sim_options = sim_options_generic;
-
         if (device === "nanos") {
             eth_path = NANOS_ETH_PATH;
             plugin = NANOS_PLUGIN;
             sim_options.model = "nanos";
-        } else {
+        } else if (device === "nanox") {
             eth_path = NANOX_ETH_PATH;
             plugin = NANOX_PLUGIN;
             sim_options.model = "nanox";
+        } else if (device === "nanosp") {
+            eth_path = NANOSP_ETH_PATH;
+            plugin = NANOSP_PLUGIN;
+            sim_options.model = "nanosp";
         }
 
         const sim = new Zemu(eth_path, plugin);
@@ -97,7 +105,7 @@ function zemu(device, func) {
             await sim.start(sim_options);
             const transport = await sim.getTransport();
             const eth = new Eth(transport);
-            eth.setPluginsLoadConfig({
+            eth.setLoadConfig({
                 baseURL: null,
                 extraPlugins: boilerplateJSON,
             });
