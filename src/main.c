@@ -564,8 +564,7 @@ const yearnVaultDefinition_t YEARN_VAULTS[NUM_YEARN_VAULTS] = {
       0x0e, 0x11, 0x53, 0xcb, 0x0c, 0x58, 0x34, 0x66, 0x5f, 0xdc},
       "bb-a-USD",
       "yvBal-BoostedAaveUSD",
-      18}
-};
+      18}};
 
 // Function to dispatch calls from the ethereum app.
 void dispatch_plugin_calls(int message, void *parameters) {
