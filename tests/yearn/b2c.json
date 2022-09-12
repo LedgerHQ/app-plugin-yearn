@@ -954,5 +954,5 @@
             "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
         }
     }],
-    "name": "Yearn"
+    "name": "Yearn" 
 }
