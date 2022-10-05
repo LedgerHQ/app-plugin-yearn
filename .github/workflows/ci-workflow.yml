@@ -5,13 +5,9 @@ on:
   push:
     branches:
       - main
-      - master
-      - develop
   pull_request:
     branches:
       - main
-      - master
-      - develop
 
 jobs:
   job_build_plugin_nano_s:
@@ -27,12 +23,12 @@ jobs:
         with:
           repository: LedgerHQ/ethereum-plugin-sdk
           path: ethereum-plugin-sdk
-          ref: develop
+          ref: master
       - name: Build plugin for Nano S
         run: |
           make clean
           make BOLOS_SDK=$NANOS_SDK
-
+  
   job_build_plugin_nano_sp:
     name: Build plugin for Nano S Plus
     runs-on: ubuntu-latest
@@ -46,7 +42,7 @@ jobs:
         with:
           repository: LedgerHQ/ethereum-plugin-sdk
           path: ethereum-plugin-sdk
-          ref: develop
+          ref: master
       - name: Build plugin for Nano S Plus
         run: |
           make clean
@@ -65,7 +61,7 @@ jobs:
         with:
           repository: LedgerHQ/ethereum-plugin-sdk
           path: ethereum-plugin-sdk
-          ref: develop
+          ref: master
       - name: Build plugin for Nano X
         run: |
           make clean
@@ -84,7 +80,7 @@ jobs:
         with:
           repository: LedgerHQ/ethereum-plugin-sdk
           path: ethereum-plugin-sdk
-          ref: develop
+          ref: master
       - name: Build plugin
         run: |
           make clean
@@ -98,7 +94,7 @@ jobs:
         with:
           name: binaries
           path: tests/elfs/plugin_nanos.elf
-
+  
 
   job_build_plugin_debug_nano_sp:
     name: Build plugin for Nano S Plus testing
@@ -113,7 +109,7 @@ jobs:
         with:
           repository: LedgerHQ/ethereum-plugin-sdk
           path: ethereum-plugin-sdk
-          ref: develop
+          ref: master
       - name: Build plugin
         run: |
           make clean
@@ -141,7 +137,7 @@ jobs:
         with:
           repository: LedgerHQ/ethereum-plugin-sdk
           path: ethereum-plugin-sdk
-          ref: develop
+          ref: master
       - name: Build plugin
         run: |
           make clean
@@ -166,7 +162,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: LedgerHQ/app-ethereum
-          ref: ${{ github.base_ref || github.ref_name }}
+          ref: master
           submodules: recursive
       - name: Build ethereum
         run: |
@@ -181,7 +177,7 @@ jobs:
         with:
           name: binaries
           path: tests/elfs/ethereum_nanos.elf
-
+  
   job_build_ethereum_nano_sp:
     name: Build Ethereum application for Nano S Plus testing
     runs-on: ubuntu-latest
@@ -192,7 +188,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: LedgerHQ/app-ethereum
-          ref: ${{ github.base_ref || github.ref_name }}
+          ref: master
           submodules: recursive
       - name: Build ethereum
         run: |
@@ -218,7 +214,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: LedgerHQ/app-ethereum
-          ref: ${{ github.base_ref || github.ref_name }}
+          ref: master
           submodules: recursive
       - name: Build ethereum
         run: |
