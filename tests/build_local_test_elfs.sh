@@ -32,6 +32,7 @@ build_plugin() {
     cd -
 }
 
+
 build_ethereum() {
     # arguments: <SDK letter>
     echo "** Building app-ethereum for Nano $1..."
