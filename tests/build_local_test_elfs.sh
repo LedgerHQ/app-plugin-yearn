@@ -11,18 +11,34 @@ mkdir -p elfs
 # move to repo's root to build apps
 cd ..
 
+
+echo "*Building elfs for Nano SP..."
+export BOLOS_SDK="$NANOSP_SDK"
+
+echo "**Building app-plugin for Nano SP..."
+make clean
+make -j DEBUG=1 || exit
+cp bin/app.elf "tests/elfs/plugin_nanosp.elf"
+
+echo "**Building app-ethereum for Nano SP..."
+cd "$APP_ETHEREUM" || exit
+make clean
+make -j DEBUG=1 BYPASS_SIGNATURES=1 CHAIN=ethereum || exit
+cd - || exit
+cp "${APP_ETHEREUM}/bin/app.elf" "tests/elfs/ethereum_nanosp.elf"
+
 echo "*Building elfs for Nano S..."
 export BOLOS_SDK="$NANOS_SDK"
 
 echo "**Building app-plugin for Nano S..."
 make clean
-make -j DEBUG=1
+make -j DEBUG=1 || exit
 cp bin/app.elf "tests/elfs/plugin_nanos.elf"
 
 echo "**Building app-ethereum for Nano S..."
 cd "$APP_ETHEREUM" || exit
 make clean
-make -j DEBUG=1 BYPASS_SIGNATURES=1 CHAIN=ethereum
+make -j DEBUG=1 BYPASS_SIGNATURES=1 CHAIN=ethereum || exit
 cd - || exit
 cp "${APP_ETHEREUM}/bin/app.elf" "tests/elfs/ethereum_nanos.elf"
 
@@ -32,13 +48,13 @@ export BOLOS_SDK="$NANOX_SDK"
 
 echo "**Building plugin for Nano X..."
 make clean
-make -j DEBUG=1
+make -j DEBUG=1 || exit
 cp bin/app.elf "tests/elfs/plugin_nanox.elf"
 
 echo "**Building app-ethereum for Nano X..."
-cd "$APP_ETHEREUM" || exit
+cd "$APP_ETHEREUM"
 make clean
-make -j DEBUG=1 BYPASS_SIGNATURES=1 CHAIN=ethereum
+make -j DEBUG=1 BYPASS_SIGNATURES=1 CHAIN=ethereum || exit
 cd - || exit
 cp "${APP_ETHEREUM}/bin/app.elf" "tests/elfs/ethereum_nanox.elf"
 
