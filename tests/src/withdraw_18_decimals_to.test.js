@@ -53,6 +53,6 @@ test('[Nano SP] Withdraw Tokens with Recipient 18 decimals', zemu("nanosp", asyn
   const tx = eth.signTransaction("44'/60'/0'/0", serializedTx);
 
   await waitForAppScreen(sim);
-  await sim.navigateAndCompareSnapshots('.', 'nanox_withdraw_recipient_18', [BASE_SCREENS_X + 1, 0]);
+  await sim.navigateAndCompareSnapshots('.', 'nanosp_withdraw_recipient_18', [BASE_SCREENS_X + 1, 0]);
   await tx;
 }));
