@@ -7,9 +7,6 @@ static const uint8_t WITHDRAW_SELECTOR[SELECTOR_SIZE] = {0x2e, 0x1a, 0x7d, 0x4d}
 static const uint8_t WITHDRAW_TO_SELECTOR[SELECTOR_SIZE] = {0x00, 0xf7, 0x14, 0xce}; // withdraw(uint256 maxShares, address recipient)
 static const uint8_t WITHDRAW_TO_SLIPPAGE_SELECTOR[SELECTOR_SIZE] = {0xe6, 0x36, 0x97, 0xc8}; // withdraw(uint256 maxShares, address recipient, uint256 maxLoss)
 static const uint8_t ZAP_IN_SELECTOR[SELECTOR_SIZE] = {0xe6, 0x96, 0x63, 0xf1};
-static const uint8_t CLAIM_SELECTOR[SELECTOR_SIZE] = {0x4e, 0x71, 0xd9, 0x2d};
-static const uint8_t EXIT_SELECTOR[SELECTOR_SIZE] = {0xe9, 0xfa, 0xd8, 0xee};
-static const uint8_t GET_REWARDS_SELECTOR[SELECTOR_SIZE] = {0x3d, 0x18, 0xb9, 0x12};
 
 // Array of all the different boilerplate selectors. Make sure this follows the same order as the
 // enum defined in `yearn_plugin.h`
@@ -19,10 +16,7 @@ const uint8_t *const YEARN_SELECTORS[NUM_SELECTORS] = {DEPOSIT_SELECTOR,
                                                        WITHDRAW_SELECTOR,
                                                        WITHDRAW_TO_SELECTOR,
                                                        WITHDRAW_TO_SLIPPAGE_SELECTOR,
-                                                       ZAP_IN_SELECTOR,
-                                                       CLAIM_SELECTOR,
-                                                       EXIT_SELECTOR,
-                                                       GET_REWARDS_SELECTOR};
+                                                       ZAP_IN_SELECTOR};
 
 const yearnVaultDefinition_t YEARN_VAULTS[NUM_YEARN_VAULTS] = {
     {{0xbf, 0xa4, 0xd8, 0xaa, 0x6d, 0x8a, 0x37, 0x9a, 0xbf, 0xe7,

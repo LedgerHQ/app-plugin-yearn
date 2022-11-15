@@ -7,15 +7,6 @@
             "0xe69663f1": {"erc20OfInterest": ["fromToken"], "method": "ZapIn", "plugin": "Yearn"}
         }
     }, {
-        "address": "0xda481b277dce305b97f4091bd66595d57cf31634",
-        "contractName": "Pickle Gauge",
-        "selectors": {
-            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
-            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
-            "0xe9fad8ee": {"erc20OfInterest": [], "method": "exit", "plugin": "Yearn"},
-            "0x3d18b912": {"erc20OfInterest": [], "method": "getReward", "plugin": "Yearn"}
-        }
-    }, {
         "address": "0x8ee392a4787397126c163cb9844d7c447da419d8",
         "contractName": "YearnPartnerTracker",
         "selectors": {
