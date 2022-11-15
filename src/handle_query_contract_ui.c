@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include "yearn_plugin.h"
 
-void copy_amount_with_ticker(const uint8_t *amount,
-                             uint8_t amount_size,
-                             uint8_t amount_decimals,
+void copy_amount_with_ticker(const size_t *amount,
+                             size_t amount_size,
+                             size_t amount_decimals,
                              char *ticker,
-                             uint8_t ticker_size,
+                             size_t ticker_size,
                              char *out_buffer,
-                             uint8_t out_buffer_size) {
+                             size_t out_buffer_size) {
     char tmp_buffer[100] = {0};
     amountToString(amount, amount_size, amount_decimals, "", tmp_buffer, 100);
-    uint8_t stringLen = strnlen(tmp_buffer, sizeof(tmp_buffer)) + 1 + ticker_size;
+    size_t stringLen = strnlen(tmp_buffer, sizeof(tmp_buffer)) + 1 + ticker_size;
     snprintf(out_buffer, MIN(out_buffer_size, stringLen), "%s %s", tmp_buffer, ticker);
     out_buffer[out_buffer_size - 1] = '\0';
 }
