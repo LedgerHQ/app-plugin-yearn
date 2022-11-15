@@ -9,7 +9,7 @@ void copy_amount_with_ticker(const size_t *amount,
                              char *out_buffer,
                              size_t out_buffer_size) {
     char tmp_buffer[100] = {0};
-    amountToString(amount, amount_size, amount_decimals, "", tmp_buffer, 100);
+    amountToString(amount, amount_size, amount_decimals, "", tmp_buffer, sizeof(tmp_buffer));
     size_t stringLen = strnlen(tmp_buffer, sizeof(tmp_buffer)) + 1 + ticker_size;
     snprintf(out_buffer, MIN(out_buffer_size, stringLen), "%s %s", tmp_buffer, ticker);
     out_buffer[out_buffer_size - 1] = '\0';
