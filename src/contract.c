@@ -6,7 +6,7 @@ static const uint8_t WITHDRAW_ALL_SELECTOR[SELECTOR_SIZE] = {0x3c, 0xcf, 0xd6, 0
 static const uint8_t WITHDRAW_SELECTOR[SELECTOR_SIZE] = {0x2e, 0x1a, 0x7d, 0x4d}; // withdraw(uint256 maxShares)
 static const uint8_t WITHDRAW_TO_SELECTOR[SELECTOR_SIZE] = {0x00, 0xf7, 0x14, 0xce}; // withdraw(uint256 maxShares, address recipient)
 static const uint8_t WITHDRAW_TO_SLIPPAGE_SELECTOR[SELECTOR_SIZE] = {0xe6, 0x36, 0x97, 0xc8}; // withdraw(uint256 maxShares, address recipient, uint256 maxLoss)
-static const uint8_t ZAP_IN_SELECTOR[SELECTOR_SIZE] = {0xe6, 0x96, 0x63, 0xf1};
+static const uint8_t ZAP_IN_SELECTOR[SELECTOR_SIZE] = {0xb6, 0xc2, 0xc6, 0xe9}; // portalIn(address sellToken, uint256 sellAmount, address intermediateToken, address buyToken, uint256 minBuyAmount, address target, bytes calldata data, address partner, address yearnAffiliate)
 
 // Array of all the different boilerplate selectors. Make sure this follows the same order as the
 // enum defined in `yearn_plugin.h`

@@ -185,11 +185,6 @@ void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
         case 0:
             switch (context->selectorIndex) {
                 case WITHDRAW_ALL:
-                case CLAIM:
-                case GET_REWARDS:
-                case EXIT:
-                    set_amount_with_all(msg);
-                    break;
                 case WITHDRAW_TO_SLIPPAGE:
                 case WITHDRAW_TO:
                 case WITHDRAW:
