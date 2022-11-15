@@ -114,6 +114,8 @@ void handle_provide_parameter(void *parameters) {
             handle_deposit(msg, context);
             break;
         case WITHDRAW_ALL:
+            handle_none(msg, context);
+            break;
         case WITHDRAW:
             handle_withdraw(msg, context);
             break;
