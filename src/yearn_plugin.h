@@ -56,7 +56,6 @@ typedef struct context_t {
     uint8_t slippage[INT256_LENGTH];
     uint8_t vault_address[ADDRESS_LENGTH];
     uint8_t extra_address[ADDRESS_LENGTH];
-    uint8_t inter_token[ADDRESS_LENGTH];
     char vault[MAX_VAULT_TICKER_LEN];
     char want[MAX_VAULT_TICKER_LEN];
 

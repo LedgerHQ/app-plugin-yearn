@@ -80,6 +80,8 @@ static void handle_withdraw_to_slippage(ethPluginProvideParameter_t *msg, contex
 }
 
 static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) {
+    uint8_t inter_token[ADDRESS_LENGTH];
+
     switch (context->next_param) {
         case ZAP_TOKEN:
             copy_address(context->extra_address, msg->parameter, sizeof(context->extra_address));
@@ -90,7 +92,8 @@ static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) 
             context->next_param = ZAP_INTER_TOKEN;
             break;
         case ZAP_INTER_TOKEN:
-            copy_parameter(context->inter_token, msg->parameter, sizeof(context->inter_token));
+            // we don't need this, we can set it in a local var and forget about it
+            copy_parameter(inter_token, msg->parameter, sizeof(inter_token));
             context->next_param = ZAP_TO_VAULT;
             break;
         case ZAP_TO_VAULT:
