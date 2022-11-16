@@ -1,7 +1,7 @@
 {
     "chainId": 1,
     "contracts": [{
-        "address": "0xc2C171bD6FC3B5885b589ed8b4d135F31085e973",
+        "address": "0xc2c171bd6fc3b5885b589ed8b4d135f31085e973",
         "contractName": "Zap In",
         "selectors": {
             "0xb6c2c6e9": {"erc20OfInterest": ["fromToken"], "method": "portalIn", "plugin": "Yearn"}
