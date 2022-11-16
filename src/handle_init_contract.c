@@ -36,6 +36,7 @@ void handle_init_contract(void *parameters) {
             context->next_param = TRACK_VAULT;
             break;
         case WITHDRAW_ALL:
+            context->next_param = UNEXPECTED_PARAMETER;
             break;
         case WITHDRAW:
         case WITHDRAW_TO:
