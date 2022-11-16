@@ -114,7 +114,7 @@ void set_vault_information(context_t *context) {
         }
     }
     
-    if (memcmp(context->vault, NULL, MAX_VAULT_TICKER_LEN) == 0)) {
+    if (memcmp(context->vault, NULL, MAX_VAULT_TICKER_LEN) == 0) {
         PRINTF("Received an invalid vault\n");
         msg->result = ETH_PLUGIN_RESULT_ERROR;
     }
