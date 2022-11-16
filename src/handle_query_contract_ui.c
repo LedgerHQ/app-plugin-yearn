@@ -101,16 +101,24 @@ static void set_vault_name(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->msg, context->vault, msg->msgLength);
 }
 
-void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *context) {
+void set_vault_information(context_t *context) {
     uint8_t i;
     yearnVaultDefinition_t *currentVault = NULL;
     for (i = 0; i < NUM_YEARN_VAULTS; i++) {
         currentVault = (yearnVaultDefinition_t *) PIC(&YEARN_VAULTS[i]);
         if (memcmp(currentVault->address, context->vault_address, ADDRESS_LENGTH) == 0) {
+            context->decimals = currentVault->decimals;
+            memcpy(context->want, currentVault->want, MAX_VAULT_TICKER_LEN);
             memcpy(context->vault, currentVault->vault, MAX_VAULT_TICKER_LEN);
             break;
         }
     }
+
+    return currentVault;
+}
+
+void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *context) {
+    set_vault_information(context);
 
     switch (msg->screenIndex) {
         case 0:
@@ -127,17 +135,7 @@ void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *conte
 }
 
 void handle_query_contract_ui_track_in(ethQueryContractUI_t *msg, context_t *context) {
-    uint8_t i;
-    yearnVaultDefinition_t *currentVault = NULL;
-    for (i = 0; i < NUM_YEARN_VAULTS; i++) {
-        currentVault = (yearnVaultDefinition_t *) PIC(&YEARN_VAULTS[i]);
-        if (memcmp(currentVault->address, context->vault_address, ADDRESS_LENGTH) == 0) {
-            context->decimals = currentVault->decimals;
-            memcpy(context->want, currentVault->want, MAX_VAULT_TICKER_LEN);
-            memcpy(context->vault, currentVault->vault, MAX_VAULT_TICKER_LEN);
-            break;
-        }
-    }
+    set_vault_information(context);
 
     switch (msg->screenIndex) {
         case 0:
@@ -169,18 +167,8 @@ void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
                    pluginSharedRO->txContent->destination,
                    sizeof(context->vault_address));
 
-    // find information about vault
-    uint8_t i;
-    yearnVaultDefinition_t *currentVault = NULL;
-    for (i = 0; i < NUM_YEARN_VAULTS; i++) {
-        currentVault = (yearnVaultDefinition_t *) PIC(&YEARN_VAULTS[i]);
-        if (memcmp(currentVault->address, context->vault_address, ADDRESS_LENGTH) == 0) {
-            context->decimals = currentVault->decimals;
-            memcpy(context->want, currentVault->want, MAX_VAULT_TICKER_LEN);
-            memcpy(context->vault, currentVault->vault, MAX_VAULT_TICKER_LEN);
-            break;
-        }
-    }
+    set_vault_information(context);
+
     switch (msg->screenIndex) {
         case 0:
             switch (context->selectorIndex) {
