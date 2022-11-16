@@ -8,8 +8,6 @@ void handle_provide_token(void *parameters) {
     ethPluginProvideInfo_t *msg = (ethPluginProvideInfo_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
 
-    switch (context->selectorIndex) {
-
         if (
             context->selectorIndex != DEPOSIT &&
             context->selectorIndex != DEPOSIT_ALL &&
