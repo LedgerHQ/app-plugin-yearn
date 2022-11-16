@@ -1,5 +1,6 @@
 #include "yearn_plugin.h"
 
+<<<<<<< Updated upstream
 static const uint8_t DEPOSIT_SELECTOR[SELECTOR_SIZE] = {0x83, 0x40, 0xf5, 0x49}; // deposit(uint256 amount)
 static const uint8_t DEPOSIT_ALL_SELECTOR[SELECTOR_SIZE] = {0xf9, 0x60, 0x9f, 0x08}; // deposit()
 static const uint8_t WITHDRAW_ALL_SELECTOR[SELECTOR_SIZE] = {0x3c, 0xcf, 0xd6, 0x0b}; // withdraw()
@@ -7,6 +8,35 @@ static const uint8_t WITHDRAW_SELECTOR[SELECTOR_SIZE] = {0x2e, 0x1a, 0x7d, 0x4d}
 static const uint8_t WITHDRAW_TO_SELECTOR[SELECTOR_SIZE] = {0x00, 0xf7, 0x14, 0xce}; // withdraw(uint256 maxShares, address recipient)
 static const uint8_t WITHDRAW_TO_SLIPPAGE_SELECTOR[SELECTOR_SIZE] = {0xe6, 0x36, 0x97, 0xc8}; // withdraw(uint256 maxShares, address recipient, uint256 maxLoss)
 static const uint8_t ZAP_IN_SELECTOR[SELECTOR_SIZE] = {0xe6, 0x96, 0x63, 0xf1};
+=======
+static const uint8_t DEPOSIT_SELECTOR[SELECTOR_SIZE] = {0x83,
+                                                        0x40,
+                                                        0xf5,
+                                                        0x49};  // deposit(uint256 amount)
+static const uint8_t DEPOSIT_ALL_SELECTOR[SELECTOR_SIZE] = {0xf9, 0x60, 0x9f, 0x08};   // deposit()
+static const uint8_t WITHDRAW_ALL_SELECTOR[SELECTOR_SIZE] = {0x3c, 0xcf, 0xd6, 0x0b};  // withdraw()
+static const uint8_t WITHDRAW_SELECTOR[SELECTOR_SIZE] = {0x2e,
+                                                         0x1a,
+                                                         0x7d,
+                                                         0x4d};  // withdraw(uint256 maxShares)
+static const uint8_t WITHDRAW_TO_SELECTOR[SELECTOR_SIZE] = {
+    0x00,
+    0xf7,
+    0x14,
+    0xce};  // withdraw(uint256 maxShares, address recipient)
+static const uint8_t WITHDRAW_TO_SLIPPAGE_SELECTOR[SELECTOR_SIZE] = {
+    0xe6,
+    0x36,
+    0x97,
+    0xc8};  // withdraw(uint256 maxShares, address recipient, uint256 maxLoss)
+static const uint8_t ZAP_IN_SELECTOR[SELECTOR_SIZE] = {
+    0xb6,
+    0xc2,
+    0xc6,
+    0xe9};  // portalIn(address sellToken, uint256 sellAmount, address intermediateToken, address
+            // buyToken, uint256 minBuyAmount, address target, bytes calldata data, address partner,
+            // address yearnAffiliate)
+>>>>>>> Stashed changes
 
 // Array of all the different boilerplate selectors. Make sure this follows the same order as the
 // enum defined in `yearn_plugin.h`
@@ -550,5 +580,3 @@ const yearnVaultDefinition_t YEARN_VAULTS[NUM_YEARN_VAULTS] = {
      "yCRV-f",
      "lp-yCRV",
      18}};
-
-
