@@ -114,7 +114,7 @@ void set_vault_information(ethQueryContractUI_t *msg, context_t *context) {
         }
     }
 
-    if (memcmp(context->vault, NULL, MAX_VAULT_TICKER_LEN) == 0) {
+    if (!context->vault) {
         PRINTF("Received an invalid vault\n");
         msg->result = ETH_PLUGIN_RESULT_ERROR;
     }
