@@ -92,6 +92,7 @@ static void handle_none(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
+            context->next_param = UNEXPECTED_PARAMETER;
             msg->result = ETH_PLUGIN_RESULT_ERROR;
             break;
     }
