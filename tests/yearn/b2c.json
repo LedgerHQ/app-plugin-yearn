@@ -4,7 +4,7 @@
         "address": "0xc2c171bd6fc3b5885b589ed8b4d135f31085e973",
         "contractName": "Zap In",
         "selectors": {
-            "0xb6c2c6e9": {"erc20OfInterest": ["fromToken"], "method": "portalIn", "plugin": "Yearn"}
+            "0xb6c2c6e9": {"erc20OfInterest": ["sellToken"], "method": "portalIn", "plugin": "Yearn"}
         }
     }, {
         "address": "0x8ee392a4787397126c163cb9844d7c447da419d8",
