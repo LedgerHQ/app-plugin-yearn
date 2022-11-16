@@ -113,8 +113,11 @@ void set_vault_information(context_t *context) {
             break;
         }
     }
-
-    return currentVault;
+    
+    if (memcmp(context->vault, NULL, MAX_VAULT_TICKER_LEN) == 0)) {
+        PRINTF("Received an invalid vault\n");
+        msg->result = ETH_PLUGIN_RESULT_ERROR;
+    }
 }
 
 void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *context) {
