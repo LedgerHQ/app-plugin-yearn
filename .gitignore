@@ -22,3 +22,5 @@ __pycache__/
 # JS
 tests/node_modules
 tests/lib
+._.DS_Store
+.DS_Store

@@ -5,7 +5,7 @@
 #include <string.h>
 
 #define PLUGIN_NAME          "Yearn"
-#define NUM_SELECTORS        10
+#define NUM_SELECTORS        7
 #define MAX_VAULT_TICKER_LEN 18  // 17 characters + '\0'
 
 // Enumeration of the different selectors possible.
@@ -18,9 +18,6 @@ typedef enum {
     WITHDRAW_TO,
     WITHDRAW_TO_SLIPPAGE,
     ZAP_IN,
-    CLAIM,
-    EXIT,
-    GET_REWARDS,
 } selector_t;
 
 // Enumeration used to parse the smart contract data.
