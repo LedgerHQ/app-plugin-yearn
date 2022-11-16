@@ -24,8 +24,9 @@ typedef enum {
 typedef enum {
     ZAP_TOKEN = 0,
     ZAP_AMOUNT = 1,
-    ZAP_TO_VAULT = 2,
-    ZAP_REST = 3,
+    ZAP_INTER_TOKEN = 2,
+    ZAP_TO_VAULT = 3,
+    ZAP_REST = 4,
 
     TRACK_VAULT = 0,
     TRACK_PARNER = 1,
@@ -55,6 +56,7 @@ typedef struct context_t {
     uint8_t slippage[INT256_LENGTH];
     uint8_t vault_address[ADDRESS_LENGTH];
     uint8_t extra_address[ADDRESS_LENGTH];
+    uint8_t inter_token[ADDRESS_LENGTH];
     char vault[MAX_VAULT_TICKER_LEN];
     char want[MAX_VAULT_TICKER_LEN];
 

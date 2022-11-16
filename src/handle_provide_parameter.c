@@ -87,6 +87,10 @@ static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) 
             break;
         case ZAP_AMOUNT:
             copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
+            context->next_param = ZAP_INTER_TOKEN;
+            break;
+        case ZAP_INTER_TOKEN:
+            copy_parameter(context->inter_token, msg->parameter, sizeof(context->inter_token));
             context->next_param = ZAP_TO_VAULT;
             break;
         case ZAP_TO_VAULT:
