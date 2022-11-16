@@ -16,6 +16,19 @@ static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context)
     }
 }
 
+static void handle_deposit_all(ethPluginProvideParameter_t *msg, context_t *context) {
+    switch (context->next_param) {
+        case TRACK_VAULT:
+            copy_address(context->vault_address, msg->parameter, sizeof(context->vault_address));
+            context->next_param = UNEXPECTED_PARAMETER;
+            break;
+        default:
+            PRINTF("Param not supported: %d\n", context->next_param);
+            msg->result = ETH_PLUGIN_RESULT_ERROR;
+            break;
+    }
+}
+
 static void handle_withdraw(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         case AMOUNT:
@@ -57,6 +70,7 @@ static void handle_withdraw_to_slippage(ethPluginProvideParameter_t *msg, contex
             break;
         case SLIPPAGE:
             copy_parameter(context->slippage, msg->parameter, sizeof(context->slippage));
+            context->next_param = UNEXPECTED_PARAMETER;
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -80,6 +94,7 @@ static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) 
             context->next_param = ZAP_REST;
             break;
         case ZAP_REST:
+            context->next_param = UNEXPECTED_PARAMETER;
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -111,6 +126,8 @@ void handle_provide_parameter(void *parameters) {
 
     switch (context->selectorIndex) {
         case DEPOSIT_ALL:
+            handle_deposit_all(msg, context);
+            break;
         case DEPOSIT:
             handle_deposit(msg, context);
             break;
