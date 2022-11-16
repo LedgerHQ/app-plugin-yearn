@@ -121,7 +121,7 @@ void set_vault_information(ethQueryContractUI_t *msg, context_t *context) {
 }
 
 void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *context) {
-    set_vault_information(context);
+    set_vault_information(msg, context);
 
     switch (msg->screenIndex) {
         case 0:
@@ -138,7 +138,7 @@ void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *conte
 }
 
 void handle_query_contract_ui_track_in(ethQueryContractUI_t *msg, context_t *context) {
-    set_vault_information(context);
+    set_vault_information(msg, context);
 
     switch (msg->screenIndex) {
         case 0:
@@ -170,7 +170,7 @@ void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
                    pluginSharedRO->txContent->destination,
                    sizeof(context->vault_address));
 
-    set_vault_information(context);
+    set_vault_information(msg, context);
 
     switch (msg->screenIndex) {
         case 0:
