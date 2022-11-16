@@ -101,7 +101,7 @@ static void set_vault_name(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->msg, context->vault, msg->msgLength);
 }
 
-void set_vault_information(context_t *context) {
+void set_vault_information(ethQueryContractUI_t *msg, context_t *context) {
     uint8_t i;
     yearnVaultDefinition_t *currentVault = NULL;
     for (i = 0; i < NUM_YEARN_VAULTS; i++) {
