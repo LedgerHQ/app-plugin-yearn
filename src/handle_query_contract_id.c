@@ -17,6 +17,9 @@ void handle_query_contract_id(void *parameters) {
         case WITHDRAW_TO_SLIPPAGE:
             strlcpy(msg->version, "Withdraw", msg->versionLength);
             break;
+        case CLAIM:
+            strlcpy(msg->version, "Claim", msg->versionLength);
+            break;
         case ZAP_IN:
             strlcpy(msg->version, "Zap In", msg->versionLength);
             break;

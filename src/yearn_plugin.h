@@ -5,7 +5,7 @@
 #include <string.h>
 
 #define PLUGIN_NAME          "Yearn"
-#define NUM_SELECTORS        7
+#define NUM_SELECTORS        8
 #define MAX_VAULT_TICKER_LEN 18  // 17 characters + '\0'
 
 // Yearn partners contract address
@@ -25,6 +25,7 @@ typedef enum {
     WITHDRAW_TO,
     WITHDRAW_TO_SLIPPAGE,
     ZAP_IN,
+    CLAIM,
 } selector_t;
 
 // Enumeration used to parse the smart contract data.

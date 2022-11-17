@@ -177,6 +177,7 @@ void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
     switch (msg->screenIndex) {
         case 0:
             switch (context->selectorIndex) {
+                case CLAIM:
                 case WITHDRAW_ALL:
                     set_amount_with_all(msg);
                     break;

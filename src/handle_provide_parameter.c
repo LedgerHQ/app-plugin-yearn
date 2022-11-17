@@ -160,6 +160,7 @@ void handle_provide_parameter(void *parameters) {
         case DEPOSIT:
             handle_deposit(msg, context);
             break;
+        case CLAIM:
         case WITHDRAW_ALL:
             handle_none(msg, context);
             break;
