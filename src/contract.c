@@ -20,7 +20,7 @@ static const uint8_t WITHDRAW_TO_SLIPPAGE_SELECTOR[SELECTOR_SIZE] = {
     0x36,
     0x97,
     0xc8};  // withdraw(uint256 maxShares, address recipient, uint256 maxLoss)
-static const uint8_t CLAIM_SELECTOR[SELECTOR_SIZE] = {0x4e, 0x71, 0xd9, 0x2d}  // claim()
+static const uint8_t CLAIM_SELECTOR[SELECTOR_SIZE] = {0x4e, 0x71, 0xd9, 0x2d};  // claim()
 static const uint8_t ZAP_IN_SELECTOR[SELECTOR_SIZE] = {
     0xb6,
     0xc2,
