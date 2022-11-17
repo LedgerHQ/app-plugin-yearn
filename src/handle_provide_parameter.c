@@ -1,9 +1,20 @@
 #include "yearn_plugin.h"
 
 static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context) {
+    uint8_t partner_address[ADDRESS_LENGTH];
+
     switch (context->next_param) {
         case TRACK_VAULT:
             copy_address(context->vault_address, msg->parameter, sizeof(context->vault_address));
+            if (IS_PARTNER_CONTRACT(msg->pluginSharedRO->txContent->destination)) {
+                context->next_param = TRACK_PARTNER;
+            } else {
+                context->next_param = TRACK_AMOUNT;
+            }
+            break;
+        case TRACK_PARTNER:
+            // we don't need this, we can set it in a local var and forget about it
+            copy_address(partner_address, msg->parameter, sizeof(partner_address));
             context->next_param = TRACK_AMOUNT;
             break;
         case TRACK_AMOUNT:
