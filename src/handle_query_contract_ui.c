@@ -108,7 +108,9 @@ void set_vault_information(ethQueryContractUI_t *msg, context_t *context) {
         currentVault = (yearnVaultDefinition_t *) PIC(&YEARN_VAULTS[i]);
         if (memcmp(currentVault->address, context->vault_address, ADDRESS_LENGTH) == 0) {
             context->decimals = currentVault->decimals;
-            memcpy(context->want, currentVault->want, MAX_VAULT_TICKER_LEN);
+            if (context->selectorIndex != ZAP_IN) {
+                memcpy(context->want, currentVault->want, MAX_VAULT_TICKER_LEN);
+            }
             memcpy(context->vault, currentVault->vault, MAX_VAULT_TICKER_LEN);
             break;
         }

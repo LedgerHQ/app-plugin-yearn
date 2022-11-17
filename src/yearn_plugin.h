@@ -21,22 +21,17 @@ typedef enum {
 } selector_t;
 
 // Enumeration used to parse the smart contract data.
-typedef enum {
-    ZAP_TOKEN = 0,
-    ZAP_AMOUNT = 1,
-    ZAP_INTER_TOKEN = 2,
-    ZAP_TO_VAULT = 3,
-    ZAP_REST = 4,
-
-    TRACK_VAULT = 0,
-    TRACK_PARNER = 1,
-    TRACK_AMOUNT = 2,
-
-    AMOUNT = 0,
-    RECIPIENT,
-    SLIPPAGE,
-    UNEXPECTED_PARAMETER,
-} parameter;
+#define ZAP_TOKEN       0
+#define ZAP_AMOUNT      1
+#define ZAP_INTER_TOKEN 2
+#define ZAP_TO_VAULT    3
+#define TRACK_VAULT     4
+#define TRACK_PARNER    5
+#define TRACK_AMOUNT    6
+#define AMOUNT          7
+#define RECIPIENT       8
+#define SLIPPAGE        9
+#define UNEXPECTED_PARAMETER    13 //when it's done parsing but there's still data there
 
 extern const uint8_t *const YEARN_SELECTORS[NUM_SELECTORS];
 

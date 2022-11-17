@@ -8,6 +8,9 @@ static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context)
             break;
         case TRACK_AMOUNT:
             copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
+            context->next_param = UNEXPECTED_PARAMETER;
+            break;
+        case UNEXPECTED_PARAMETER:
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -22,6 +25,8 @@ static void handle_deposit_all(ethPluginProvideParameter_t *msg, context_t *cont
             copy_address(context->vault_address, msg->parameter, sizeof(context->vault_address));
             context->next_param = UNEXPECTED_PARAMETER;
             break;
+        case UNEXPECTED_PARAMETER:
+            break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
             msg->result = ETH_PLUGIN_RESULT_ERROR;
@@ -33,6 +38,9 @@ static void handle_withdraw(ethPluginProvideParameter_t *msg, context_t *context
     switch (context->next_param) {
         case AMOUNT:
             copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
+            context->next_param = UNEXPECTED_PARAMETER;
+            break;
+        case UNEXPECTED_PARAMETER:
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -50,6 +58,8 @@ static void handle_withdraw_to(ethPluginProvideParameter_t *msg, context_t *cont
         case RECIPIENT:
             copy_address(context->extra_address, msg->parameter, sizeof(context->extra_address));
             context->next_param = UNEXPECTED_PARAMETER;
+            break;
+        case UNEXPECTED_PARAMETER:
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -71,6 +81,8 @@ static void handle_withdraw_to_slippage(ethPluginProvideParameter_t *msg, contex
         case SLIPPAGE:
             copy_parameter(context->slippage, msg->parameter, sizeof(context->slippage));
             context->next_param = UNEXPECTED_PARAMETER;
+            break;
+        case UNEXPECTED_PARAMETER:
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -98,10 +110,9 @@ static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) 
             break;
         case ZAP_TO_VAULT:
             copy_address(context->vault_address, msg->parameter, sizeof(context->vault_address));
-            context->next_param = ZAP_REST;
-            break;
-        case ZAP_REST:
             context->next_param = UNEXPECTED_PARAMETER;
+            break;
+        case UNEXPECTED_PARAMETER:
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
