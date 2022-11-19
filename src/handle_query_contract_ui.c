@@ -101,6 +101,10 @@ static void set_vault_name(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->msg, context->vault, msg->msgLength);
 }
 
+/******************************************************************************
+**  Will search for current  vault in YEARN_VAULTS. 
+**  It will set name and want in context.
+******************************************************************************/
 void set_vault_information(ethQueryContractUI_t *msg, context_t *context) {
     uint8_t i;
     yearnVaultDefinition_t *currentVault = NULL;
@@ -116,7 +120,7 @@ void set_vault_information(ethQueryContractUI_t *msg, context_t *context) {
         }
     }
 
-    if (!context->vault) {
+    if (context->vault[0] == '\0') {
         PRINTF("Received an invalid vault\n");
         msg->result = ETH_PLUGIN_RESULT_ERROR;
     }

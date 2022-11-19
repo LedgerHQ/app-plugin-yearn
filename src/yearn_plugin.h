@@ -50,7 +50,7 @@ typedef struct yearnVaultDefinition_t {
     uint8_t decimals;
 } yearnVaultDefinition_t;
 
-#define NUM_YEARN_VAULTS 95
+#define NUM_YEARN_VAULTS 106
 extern yearnVaultDefinition_t const YEARN_VAULTS[NUM_YEARN_VAULTS];
 
 // Shared global memory with Ethereum app. Must be at most 5 * 32 bytes.
