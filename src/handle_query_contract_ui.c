@@ -102,7 +102,7 @@ static void set_vault_name(ethQueryContractUI_t *msg, context_t *context) {
 }
 
 /******************************************************************************
-**  Will search for current  vault in YEARN_VAULTS. 
+**  Will search for current vault in YEARN_VAULTS.
 **  It will set name and want in context.
 ******************************************************************************/
 void set_vault_information(ethQueryContractUI_t *msg, context_t *context) {
