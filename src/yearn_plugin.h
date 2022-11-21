@@ -64,7 +64,6 @@ typedef struct context_t {
 
     uint8_t decimals;
     uint8_t next_param;
-    uint16_t offset;
     selector_t selectorIndex;
 } context_t;
 
