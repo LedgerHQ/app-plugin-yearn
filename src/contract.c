@@ -1,10 +1,15 @@
 #include "yearn_plugin.h"
 
-static const uint8_t DEPOSIT_SELECTOR[SELECTOR_SIZE] = {0x83,
-                                                        0x40,
-                                                        0xf5,
-                                                        0x49};  // deposit(uint256 amount)
-static const uint8_t DEPOSIT_ALL_SELECTOR[SELECTOR_SIZE] = {0xf9, 0x60, 0x9f, 0x08};   // deposit()
+static const uint8_t DEPOSIT_SELECTOR[SELECTOR_SIZE] = {
+    0x83,
+    0x40,
+    0xf5,
+    0x49};  // deposit(address vault, address partnerId, uint256 amount)
+static const uint8_t DEPOSIT_ALL_SELECTOR[SELECTOR_SIZE] = {
+    0xf9,
+    0x60,
+    0x9f,
+    0x08};  // deposit(address vault, address partnerId)
 static const uint8_t WITHDRAW_ALL_SELECTOR[SELECTOR_SIZE] = {0x3c, 0xcf, 0xd6, 0x0b};  // withdraw()
 static const uint8_t WITHDRAW_SELECTOR[SELECTOR_SIZE] = {0x2e,
                                                          0x1a,
