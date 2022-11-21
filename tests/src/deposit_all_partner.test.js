@@ -3,7 +3,7 @@ import "regenerator-runtime/runtime";
 import { waitForAppScreen, zemu, genericTx, SPECULOS_ADDRESS, RANDOM_ADDRESS, txFromEtherscan} from './test.fixture';
 import { ethers } from "ethers";
 
-const BASE_SCREENS_S = (1 + 1 + 1 + 3 + 1) //YEARN + AMOUNT + VAULT + GAS_FEES + APPROVE
+const BASE_SCREENS_S = (1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + VAULT + GAS_FEES + APPROVE
 const BASE_SCREENS_X = (1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + VAULT + GAS_FEES + APPROVE
 
 const contractAddr = "0x8ee392a4787397126c163cb9844d7c447da419d8";
