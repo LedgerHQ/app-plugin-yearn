@@ -33,6 +33,9 @@ static void handle_deposit_all(ethPluginProvideParameter_t *msg, context_t *cont
             copy_address(context->vault_address, msg->parameter, sizeof(context->vault_address));
             context->next_param = UNEXPECTED_PARAMETER;
             break;
+        case UNEXPECTED_PARAMETER:
+            // there are still parameters to parse, skip them
+            break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
             msg->result = ETH_PLUGIN_RESULT_ERROR;
