@@ -1,8 +1,6 @@
 #include "yearn_plugin.h"
 
 static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context) {
-    uint8_t partner_address[ADDRESS_LENGTH];
-
     switch (context->next_param) {
         case TRACK_VAULT:
             copy_address(context->vault_address, msg->parameter, sizeof(context->vault_address));
@@ -95,8 +93,6 @@ static void handle_withdraw_to_slippage(ethPluginProvideParameter_t *msg, contex
 }
 
 static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) {
-    uint8_t inter_token[ADDRESS_LENGTH];
-
     switch (context->next_param) {
         case ZAP_TOKEN:
             copy_address(context->extra_address, msg->parameter, sizeof(context->extra_address));
