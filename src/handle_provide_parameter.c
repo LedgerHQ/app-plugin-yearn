@@ -4,11 +4,7 @@ static void handle_deposit(ethPluginProvideParameter_t *msg, context_t *context)
     switch (context->next_param) {
         case TRACK_VAULT:
             copy_address(context->vault_address, msg->parameter, sizeof(context->vault_address));
-            if (IS_PARTNER_CONTRACT(msg->pluginSharedRO->txContent->destination)) {
-                context->next_param = TRACK_PARTNER;
-            } else {
-                context->next_param = TRACK_AMOUNT;
-            }
+            context->next_param = TRACK_PARTNER;
             break;
         case TRACK_PARTNER:
             // we don't need this, skip it
