@@ -22,5 +22,10 @@ __pycache__/
 # JS
 tests/node_modules
 tests/lib
+
+# macOS
 ._.DS_Store
 .DS_Store
+
+# Templates
+tests/yearn/abis/_*.json
