@@ -27,6 +27,7 @@ void handle_init_contract(void *parameters) {
     }
     if (i == NUM_SELECTORS) {
         msg->result = ETH_PLUGIN_RESULT_UNAVAILABLE;
+        return;
     }
 
     switch (context->selectorIndex) {
@@ -34,14 +35,15 @@ void handle_init_contract(void *parameters) {
         case DEPOSIT:
             context->next_param = TRACK_VAULT;
             break;
-        case WITHDRAW_ALL:
         case CLAIM:
-        case EXIT:
-        case GET_REWARDS:
+        case WITHDRAW_ALL:
+            context->next_param = UNEXPECTED_PARAMETER;
             break;
         case WITHDRAW:
         case WITHDRAW_TO:
         case WITHDRAW_TO_SLIPPAGE:
+            context->next_param = AMOUNT;
+            break;
         case ZAP_IN:
             context->next_param = ZAP_TOKEN;
             break;

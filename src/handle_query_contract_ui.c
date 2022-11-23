@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include "yearn_plugin.h"
 
-void copy_amount_with_ticker(const uint8_t *amount,
-                             uint8_t amount_size,
-                             uint8_t amount_decimals,
+void copy_amount_with_ticker(const size_t *amount,
+                             size_t amount_size,
+                             size_t amount_decimals,
                              char *ticker,
-                             uint8_t ticker_size,
+                             size_t ticker_size,
                              char *out_buffer,
-                             uint8_t out_buffer_size) {
+                             size_t out_buffer_size) {
     char tmp_buffer[100] = {0};
-    amountToString(amount, amount_size, amount_decimals, "", tmp_buffer, 100);
-    uint8_t stringLen = strnlen(tmp_buffer, sizeof(tmp_buffer)) + 1 + ticker_size;
+    amountToString(amount, amount_size, amount_decimals, "", tmp_buffer, sizeof(tmp_buffer));
+    size_t stringLen = strnlen(tmp_buffer, sizeof(tmp_buffer)) + 1 + ticker_size;
     snprintf(out_buffer, MIN(out_buffer_size, stringLen), "%s %s", tmp_buffer, ticker);
     out_buffer[out_buffer_size - 1] = '\0';
 }
@@ -101,16 +101,33 @@ static void set_vault_name(ethQueryContractUI_t *msg, context_t *context) {
     strlcpy(msg->msg, context->vault, msg->msgLength);
 }
 
-void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *context) {
+/******************************************************************************
+**  Will search for current vault in YEARN_VAULTS.
+**  It will set name and want in context.
+******************************************************************************/
+void set_vault_information(ethQueryContractUI_t *msg, context_t *context) {
     uint8_t i;
     yearnVaultDefinition_t *currentVault = NULL;
     for (i = 0; i < NUM_YEARN_VAULTS; i++) {
         currentVault = (yearnVaultDefinition_t *) PIC(&YEARN_VAULTS[i]);
         if (memcmp(currentVault->address, context->vault_address, ADDRESS_LENGTH) == 0) {
+            context->decimals = currentVault->decimals;
+            if (context->selectorIndex != ZAP_IN) {
+                memcpy(context->want, currentVault->want, MAX_VAULT_TICKER_LEN);
+            }
             memcpy(context->vault, currentVault->vault, MAX_VAULT_TICKER_LEN);
             break;
         }
     }
+
+    if (context->vault[0] == '\0') {
+        PRINTF("Received an invalid vault\n");
+        msg->result = ETH_PLUGIN_RESULT_ERROR;
+    }
+}
+
+void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *context) {
+    set_vault_information(msg, context);
 
     switch (msg->screenIndex) {
         case 0:
@@ -127,17 +144,7 @@ void handle_query_contract_ui_zap_in(ethQueryContractUI_t *msg, context_t *conte
 }
 
 void handle_query_contract_ui_track_in(ethQueryContractUI_t *msg, context_t *context) {
-    uint8_t i;
-    yearnVaultDefinition_t *currentVault = NULL;
-    for (i = 0; i < NUM_YEARN_VAULTS; i++) {
-        currentVault = (yearnVaultDefinition_t *) PIC(&YEARN_VAULTS[i]);
-        if (memcmp(currentVault->address, context->vault_address, ADDRESS_LENGTH) == 0) {
-            context->decimals = currentVault->decimals;
-            memcpy(context->want, currentVault->want, MAX_VAULT_TICKER_LEN);
-            memcpy(context->vault, currentVault->vault, MAX_VAULT_TICKER_LEN);
-            break;
-        }
-    }
+    set_vault_information(msg, context);
 
     switch (msg->screenIndex) {
         case 0:
@@ -169,25 +176,13 @@ void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
                    pluginSharedRO->txContent->destination,
                    sizeof(context->vault_address));
 
-    // find information about vault
-    uint8_t i;
-    yearnVaultDefinition_t *currentVault = NULL;
-    for (i = 0; i < NUM_YEARN_VAULTS; i++) {
-        currentVault = (yearnVaultDefinition_t *) PIC(&YEARN_VAULTS[i]);
-        if (memcmp(currentVault->address, context->vault_address, ADDRESS_LENGTH) == 0) {
-            context->decimals = currentVault->decimals;
-            memcpy(context->want, currentVault->want, MAX_VAULT_TICKER_LEN);
-            memcpy(context->vault, currentVault->vault, MAX_VAULT_TICKER_LEN);
-            break;
-        }
-    }
+    set_vault_information(msg, context);
+
     switch (msg->screenIndex) {
         case 0:
             switch (context->selectorIndex) {
-                case WITHDRAW_ALL:
                 case CLAIM:
-                case GET_REWARDS:
-                case EXIT:
+                case WITHDRAW_ALL:
                     set_amount_with_all(msg);
                     break;
                 case WITHDRAW_TO_SLIPPAGE:

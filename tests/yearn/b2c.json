@@ -1,19 +1,10 @@
 {
     "chainId": 1,
     "contracts": [{
-        "address": "0x8e52522e6a77578904ddd7f528a22521dc4154f5",
+        "address": "0xc2c171bd6fc3b5885b589ed8b4d135f31085e973",
         "contractName": "Zap In",
         "selectors": {
-            "0xe69663f1": {"erc20OfInterest": ["fromToken"], "method": "ZapIn", "plugin": "Yearn"}
-        }
-    }, {
-        "address": "0xda481b277dce305b97f4091bd66595d57cf31634",
-        "contractName": "Pickle Gauge",
-        "selectors": {
-            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
-            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
-            "0xe9fad8ee": {"erc20OfInterest": [], "method": "exit", "plugin": "Yearn"},
-            "0x3d18b912": {"erc20OfInterest": [], "method": "getReward", "plugin": "Yearn"}
+            "0xb6c2c6e9": {"erc20OfInterest": ["sellToken"], "method": "portalIn", "plugin": "Yearn"}
         }
     }, {
         "address": "0x8ee392a4787397126c163cb9844d7c447da419d8",
@@ -935,6 +926,52 @@
             "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
             "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
         }
+    }, {
+        "address": "0x3b27f92c0e212c671ea351827edf93db27cc0c65",
+        "contractName": "USDT yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x4213458c69c19e6792510e1153cb0c5834665fdc",
+        "contractName": "Balancer Boosted Aave USD Pool yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+	    "address": "0xc5f3d11580c41cd07104e9af154fc6428bb93c73",
+    	"contractName": "Balancer Boosted Aave USD Pool yVault",
+    	"selectors": {
+	    	"0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+		    "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+    		"0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+	    	"0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+    	}
+    }, {
+    	"address": "0x27b5739e22ad9033bcbf192059122d163b60349d",
+	    "contractName": "Staked Yearn CRV Vault",
+    	"selectors": {
+	    	"0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+		    "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+    		"0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+	    	"0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+    	}
+    },
+    {
+    	"address": "0xc97232527b62efb0d8ed38cf3ea103a6cca4037e",
+    	"contractName": "LP Yearn CRV Vault",
+    	"selectors": {
+	    	"0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+		    "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+    		"0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+	    	"0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+    	}
     }],
-    "name": "Yearn"
+    "name": "Yearn" 
 }

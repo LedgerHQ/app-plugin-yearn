@@ -12,7 +12,6 @@ void handle_finalize(void *parameters) {
             }
             break;
         case CLAIM:
-        case GET_REWARDS:
             msg->numScreens -= 1;
             break;
         case WITHDRAW_TO_SLIPPAGE:

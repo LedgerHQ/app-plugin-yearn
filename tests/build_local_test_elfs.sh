@@ -1,45 +1,87 @@
 #!/bin/bash
 
 # FILL THESE WITH YOUR OWN SDKs PATHS and APP-ETHEREUM's ROOT
-#NANOS_SDK=$NANOS_SDK
-#NANOX_SDK=$NANOX_SDK
-APP_ETHEREUM=/plugin_dev/app-ethereum
+NANOS_SDK=$NANOS_SDK
+NANOSP_SDK=$NANOSP_SDK
+NANOX_SDK=$NANOX_SDK
+APP_ETHEREUM=${APP_ETHEREUM:-"/plugin_dev/app-ethereum"}
 
-# create elfs folder if it doesn't exist
-mkdir -p elfs
+set -e
 
-# move to repo's root to build apps
-cd ..
+build_plugin() {
+    # arguments: <SDK letter>
+    echo "** Building app-plugin for Nano $1..."
+    local target="$(realpath './elfs/')/plugin_nano${1,,}.elf"
+    if [ "$1" == "S" ];
+    then
+        local sdk=$NANOS_SDK
+    elif [ "$1" == "SP" ];
+    then
+        local sdk=$NANOSP_SDK
+    elif [ "$1" == "X" ];
+    then
+        local sdk=$NANOX_SDK
+    else
+        echo "Unknown SDK '$1'"
+        exit 1
+    fi
+    cd ..
+    make clean BOLOS_SDK="$sdk"
+    make -j DEBUG=1 BOLOS_SDK="$sdk"
+    cp bin/app.elf "$target"
+    cd -
+}
 
-echo "*Building elfs for Nano S..."
-export BOLOS_SDK="$NANOS_SDK"
+build_ethereum() {
+    # arguments: <SDK letter>
+    echo "** Building app-ethereum for Nano $1..."
+    local target="$(realpath './elfs/')/ethereum_nano${1,,}.elf"
+    if [ "$1" == "S" ];
+    then
+        local sdk=$NANOS_SDK
+    elif [ "$1" == "SP" ];
+    then
+        local sdk=$NANOSP_SDK
+    elif [ "$1" == "X" ];
+    then
+        local sdk="$NANOX_SDK"
+    else
+        echo "Unknown SDK '$1'"
+        exit 1
+    fi
+    cd "$APP_ETHEREUM"
+    make clean BOLOS_SDK="$sdk"
+    make -j DEBUG=1 BYPASS_SIGNATURES=1 BOLOS_SDK="$sdk" CHAIN=ethereum
+    cp bin/app.elf "$target"
+    cd -
+}
 
-echo "**Building app-plugin for Nano S..."
-make clean
-make -j DEBUG=1
-cp bin/app.elf "tests/elfs/plugin_nanos.elf"
 
-echo "**Building app-ethereum for Nano S..."
-cd "$APP_ETHEREUM" || exit
-make clean
-make -j DEBUG=1 BYPASS_SIGNATURES=1 CHAIN=ethereum
-cd - || exit
-cp "${APP_ETHEREUM}/bin/app.elf" "tests/elfs/ethereum_nanos.elf"
+main() {
+    # create elfs folder if it doesn't exist
+    mkdir -p elfs
+
+    if [ $# -ne 0 ];
+    then
+        test -d "$1" ||
+            (echo "Provided argument '$1' is expected to be the app-ethereum repository path, but is not a directory" && exit 1);
+        APP_ETHEREUM="$1"
+    fi
+
+    echo "* Building elfs for Nano S..."
+    build_plugin "S"
+    build_ethereum "S"
+
+    echo "* Building elfs for Nano S Plus..."
+    build_plugin "SP"
+    build_ethereum "SP"
+
+    echo "* Building elfs for Nano X..."
+    build_plugin "X"
+    build_ethereum "X"
+
+    echo "* Done"
+}
 
 
-echo "*Building elfs for Nano X..."
-export BOLOS_SDK="$NANOX_SDK"
-
-echo "**Building plugin for Nano X..."
-make clean
-make -j DEBUG=1
-cp bin/app.elf "tests/elfs/plugin_nanox.elf"
-
-echo "**Building app-ethereum for Nano X..."
-cd "$APP_ETHEREUM" || exit
-make clean
-make -j DEBUG=1 BYPASS_SIGNATURES=1 CHAIN=ethereum
-cd - || exit
-cp "${APP_ETHEREUM}/bin/app.elf" "tests/elfs/ethereum_nanox.elf"
-
-echo "done"
+main "$@"
