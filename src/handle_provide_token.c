@@ -8,7 +8,8 @@ void handle_provide_token(void *parameters) {
     ethPluginProvideInfo_t *msg = (ethPluginProvideInfo_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
 
-    if (memcmp(context->extra_address, NULL_ETH_ADDRESS, ADDRESS_LENGTH) == 0) {
+    if (context->selectorIndex != DEPOSIT && context->selectorIndex != DEPOSIT_ALL &&
+        memcmp(context->extra_address, NULL_ETH_ADDRESS, ADDRESS_LENGTH) == 0) {
         context->decimals = 18;
         strlcpy(context->want, "ETH", sizeof(context->want));
     } else if (msg->item1) {
