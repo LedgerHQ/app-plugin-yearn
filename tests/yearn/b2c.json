@@ -972,6 +972,15 @@
     		"0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
 	    	"0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
     	}
+    }, {
+        "address": "0xe1747f4d30479d7a2dcfea5af69fb86b8f71ccec",
+        "contractName": "Curve TRYb Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
     }],
     "name": "Yearn" 
 }
