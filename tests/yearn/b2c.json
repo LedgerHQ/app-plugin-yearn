@@ -999,6 +999,177 @@
             "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
             "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
         }
+    }, {
+        "address": "0x04d549bafe83b8bdccc8df38f15b90199d20f1ee",
+        "contractName": "Curve tBTC Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x9f8b5c0fc18b79ddfc05b21c43da7e324cf3b8eb",
+        "contractName": "Curve ibEUR-USDC Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x3221bfbe308144f19089cb197b7c11c2bf495906",
+        "contractName": "Curve BTRFLY-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xdb26d8815eda864dfa43306766f2f8ca50c03f9e",
+        "contractName": "Curve msUSD-FRAXBP Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x5cbf567cb0c3d319a052c91efb3b3318899338df",
+        "contractName": "Curve pETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x63c5c0604ec410130c69c958acab81794f7a622f",
+        "contractName": "Curve MATIC-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xca46d6e44499afbd8795f8f86910f068a6bf1a7c",
+        "contractName": "Curve DYDX-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xe6570a24ce63dd588195b98aad9f91b121d5f3d7",
+        "contractName": "Curve FXS-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x5359680a80c1fb2175cd33eff32f762e43cd8c41",
+        "contractName": "Curve ibKRW Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xbe4afe6737ccf34ca21cdef461e5c7547adc8c77",
+        "contractName": "Curve ibGBP Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x72faea467bd88db6720a861e56a3a72b4aa579df",
+        "contractName": "Curve ibCHF Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x98fa691998a9e6f410702dea8bc08a9d500aaafe",
+        "contractName": "Curve STG-FRAXBP Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xd6b2f4f0586bcfc9b1bf5cd8e22546add7b81a64",
+        "contractName": "Curve T-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x2fb06235ab90812e5bae28404024c9498ff9414d",
+        "contractName": "Curve JPEG-pETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xe80cc7b2b69f32999766c1a0035ab77e8fb5b99c",
+        "contractName": "Curve cvxFXS Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x91ae8feabe09182fe5f91fc273040b7d8f7aefe7",
+        "contractName": "Curve Paxos Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x2ab6578239ed541ef7cc7d11a45d740ce9f0a1f4",
+        "contractName": "Curve CTR-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x1c97e67dc7ca179ae82e0c4aff4af9ff66612a43",
+        "contractName": "Curve PALETH-f Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xc869206adafd3d874db22e8bba662e05f6257613",
+        "contractName": "Curve clevCVX-f Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
     }],
     "name": "Yearn" 
 }
