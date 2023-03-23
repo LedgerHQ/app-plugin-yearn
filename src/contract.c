@@ -691,5 +691,4 @@ const yearnVaultDefinition_t YEARN_VAULTS[NUM_YEARN_VAULTS] = {
       0x2e, 0x8b, 0xba, 0x66, 0x2e, 0x05, 0xf6, 0x25, 0x76, 0x13},
      "clevCVX-f",
      "yvCurve-clevCVX-f",
-     18}
- };
+     18}};
