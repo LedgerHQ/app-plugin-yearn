@@ -1,7 +1,6 @@
 // You will need to create a folder with this name, and put in the abis of your contracts in `abis/`.
 // You will also need to create a `b2c.json` file that will hold the methodIDs and location of
 // the erc20 tokens that should get displayed.
-// EDIT THIS: replace with the name of your plugin (lowercase)
 const pluginFolder = "yearn";
 
 function serialize_data(pluginName, contractAddress, selector) {
@@ -21,10 +20,11 @@ function assert(condition, message) {
 }
 
 // Function to generate the plugin configuration.
-function generate_plugin_config() {
+function generate_plugin_config(network="ethereum") {
 	
 	var fs = require('fs');
-	var files = fs.readdirSync(`${pluginFolder}/abis/`);
+	var files = fs.readdirSync(`networks/${network}/${pluginFolder}/abis/`);
+
 	
 	// `contracts_to_abis` holds a maping of contract addresses to abis
 	let contracts_to_abis = {};
@@ -34,13 +34,14 @@ function generate_plugin_config() {
 		// Strip ".json" suffix
 		let contractAddress = abiFileName.slice(0, abiFileName.length - ".json".length);
 		// Load abi
-		let abi = require(`../${pluginFolder}/abis/${abiFileName}`);
+		let abi = require(`../networks/${network}/${pluginFolder}/abis/${abiFileName}`);
 		// Add it to contracts
 		contracts_to_abis[contractAddress] = abi;
 	}
 	
 	// Load the b2c.json file
-	const b2c = require(`../${pluginFolder}/b2c.json`);
+	const b2c = require(`../networks/${network}/${pluginFolder}/b2c.json`);
+
 	
 	let res = {};
 	
