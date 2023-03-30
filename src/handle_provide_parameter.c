@@ -141,7 +141,6 @@ static void handle_zap_crv(ethPluginProvideParameter_t *msg, context_t *context)
     }
 }
 
-
 static void handle_none(ethPluginProvideParameter_t *msg, context_t *context) {
     switch (context->next_param) {
         default:
