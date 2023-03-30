@@ -1,58 +1,30 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import { waitForAppScreen, zemu, genericTx } from './test.fixture';
+import { waitForAppScreen, zemu, genericTx, nano_models } from './test.fixture';
 import { ethers } from "ethers";
+import { parseEther } from "ethers/lib/utils";
 
-const contractAddr = "0xA696a63cc78DfFa1a63E9E50587C197387FF6C7E";
-const AMOUNT_TO_DEPOSIT = '212345678'; // 2.12345678
-const recipient = "0xB8c93dF4E1e6b1097889554D9294Dfb42814063a"; //Never use this address for anything other than tests - compromised
-const BASE_SCREENS_S = (1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + GAS_FEES + VAULT + APPROVE
-const BASE_SCREENS_X = (1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + GAS_FEES + VAULT + APPROVE
+const BASE_SCREENS_S = 8
+const BASE_SCREENS_X = 6
 
-// Nanos S test
-test('[Nano S] Withdraw Tokens with Recipient 8 decimals', zemu("nanos", async (sim, eth) => {
-  const contract = new ethers.Contract(contractAddr, ['function withdraw(uint256, address)']);
-  const {data} = await contract.populateTransaction.withdraw(AMOUNT_TO_DEPOSIT, recipient);
-  let unsignedTx = genericTx;
-  unsignedTx.to = contractAddr;
-  unsignedTx.data = data;
+nano_models.forEach(function(model) {
+  test('[Nano ' + model.letter + '] Withdraw Tokens with Recipient 8 decimals', zemu(model, async (sim, eth) => {
+    const contractAddr = "0xA696a63cc78DfFa1a63E9E50587C197387FF6C7E";
+    const contract = new ethers.Contract(contractAddr, ['function withdraw(uint256, address)']);
+    const amountToDeposit = '212345678'; // 2.12345678
+    const recipient = "0xB8c93dF4E1e6b1097889554D9294Dfb42814063a"; //Never use this address for anything other than tests - compromised
+    const {data} = await contract.populateTransaction.withdraw(amountToDeposit, recipient);
 
-  const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
-  const tx = eth.signTransaction("44'/60'/0'/0", serializedTx);
+    let unsignedTx = genericTx;
+    unsignedTx.to = contractAddr;
+    unsignedTx.data = data;
+    unsignedTx.value = parseEther("0.1");
+    const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
+    const tx = eth.signTransaction("44'/60'/0'/0", serializedTx);
+    const right_clicks = model.letter === 'S' ? BASE_SCREENS_S : BASE_SCREENS_X;
+    await waitForAppScreen(sim);
+    await sim.navigateAndCompareSnapshots('.', model.name + '_withdraw_recipient_8', [right_clicks, 0]);
+    await tx;
+  }));
+});
 
-  await waitForAppScreen(sim);
-  await sim.navigateAndCompareSnapshots('.', 'nanos_withdraw_recipient_8', [BASE_SCREENS_S + 3, 0]);
-  await tx;
-}));
-
-test('[Nano X] Withdraw Tokens with Recipient 8 decimals', zemu("nanox", async (sim, eth) => {
-  const contract = new ethers.Contract(contractAddr, ['function withdraw(uint256, address)']);
-  const {data} = await contract.populateTransaction.withdraw(AMOUNT_TO_DEPOSIT, recipient);
-
-  let unsignedTx = genericTx;
-  unsignedTx.to = contractAddr;
-  unsignedTx.data = data;
-
-  const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
-  const tx = eth.signTransaction("44'/60'/0'/0", serializedTx);
-
-  await waitForAppScreen(sim);
-  await sim.navigateAndCompareSnapshots('.', 'nanox_withdraw_recipient_8', [BASE_SCREENS_X + 1, 0]);
-  await tx;
-}));
-
-test('[Nano SP] Withdraw Tokens with Recipient 8 decimals', zemu("nanosp", async (sim, eth) => {
-  const contract = new ethers.Contract(contractAddr, ['function withdraw(uint256, address)']);
-  const {data} = await contract.populateTransaction.withdraw(AMOUNT_TO_DEPOSIT, recipient);
-
-  let unsignedTx = genericTx;
-  unsignedTx.to = contractAddr;
-  unsignedTx.data = data;
-
-  const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
-  const tx = eth.signTransaction("44'/60'/0'/0", serializedTx);
-
-  await waitForAppScreen(sim);
-  await sim.navigateAndCompareSnapshots('.', 'nanox_withdraw_recipient_8', [BASE_SCREENS_X + 1, 0]);
-  await tx;
-}));

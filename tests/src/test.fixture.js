@@ -1,4 +1,4 @@
-import Zemu, { DEFAULT_START_OPTIONS, DeviceModel } from '@zondax/zemu';
+import Zemu, { DEFAULT_START_OPTIONS } from '@zondax/zemu';
 import Eth from '@ledgerhq/hw-app-eth';
 import { generate_plugin_config } from './generate_plugin_config';
 import { parseEther, parseUnits, RLP} from "ethers/lib/utils";
@@ -50,7 +50,7 @@ let genericTx = {
     data: null,
 };
 
-const TIMEOUT = 1000000;
+export const TIMEOUT = 1000000;
 
 // Generates a serializedTransaction from a rawHexTransaction copy pasted from etherscan.
 function txFromEtherscan(rawTx) {
@@ -87,7 +87,6 @@ function zemu(device, func) {
         let elf_path;
         let lib_elf;
         elf_path = device.eth_path;
-        // Edit this: replace `Boilerplate` by your plugin name
         lib_elf = { 'Yearn': device.path };
 
         const sim = new Zemu(elf_path, lib_elf);
