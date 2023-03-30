@@ -98,7 +98,7 @@ static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) 
             copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
             context->next_param = UNUSED_PARAMETER;
             break;
-        case UNUSED_PARAMETER: // we don't need this, skip it
+        case UNUSED_PARAMETER:  // we don't need this, skip it
             context->next_param = ZAP_TO_VAULT;
             break;
         case ZAP_TO_VAULT:
