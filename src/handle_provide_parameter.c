@@ -130,9 +130,9 @@ static void handle_zap_crv(ethPluginProvideParameter_t *msg, context_t *context)
             copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
             context->next_param = UNUSED_PARAMETER;
             break;
-        case UNUSED_PARAMETER: // we don't need this, skip it
+        case UNUSED_PARAMETER:  // we don't need this, skip it
             break;
-        case UNEXPECTED_PARAMETER: // there are still parameters to parse, skip them
+        case UNEXPECTED_PARAMETER:  // there are still parameters to parse, skip them
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);

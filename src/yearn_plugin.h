@@ -23,15 +23,15 @@ typedef enum {
 } selector_t;
 
 // Enumeration used to parse the smart contract data.
-#define ZAP_TOKEN            0
-#define ZAP_AMOUNT           1
-#define ZAP_TO_VAULT         2
-#define TRACK_VAULT          3
-#define TRACK_PARTNER        4
-#define TRACK_AMOUNT         5
-#define AMOUNT               6
-#define RECIPIENT            7
-#define SLIPPAGE             8
+#define ZAP_TOKEN     0
+#define ZAP_AMOUNT    1
+#define ZAP_TO_VAULT  2
+#define TRACK_VAULT   3
+#define TRACK_PARTNER 4
+#define TRACK_AMOUNT  5
+#define AMOUNT        6
+#define RECIPIENT     7
+#define SLIPPAGE      8
 // Unused or unexpected parameters
 #define UNUSED_PARAMETER     10
 #define UNEXPECTED_PARAMETER 13  // when it's done parsing but there's still data there
