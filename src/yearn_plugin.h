@@ -5,15 +5,8 @@
 #include <string.h>
 
 #define PLUGIN_NAME          "Yearn"
-#define NUM_SELECTORS        8
+#define NUM_SELECTORS        9
 #define MAX_VAULT_TICKER_LEN 18  // 17 characters + '\0'
-
-// Yearn partners contract address
-// We use it to track partner's deposits to vaults
-extern const uint8_t YEARN_PARTNERS_ADDRESS[ADDRESS_LENGTH];
-
-// Returns 1 if the address is Yearn partners contract
-#define IS_PARTNER_CONTRACT(_addr) (!memcmp(_addr, YEARN_PARTNERS_ADDRESS, ADDRESS_LENGTH))
 
 // Enumeration of the different selectors possible.
 // Should follow the exact same order as the array declared in main.c
@@ -25,20 +18,22 @@ typedef enum {
     WITHDRAW_TO,
     WITHDRAW_TO_SLIPPAGE,
     ZAP_IN,
+    ZAP_CRV,
     CLAIM,
 } selector_t;
 
 // Enumeration used to parse the smart contract data.
 #define ZAP_TOKEN            0
 #define ZAP_AMOUNT           1
-#define ZAP_INTER_TOKEN      2
-#define ZAP_TO_VAULT         3
-#define TRACK_VAULT          4
-#define TRACK_PARTNER        5
-#define TRACK_AMOUNT         6
-#define AMOUNT               7
-#define RECIPIENT            8
-#define SLIPPAGE             9
+#define ZAP_TO_VAULT         2
+#define TRACK_VAULT          3
+#define TRACK_PARTNER        4
+#define TRACK_AMOUNT         5
+#define AMOUNT               6
+#define RECIPIENT            7
+#define SLIPPAGE             8
+// Unused or unexpected parameters
+#define UNUSED_PARAMETER     10
 #define UNEXPECTED_PARAMETER 13  // when it's done parsing but there's still data there
 
 extern const uint8_t *const YEARN_SELECTORS[NUM_SELECTORS];
@@ -50,7 +45,7 @@ typedef struct yearnVaultDefinition_t {
     uint8_t decimals;
 } yearnVaultDefinition_t;
 
-#define NUM_YEARN_VAULTS 106
+#define NUM_YEARN_VAULTS 128
 extern yearnVaultDefinition_t const YEARN_VAULTS[NUM_YEARN_VAULTS];
 
 // Shared global memory with Ethereum app. Must be at most 5 * 32 bytes.

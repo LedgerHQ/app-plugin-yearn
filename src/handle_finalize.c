@@ -17,6 +17,7 @@ void handle_finalize(void *parameters) {
         case WITHDRAW_TO_SLIPPAGE:
             msg->numScreens += 2;
             break;
+        case ZAP_CRV:
         case ZAP_IN:
             msg->tokenLookup1 = context->extra_address;
             break;

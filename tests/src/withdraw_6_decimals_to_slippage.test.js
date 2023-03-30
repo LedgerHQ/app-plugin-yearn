@@ -1,6 +1,6 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import { waitForAppScreen, zemu, genericTx } from './test.fixture';
+import { waitForAppScreen, zemu, genericTx } from '../src/test.fixture';
 import { ethers } from "ethers";
 
 const contractAddr = "0x5f18c75abdae578b483e5f43f12a39cf75b973a9";

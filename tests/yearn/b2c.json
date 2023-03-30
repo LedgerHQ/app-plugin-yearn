@@ -14,6 +14,12 @@
             "0xf9609f08": {"erc20OfInterest": [], "method": "deposit_all", "plugin": "Yearn"}
         }
     }, {
+        "address": "0x01d7f32b6e463c96c00575fa97b8224326c6a6b9",
+        "contractName": "yCRV Zap",
+        "selectors": {
+            "0x51787905": {"erc20OfInterest": ["_input_token"], "method": "zap", "plugin": "Yearn"}
+        }
+    }, {
         "address": "0xc5bddf9843308380375a611c18b50fb9341f502a",
         "contractName": "yveCRV",
         "selectors": {

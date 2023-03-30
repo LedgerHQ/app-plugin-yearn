@@ -224,6 +224,7 @@ void handle_query_contract_ui(void *parameters) {
         case DEPOSIT_ALL:
             handle_query_contract_ui_track_in(msg, context);
             break;
+        case ZAP_CRV:
         case ZAP_IN:
             handle_query_contract_ui_zap_in(msg, context);
             break;
