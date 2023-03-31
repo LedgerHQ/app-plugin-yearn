@@ -47,6 +47,9 @@ void handle_init_contract(void *parameters) {
         case ZAP_IN:
             context->next_param = ZAP_TOKEN;
             break;
+        case ZAP_CRV:
+            context->next_param = ZAP_TOKEN;
+            break;
         default:
             PRINTF("Missing selectorIndex: %d\n", context->selectorIndex);
             msg->result = ETH_PLUGIN_RESULT_ERROR;

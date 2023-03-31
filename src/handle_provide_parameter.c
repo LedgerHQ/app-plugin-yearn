@@ -96,10 +96,9 @@ static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) 
             break;
         case ZAP_AMOUNT:
             copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
-            context->next_param = ZAP_INTER_TOKEN;
+            context->next_param = UNUSED_PARAMETER;
             break;
-        case ZAP_INTER_TOKEN:
-            // we don't need this, skip it
+        case UNUSED_PARAMETER:  // we don't need this, skip it
             context->next_param = ZAP_TO_VAULT;
             break;
         case ZAP_TO_VAULT:
@@ -108,6 +107,32 @@ static void handle_zap_in(ethPluginProvideParameter_t *msg, context_t *context) 
             break;
         case UNEXPECTED_PARAMETER:
             // there are still parameters to parse, skip them
+            break;
+        default:
+            PRINTF("Param not supported: %d\n", context->next_param);
+            msg->result = ETH_PLUGIN_RESULT_ERROR;
+            break;
+    }
+}
+
+// handle_zap_crv with inputAddress, outputAddress, amountIn, minAmountIn, recipientAddress
+static void handle_zap_crv(ethPluginProvideParameter_t *msg, context_t *context) {
+    switch (context->next_param) {
+        case ZAP_TOKEN:
+            copy_address(context->extra_address, msg->parameter, sizeof(context->extra_address));
+            context->next_param = ZAP_TO_VAULT;
+            break;
+        case ZAP_TO_VAULT:
+            copy_address(context->vault_address, msg->parameter, sizeof(context->vault_address));
+            context->next_param = ZAP_AMOUNT;
+            break;
+        case ZAP_AMOUNT:
+            copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
+            context->next_param = UNUSED_PARAMETER;
+            break;
+        case UNUSED_PARAMETER:  // we don't need this, skip it
+            break;
+        case UNEXPECTED_PARAMETER:  // there are still parameters to parse, skip them
             break;
         default:
             PRINTF("Param not supported: %d\n", context->next_param);
@@ -159,6 +184,9 @@ void handle_provide_parameter(void *parameters) {
             break;
         case ZAP_IN:
             handle_zap_in(msg, context);
+            break;
+        case ZAP_CRV:
+            handle_zap_crv(msg, context);
             break;
         default:
             PRINTF("Selector Index not supported: %d\n", context->selectorIndex);

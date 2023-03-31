@@ -1,58 +1,29 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import { waitForAppScreen, zemu, genericTx } from './test.fixture';
+import { waitForAppScreen, zemu, nano_models, genericTx} from './test.fixture';
 import { ethers } from "ethers";
+import { parseEther } from "ethers/lib/utils";
 
-const contractAddr = "0x054af22e1519b020516d72d749221c24756385c9";
-const AMOUNT_TO_DEPOSIT = '345123456789352738273'; // 345.123456789352738273
-const recipient = "0xB8c93dF4E1e6b1097889554D9294Dfb42814063a"; //Never use this address for anything other than tests - compromised
-const BASE_SCREENS_S = (1 + 2 + 1 + 1 + 1) //YEARN + AMOUNT + GAS_FEES + VAULT + APPROVE
-const BASE_SCREENS_X = (1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + GAS_FEES + VAULT + APPROVE
+const BASE_SCREENS_S = 10
+const BASE_SCREENS_X = 7
 
-// Nanos S test
-test('[Nano S] Withdraw Tokens with Recipient and Slippage 18 decimals', zemu("nanos", async (sim, eth) => {
-  const contract = new ethers.Contract(contractAddr, ['function withdraw(uint256, address, uint256)']);
-  const {data} = await contract.populateTransaction.withdraw(AMOUNT_TO_DEPOSIT, recipient, 1000);
-  let unsignedTx = genericTx;
-  unsignedTx.to = contractAddr;
-  unsignedTx.data = data;
+nano_models.forEach(function(model) {
+  test('[Nano ' + model.letter + '] Withdraw Tokens with Recipient and Slippage 18 decimals', zemu(model, async (sim, eth) => {
+    const contractAddr = "0x054af22e1519b020516d72d749221c24756385c9";
+    const contract = new ethers.Contract(contractAddr, ['function withdraw(uint256, address, uint256)']);
+    const amountToDeposit = '345123456789352738273'; // 345.123456789352738273
+    const recipient = "0xB8c93dF4E1e6b1097889554D9294Dfb42814063a"; //Never use this address for anything other than tests - compromised
+    const {data} = await contract.populateTransaction.withdraw(amountToDeposit, recipient, 1000);
 
-  const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
-  const tx = eth.signTransaction("44'/60'/0'/0", serializedTx);
-
-  await waitForAppScreen(sim);
-  await sim.navigateAndCompareSnapshots('.', 'nanos_withdraw_recipient_splippage_18', [BASE_SCREENS_S + 3 + 1, 0]);
-  await tx;
-}));
-
-test('[Nano X] Withdraw Tokens with Recipient and Slippage 18 decimals', zemu("nanox", async (sim, eth) => {
-  const contract = new ethers.Contract(contractAddr, ['function withdraw(uint256, address, uint256)']);
-  const {data} = await contract.populateTransaction.withdraw(AMOUNT_TO_DEPOSIT, recipient, 1000);
-
-  let unsignedTx = genericTx;
-  unsignedTx.to = contractAddr;
-  unsignedTx.data = data;
-
-  const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
-  const tx = eth.signTransaction("44'/60'/0'/0", serializedTx);
-
-  await waitForAppScreen(sim);
-  await sim.navigateAndCompareSnapshots('.', 'nanox_withdraw_recipient_splippage_18', [BASE_SCREENS_X + 1 + 1, 0]);
-  await tx;
-}));
-
-test('[Nano SP] Withdraw Tokens with Recipient and Slippage 18 decimals', zemu("nanosp", async (sim, eth) => {
-  const contract = new ethers.Contract(contractAddr, ['function withdraw(uint256, address, uint256)']);
-  const {data} = await contract.populateTransaction.withdraw(AMOUNT_TO_DEPOSIT, recipient, 1000);
-
-  let unsignedTx = genericTx;
-  unsignedTx.to = contractAddr;
-  unsignedTx.data = data;
-
-  const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
-  const tx = eth.signTransaction("44'/60'/0'/0", serializedTx);
-
-  await waitForAppScreen(sim);
-  await sim.navigateAndCompareSnapshots('.', 'nanox_withdraw_recipient_splippage_18', [BASE_SCREENS_X + 1 + 1, 0]);
-  await tx;
-}));
+    let unsignedTx = genericTx;
+    unsignedTx.to = contractAddr;
+    unsignedTx.data = data;
+    unsignedTx.value = parseEther("0.1");
+    const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
+    const tx = eth.signTransaction("44'/60'/0'/0", serializedTx);
+    const right_clicks = model.letter === 'S' ? BASE_SCREENS_S : BASE_SCREENS_X;
+    await waitForAppScreen(sim);
+    await sim.navigateAndCompareSnapshots('.', model.name + '_withdraw_recipient_splippage_18', [right_clicks, 0]);
+    await tx;
+  }));
+});
