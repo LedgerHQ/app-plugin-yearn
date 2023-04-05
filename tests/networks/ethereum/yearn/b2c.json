@@ -1,0 +1,1181 @@
+{
+    "chainId": 1,
+    "contracts": [{
+        "address": "0xc2c171bd6fc3b5885b589ed8b4d135f31085e973",
+        "contractName": "Zap In",
+        "selectors": {
+            "0xb6c2c6e9": {"erc20OfInterest": ["sellToken"], "method": "portalIn", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x8ee392a4787397126c163cb9844d7c447da419d8",
+        "contractName": "YearnPartnerTracker",
+        "selectors": {
+            "0x8340f549": {"erc20OfInterest": [], "method": "deposit", "plugin": "Yearn"},
+            "0xf9609f08": {"erc20OfInterest": [], "method": "deposit_all", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x01d7f32b6e463c96c00575fa97b8224326c6a6b9",
+        "contractName": "yCRV Zap",
+        "selectors": {
+            "0x51787905": {"erc20OfInterest": ["_input_token"], "method": "zap", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xc5bddf9843308380375a611c18b50fb9341f502a",
+        "contractName": "yveCRV",
+        "selectors": {
+            "0x4e71d92d": {"erc20OfInterest": [], "method": "claim", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xbfa4d8aa6d8a379abfe7793399d3ddacc5bbecbb",
+        "contractName": "DAI",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xe2f6b9773bf3a015e2aa70741bde1498bdb9425b",
+        "contractName": "USDC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xe11ba472f74869176652c35d30db89854b5ae84d",
+        "contractName": "HEGIC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x19d3364a399d251e894ac732651be8b0e4e85001",
+        "contractName": "DAI",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x5f18c75abdae578b483e5f43f12a39cf75b973a9",
+        "contractName": "USDC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xdcd90c7f6324cfa40d7169ef80b12031770b4325",
+        "contractName": "Curve stETH",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xcb550a6d4c8e3517a939bc79d0c7093eb7cf56b5",
+        "contractName": "WBTC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x986b4aff588a109c09b50a03f42e4110e29d353f",
+        "contractName": "Curve sETH",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xa9fe4601811213c340e850ea305481aff02f5b28",
+        "contractName": "ETH",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xe14d13d8b3b85af791b2aadd661cdbd5e6097db1",
+        "contractName": "YFI",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xb8c3b7a2a618c552c23b1e4701109a9e756bab67",
+        "contractName": "1INCH",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x27b7b1ad7288079a66d12350c828d3c00a6f07d7",
+        "contractName": "Curve Iron Bank",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x625b7df2fa8abe21b0a976736cda4775523aed1e",
+        "contractName": "Curve HBTC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x9d409a0a012cfba9b15f6d4b36ac57a46966ab9a",
+        "contractName": "yveCRV",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x8414db07a7f743debafb402070ab01a4e0d2e45e",
+        "contractName": "Curve sBTC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x7047f90229a057c13bf847c0744d646cfb6c9e1a",
+        "contractName": "Curve renBTC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xb4d1be44bff40ad6e506edf43156577a3f8672ec",
+        "contractName": "Curve sAave",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xe9dc63083c464d6edccff23444ff3cfc6886f6fb",
+        "contractName": "Curve oBTC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x3c5df3077bcf800640b5dae8c91106575a4826e6",
+        "contractName": "Curve pBTC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x5fa5b62c8af877cb37031e0a3b2f34a78e3c56a6",
+        "contractName": "Curve LUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x8fa3a9ecd9efb07a8ce90a6eb014cf3c0e3b32ef",
+        "contractName": "Curve BBTC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x23d3d0f1c697247d5e0a9efb37d8b0ed0c464f7f",
+        "contractName": "Curve tBTC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x7da96a3891add058ada2e826306d812c638d87a7",
+        "contractName": "USDT",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xa696a63cc78dffa1a63e9e50587c197387ff6c7e",
+        "contractName": "WBTC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xb4ada607b9d6b2c9ee07a275e9616b84ac560139",
+        "contractName": "Curve FRAX",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xfbeb78a723b8087fd2ea7ef1afec93d35e8bed42",
+        "contractName": "UNI",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x8ee57c05741aa9db947a744e713c15d4d19d8822",
+        "contractName": "Curve yBUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xd6ea40597be05c201845c0bfd2e96a60bacde267",
+        "contractName": "Curve Compound",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x2a38b9b0201ca39b17b460ed2f11e4929559071e",
+        "contractName": "Curve GUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x4b5bfd52124784745c1071dcb244c6688d2533d3",
+        "contractName": "Curve yCRV",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x84e13785b5a27879921d6f685f041421c7f482da",
+        "contractName": "Curve 3Crv",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xf8768814b88281de4f532a3beefa5b85b69b9324",
+        "contractName": "Curve TUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x6ede7f19df5df6ef23bd5b9cedb651580bdf56ca",
+        "contractName": "Curve BUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x30fcf7c6cdfc46ec237783d94fc78553e79d4e9c",
+        "contractName": "Curve DUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x1c6a9783f812b3af3abbf7de64c3cd7cc7d1af44",
+        "contractName": "Curve UST",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x8cc94ccd0f3841a468184aca3cc478d2148e1757",
+        "contractName": "Curve mUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xa5ca62d95d24a4a350983d5b8ac4eb8638887396",
+        "contractName": "sUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xf29ae508698bdef169b89834f76704c3b205aedf",
+        "contractName": "SNX",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x5a770dbd3ee6baf2802d29a901ef11501c44797a",
+        "contractName": "Curve sUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xf2db9a7c0acd427a680d640f02d90f6186e71725",
+        "contractName": "Curve LINK",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x3b96d491f067912d18563d56858ba7d6ec67a6fa",
+        "contractName": "Curve USDN",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xc4daf3b5e2a9e93861c3fbdd25f1e943b8d87417",
+        "contractName": "Curve USDP",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xa74d4b67b3368e83797a35382afb776baae4f5c8",
+        "contractName": "Curve alUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xbfedbcbe27171c418cdabc2477042554b1904857",
+        "contractName": "Curve rETH",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x132d8d2c76db3812403431facb00f3453fc42125",
+        "contractName": "Curve aETHc",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x39caf13a104ff567f71fd2a4c68c026fdb6e740b",
+        "contractName": "Curve Aave",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x054af22e1519b020516d72d749221c24756385c9",
+        "contractName": "Curve HUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x25212df29073fffa7a67399acefc2dd75a831a1a",
+        "contractName": "Curve EURS",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x671a912c10bba0cfa74cfc2d6fba9ba1ed9530b2",
+        "contractName": "LINK",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x873fb544277fd7b977b196a826459a69e27ea4ea",
+        "contractName": "RAI",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xa258c4606ca8206d8aa700ce2143d7db854d168c",
+        "contractName": "ETH",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x3d980e50508cfd41a13837a60149927a11c03731",
+        "contractName": "Curve triCrypto",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x80bbee2fa460da291e796b9045e93d19ef948c6a",
+        "contractName": "Curve PAX",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x28a5b95c101df3ded0c0d9074db80c438774b6a9",
+        "contractName": "Curve USDT",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x3d27705c64213a5dcd9d26880c1bcfa72d5b6b0e",
+        "contractName": "Curve USDK",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xc116df49c02c5fd147de25baa105322ebf26bd97",
+        "contractName": "Curve RSV",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xda816459f1ab5631232fe5e97a05bbbb94970c95",
+        "contractName": "DAI",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xe537b5cc158eb71037d4125bdd7538421981e6aa",
+        "contractName": "Curve 3Crypto",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xd9788f3931ede4d5018184e198699dc6d66c1915",
+        "contractName": "AAVE",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x4a3fe75762017db0ed73a71c9a06db7768db5e66",
+        "contractName": "COMP",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x6d765cbe5bc922694afe112c140b8878b9fb0390",
+        "contractName": "SUSHI",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xfd0877d9095789caf24c98f7cce092fa8e120775",
+        "contractName": "TUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x0d4ea8536f9a13e4fba16042a46c30f092b06aa5",
+        "contractName": "Curve EURT",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x2dfb14e32e2f8156ec15a2c21c3a6c053af52be8",
+        "contractName": "Curve MIM",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x4560b99c904aad03027b5178cca81584744ac01f",
+        "contractName": "Curve cvxCRV",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x67e019bfbd5a67207755d04467d6a70c0b75bf60",
+        "contractName": "Curve ibEUR",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x528d50dc9a333f01544177a924893fa1f5b9f748",
+        "contractName": "Curve ibKRW",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x595a68a8c9d5c230001848b69b1947ee2a607164",
+        "contractName": "Curve ibGBP",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x1b905331f7de2748f4d6a0678e1521e20347643f",
+        "contractName": "Curve ibAUD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x490bd0886f221a5f79713d3e84404355a9293c50",
+        "contractName": "Curve ibCHF",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x59518884eebfb03e90a18adbaaab770d4666471e",
+        "contractName": "Curve ibJPY",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xdb25ca703181e7484a155dd612b06f57e12be5f0",
+        "contractName": "YFI",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x6fafca7f49b4fd9dc38117469cd31a1e5aec91f5",
+        "contractName": "Curve USDM",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x718abe90777f5b778b52d553a5abaa148dd0dc5d",
+        "contractName": "Curve alETH",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x8b9c0c24307344b6d7941ab654b2aeee25347473",
+        "contractName": "Curve EURN",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xd8c620991b8e626c099eaab29b1e3eea279763bb",
+        "contractName": "Curve MIM-UST",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xa354f35829ae975e850e23e9615b11da1b3dc4de",
+        "contractName": "yvUSDC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xf59d66c1d593fb10e2f8c2a6fd2c958792434b9c",
+        "contractName": "yvCurve-OUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x5e69e8b51b71c8596817fd442849bd44219bb095",
+        "contractName": "yvCurve-ibBTC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x16825039dfe2a5b01f3e1e6a2bbf9a576c6f95c4",
+        "contractName": "yvCurve-d3pool",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xbcbb5b54fa51e7b7dc920340043b203447842a6b",
+        "contractName": "yvCurve-EURTUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x801ab06154bf539dea4385a39f5fa8534fb53073",
+        "contractName": "yvCurve-EURSUSDC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x378cb52b00f9d0921cb46dfc099cff73b42419dc",
+        "contractName": "yvLUSD",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x5ab64c599fcc59f0f2726a300b03166a395578da",
+        "contractName": "yvCurve-3EUR",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x6a5468752f8db94134b6508dabac54d3b45efce6",
+        "contractName": "yvCurve-CRVETH",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x1635b506a88fbf428465ad65d00e8d6b6e5846c3",
+        "contractName": "yvCurve-CVXETH",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x04d73c87b20d372cb3240c72eefb9d79ba5e4959",
+        "contractName": "yvCurve-UST",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x2d5d4869381c4fce34789bc1d38acce747e295ae",
+        "contractName": "yvCurve-RAI",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xd88dbba3f9c4391ee46f5ff548f289054db6e51c",
+        "contractName": "yvCurve-DOLA",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xc97511a1ddb162c8742d39ff320cfdcd13fbcf7e",
+        "contractName": "yvCurve-USDP",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x790a60024bc3aea28385b60480f15a0771f26d09",
+        "contractName": "yvYFIETH-f",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x5c0a86a32c129538d62c106eb8115a8b02358d57",
+        "contractName": "yvCurve-rETHwstETH",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x5faf6a2d186448dfa667c51cb3d695c7a6e52d8e",
+        "contractName": "yvCurve-stETH-WETH",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xb09f2a67a731466182518fae980feae96479d80b",
+        "contractName": "yvKP3RETH-f",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xf6b9dfe6bc42ed2eab44d6b829017f7b78b29f88",
+        "contractName": "yvCurve-ibKRW-USDC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x9a39f31dd5edf5919a5c0c2433ce053fad2e0336",
+        "contractName": "yvCurve-ibJPY-USDC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xe5edce53e39cbc6d819e2c340bcf295e0084ff7c",
+        "contractName": "yvCurve-ibEUR-USDC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x2e5c7e9b1da0d9cb2832ebb06241d18552a85400",
+        "contractName": "yvCurve-ibCHF-USDC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x6b5ce31af687a671a804d8070ddda99cab926dfe",
+        "contractName": "yvCurve-ibGBP-USDC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x1025b1641d1f23c289412dd5e5701e9810103a93",
+        "contractName": "yvCurve-ibAUD-USDC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x341bb10d8f5947f3066502dc8125d9b8949fd3d6",
+        "contractName": "yvCurve-STG-USDC",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x3b27f92c0e212c671ea351827edf93db27cc0c65",
+        "contractName": "USDT yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x4213458c69c19e6792510e1153cb0c5834665fdc",
+        "contractName": "Balancer Boosted Aave USD Pool yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+	    "address": "0xc5f3d11580c41cd07104e9af154fc6428bb93c73",
+    	"contractName": "Balancer Boosted Aave USD Pool yVault",
+    	"selectors": {
+	    	"0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+		    "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+    		"0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+	    	"0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+    	}
+    }, {
+    	"address": "0x27b5739e22ad9033bcbf192059122d163b60349d",
+	    "contractName": "Staked Yearn CRV Vault",
+    	"selectors": {
+	    	"0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+		    "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+    		"0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+	    	"0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+    	}
+    },
+    {
+    	"address": "0xc97232527b62efb0d8ed38cf3ea103a6cca4037e",
+    	"contractName": "LP Yearn CRV Vault",
+    	"selectors": {
+	    	"0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+		    "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+    		"0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+	    	"0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+    	}
+    }, {
+        "address": "0xe1747f4d30479d7a2dcfea5af69fb86b8f71ccec",
+        "contractName": "Curve TRYb Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x3a51269e0707a3416044bad5066858a12198fcf5",
+        "contractName": "Curve CLEV-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x7788a5492bc948e1d8c2caa53b2e0a60ed5403b0",
+        "contractName": "Curve OHM-FRAXBP Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x04d549bafe83b8bdccc8df38f15b90199d20f1ee",
+        "contractName": "Curve tBTC Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x9f8b5c0fc18b79ddfc05b21c43da7e324cf3b8eb",
+        "contractName": "Curve ibEUR-USDC Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x3221bfbe308144f19089cb197b7c11c2bf495906",
+        "contractName": "Curve BTRFLY-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xdb26d8815eda864dfa43306766f2f8ca50c03f9e",
+        "contractName": "Curve msUSD-FRAXBP Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x5cbf567cb0c3d319a052c91efb3b3318899338df",
+        "contractName": "Curve pETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x63c5c0604ec410130c69c958acab81794f7a622f",
+        "contractName": "Curve MATIC-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xca46d6e44499afbd8795f8f86910f068a6bf1a7c",
+        "contractName": "Curve DYDX-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xe6570a24ce63dd588195b98aad9f91b121d5f3d7",
+        "contractName": "Curve FXS-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x5359680a80c1fb2175cd33eff32f762e43cd8c41",
+        "contractName": "Curve ibKRW Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xbe4afe6737ccf34ca21cdef461e5c7547adc8c77",
+        "contractName": "Curve ibGBP Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x72faea467bd88db6720a861e56a3a72b4aa579df",
+        "contractName": "Curve ibCHF Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x98fa691998a9e6f410702dea8bc08a9d500aaafe",
+        "contractName": "Curve STG-FRAXBP Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xd6b2f4f0586bcfc9b1bf5cd8e22546add7b81a64",
+        "contractName": "Curve T-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x2fb06235ab90812e5bae28404024c9498ff9414d",
+        "contractName": "Curve JPEG-pETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xe80cc7b2b69f32999766c1a0035ab77e8fb5b99c",
+        "contractName": "Curve cvxFXS Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x91ae8feabe09182fe5f91fc273040b7d8f7aefe7",
+        "contractName": "Curve Paxos Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x2ab6578239ed541ef7cc7d11a45d740ce9f0a1f4",
+        "contractName": "Curve CTR-ETH Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0x1c97e67dc7ca179ae82e0c4aff4af9ff66612a43",
+        "contractName": "Curve PALETH-f Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }, {
+        "address": "0xc869206adafd3d874db22e8bba662e05f6257613",
+        "contractName": "Curve clevCVX-f Factory yVault",
+        "selectors": {
+            "0x3ccfd60b": {"erc20OfInterest": [], "method": "withdraw_all", "plugin": "Yearn"},
+            "0x2e1a7d4d": {"erc20OfInterest": [], "method": "withdraw", "plugin": "Yearn"},
+            "0x00f714ce": {"erc20OfInterest": [], "method": "withdraw_to", "plugin": "Yearn"},
+            "0xe63697c8": {"erc20OfInterest": [], "method": "withdraw_to_with_slippage", "plugin": "Yearn"}
+        }
+    }],
+    "name": "Yearn" 
+}
