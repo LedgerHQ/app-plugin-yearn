@@ -29,3 +29,7 @@ tests/lib
 
 # Templates
 tests/yearn/abis/_*.json
+
+# Other
+build
+plugin_dev

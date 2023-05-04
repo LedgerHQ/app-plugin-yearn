@@ -1,65 +1,30 @@
+
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import { waitForAppScreen, zemu, genericTx, SPECULOS_ADDRESS, RANDOM_ADDRESS, txFromEtherscan} from './test.fixture';
+import { waitForAppScreen, zemu, genericTx, nano_models } from './test.fixture';
 import { ethers } from "ethers";
+import { parseEther } from "ethers/lib/utils";
 
-const BASE_SCREENS_S = (1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + VAULT + GAS_FEES + APPROVE
-const BASE_SCREENS_X = (1 + 1 + 1 + 1 + 1) //YEARN + AMOUNT + VAULT + GAS_FEES + APPROVE
+const BASE_SCREENS_S = 5
+const BASE_SCREENS_X = 5
 
-const contractAddr = "0x8ee392a4787397126c163cb9844d7c447da419d8";
-const pluginName = "yearn";
-const abi_path = `../${pluginName}/abis/` + contractAddr + '.json';
-const abi = require(abi_path);
+nano_models.forEach(function(model) {
+  test('[Nano ' + model.letter + '] Deposit All Tokens with Partner contract', zemu(model, async (sim, eth) => {
+    const PARTNER_ID_ADDR = "0xB8c93dF4E1e6b1097889554D9294Dfb42814063a";
+    const DAI_CONTRACT_ADDR = "0xdA816459F1AB5631232FE5e97a05BBBb94970c95";
+    const contractAddr = '0x8ee392a4787397126c163cb9844d7c447da419d8';
+    const contract = new ethers.Contract(contractAddr, ['function deposit(address,address)']);
+    const {data} = await contract.populateTransaction['deposit(address,address)'](DAI_CONTRACT_ADDR, PARTNER_ID_ADDR);
 
-const contract = new ethers.Contract(contractAddr, abi);
-const PARTNER_ID_ADDR = "0xB8c93dF4E1e6b1097889554D9294Dfb42814063a";
-const DAI_CONTRACT_ADDR = "0xdA816459F1AB5631232FE5e97a05BBBb94970c95";
-
-test('[Nano S] Deposit Tokens with Partner contract', zemu("nanos", async (sim, eth) => {
-  
-  const {data} = await contract.populateTransaction['deposit(address,address)'](
-    DAI_CONTRACT_ADDR, PARTNER_ID_ADDR
-  );
-
-  let unsignedTx = genericTx;
-  unsignedTx.to = contractAddr;
-  unsignedTx.data = data;
-  const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
-  const tx = eth.signTransaction("44'/60'/0'/0",serializedTx);
-
-  await waitForAppScreen(sim);
-  await sim.navigateAndCompareSnapshots('.', 'nanos_deposit_all_partner', [BASE_SCREENS_S, 0]);
-  await tx;
-}));
-
-test('[Nano X] Deposit Tokens with Partner contract', zemu("nanox", async (sim, eth) => {
-  const {data} = await contract.populateTransaction['deposit(address,address)'](
-    DAI_CONTRACT_ADDR, PARTNER_ID_ADDR
-  );
-
-  let unsignedTx = genericTx;
-  unsignedTx.to = contractAddr;
-  unsignedTx.data = data;
-  const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
-  const tx = eth.signTransaction("44'/60'/0'/0",serializedTx);
-
-  await waitForAppScreen(sim);
-  await sim.navigateAndCompareSnapshots('.', 'nanox_deposit_all_partner', [BASE_SCREENS_X, 0]);
-  await tx;
-}));
-
-test('[Nano SP] Deposit Tokens with Partner contract', zemu("nanosp", async (sim, eth) => {
-  const {data} = await contract.populateTransaction['deposit(address,address)'](
-    DAI_CONTRACT_ADDR, PARTNER_ID_ADDR
-  );
-
-  let unsignedTx = genericTx;
-  unsignedTx.to = contractAddr;
-  unsignedTx.data = data;
-  const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
-  const tx = eth.signTransaction("44'/60'/0'/0",serializedTx);
-
-  await waitForAppScreen(sim);
-  await sim.navigateAndCompareSnapshots('.', 'nanox_deposit_all_partner', [BASE_SCREENS_X, 0]);
-  await tx;
-}));
+    let unsignedTx = genericTx;
+    unsignedTx.to = contractAddr;
+    unsignedTx.data = data;
+    unsignedTx.value = parseEther("0.1");
+    const serializedTx = ethers.utils.serializeTransaction(unsignedTx).slice(2);
+    const tx = eth.signTransaction("44'/60'/0'/0", serializedTx);
+    const right_clicks = model.letter === 'S' ? BASE_SCREENS_S : BASE_SCREENS_X;
+    await waitForAppScreen(sim);
+    await sim.navigateAndCompareSnapshots('.', model.name + '_deposit_all_partner', [right_clicks, 0]);
+    await tx;
+  }));
+});

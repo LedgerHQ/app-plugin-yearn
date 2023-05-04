@@ -29,8 +29,8 @@ APP_LOAD_PARAMS += --appFlags 0x800 --path "44'/60'" --curve secp256k1
 APP_LOAD_PARAMS += $(COMMON_LOAD_PARAMS)
 
 APPVERSION_M     = 1
-APPVERSION_N     = 1
-APPVERSION_P     = 1
+APPVERSION_N     = 2
+APPVERSION_P     = 0
 APPVERSION       = "$(APPVERSION_M).$(APPVERSION_N).$(APPVERSION_P)"
 
 ifeq ($(TARGET_NAME), TARGET_NANOS)
@@ -144,4 +144,4 @@ include $(BOLOS_SDK)/Makefile.rules
 dep/%.d: %.c Makefile
 
 listvariants:
-	@echo VARIANTS NONE yearn 
+	@echo VARIANTS NONE yearn

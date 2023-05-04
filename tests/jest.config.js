@@ -36,4 +36,5 @@ module.exports = {
 
   // Stop immediatly when a test fail
   bail: true,
+  testTimeout: 50_000,
 };
