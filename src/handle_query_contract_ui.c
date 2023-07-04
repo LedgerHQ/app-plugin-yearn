@@ -217,9 +217,7 @@ void handle_query_contract_ui_zap_eth(ethQueryContractUI_t *msg) {
 
     switch (msg->screenIndex) {
         case 0:
-            strlcpy(msg->title, "Zap ETH", msg->titleLength);
-            break;
-        case 1:
+            strlcpy(msg->title, "Amount", msg->titleLength);
             amountToString(eth_amount,
                            eth_amount_size,
                            WEI_TO_ETHER,
