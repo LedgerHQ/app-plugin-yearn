@@ -11,6 +11,9 @@ void handle_finalize(void *parameters) {
                 msg->numScreens += 1;
             }
             break;
+        case ZAP_ETH: // Not vault or amount
+            msg->numScreens = 0;
+            break;
         case CLAIM:
             msg->numScreens -= 1;
             break;

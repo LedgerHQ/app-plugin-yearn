@@ -211,6 +211,25 @@ void handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
     }
 }
 
+void handle_query_contract_ui_zap_eth(ethQueryContractUI_t *msg) {
+    const uint8_t *eth_amount = msg->pluginSharedRO->txContent->value.value;
+    uint8_t eth_amount_size = msg->pluginSharedRO->txContent->value.length;
+
+    switch (msg->screenIndex) {
+        case 0:
+            strlcpy(msg->title, "Zap ETH", msg->titleLength);
+            break;
+        case 1:
+            amountToString(eth_amount, eth_amount_size, WEI_TO_ETHER, "ETH", msg->msg, msg->msgLength);
+            break;
+        // Keep this
+        default:
+            PRINTF("Received an invalid screenIndex\n");
+            msg->result = ETH_PLUGIN_RESULT_ERROR;
+            return;
+    }
+}
+
 void handle_query_contract_ui(void *parameters) {
     ethQueryContractUI_t *msg = (ethQueryContractUI_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
@@ -220,6 +239,9 @@ void handle_query_contract_ui(void *parameters) {
     msg->result = ETH_PLUGIN_RESULT_OK;
 
     switch (context->selectorIndex) {
+        case ZAP_ETH:
+            handle_query_contract_ui_zap_eth(msg);
+            break;
         case DEPOSIT:
         case DEPOSIT_ALL:
             handle_query_contract_ui_track_in(msg, context);
