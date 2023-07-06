@@ -4,7 +4,7 @@
 NANOS_SDK=$NANOS_SDK
 NANOSP_SDK=$NANOSP_SDK
 NANOX_SDK=$NANOX_SDK
-APP_ETHEREUM=${APP_ETHEREUM:-"../plugin_dev/app-ethereum"}
+APP_ETHEREUM=${APP_ETHEREUM:-"/plugin_dev/app-ethereum"}
 
 set -e
 
@@ -31,7 +31,6 @@ build_plugin() {
     cp bin/app.elf "$target"
     cd -
 }
-
 
 build_ethereum() {
     # arguments: <SDK letter>

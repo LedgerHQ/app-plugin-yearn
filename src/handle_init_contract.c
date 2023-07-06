@@ -35,6 +35,7 @@ void handle_init_contract(void *parameters) {
         case DEPOSIT:
             context->next_param = TRACK_VAULT;
             break;
+        case ZAP_ETH:
         case CLAIM:
         case WITHDRAW_ALL:
             context->next_param = UNEXPECTED_PARAMETER;
@@ -45,8 +46,6 @@ void handle_init_contract(void *parameters) {
             context->next_param = AMOUNT;
             break;
         case ZAP_IN:
-            context->next_param = ZAP_TOKEN;
-            break;
         case ZAP_CRV:
             context->next_param = ZAP_TOKEN;
             break;

@@ -171,6 +171,7 @@ void handle_provide_parameter(void *parameters) {
             break;
         case CLAIM:
         case WITHDRAW_ALL:
+        case ZAP_ETH:
             handle_none(msg, context);
             break;
         case WITHDRAW:

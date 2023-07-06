@@ -19,7 +19,8 @@ static const uint8_t CLAIM_SELECTOR[SELECTOR_SIZE] = {0x4e, 0x71, 0xd9, 0x2d};
 // buyToken, uint256 minBuyAmount, address target, bytes calldata data, address partner,
 // address yearnAffiliate)
 static const uint8_t ZAP_IN_SELECTOR[SELECTOR_SIZE] = {0xb6, 0xc2, 0xc6, 0xe9};
-
+// deposit()
+static const uint8_t ZAP_ETH_SELECTOR[SELECTOR_SIZE] = {0xd0, 0xe3, 0x0d, 0xb0};
 // zap(address _input_token, address _output_token, uint256 _amount_in, uint256 _min_out,
 // address _recipient)
 static const uint8_t YCRV_ZAP_SELECTOR[SELECTOR_SIZE] = {0x51, 0x78, 0x79, 0x05};
@@ -33,6 +34,7 @@ const uint8_t *const YEARN_SELECTORS[NUM_SELECTORS] = {DEPOSIT_SELECTOR,
                                                        WITHDRAW_TO_SELECTOR,
                                                        WITHDRAW_TO_SLIPPAGE_SELECTOR,
                                                        ZAP_IN_SELECTOR,
+                                                       ZAP_ETH_SELECTOR,
                                                        YCRV_ZAP_SELECTOR,
                                                        CLAIM_SELECTOR};
 

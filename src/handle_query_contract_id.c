@@ -26,6 +26,9 @@ void handle_query_contract_id(void *parameters) {
         case ZAP_CRV:
             strlcpy(msg->version, "Zap", msg->versionLength);
             break;
+        case ZAP_ETH:
+            strlcpy(msg->version, "Zap ETH", msg->versionLength);
+            break;
         default:
             PRINTF("Selector index: %d not supported\n", context->selectorIndex);
             msg->result = ETH_PLUGIN_RESULT_ERROR;
