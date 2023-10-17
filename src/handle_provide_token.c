@@ -4,8 +4,7 @@ const uint8_t NULL_ETH_ADDRESS[ADDRESS_LENGTH] = {0x00, 0x00, 0x00, 0x00, 0x00, 
                                                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                                   0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-void handle_provide_token(void *parameters) {
-    ethPluginProvideInfo_t *msg = (ethPluginProvideInfo_t *) parameters;
+void handle_provide_token(ethPluginProvideInfo_t *msg) {
     context_t *context = (context_t *) msg->pluginContext;
 
     if (context->selectorIndex != DEPOSIT && context->selectorIndex != DEPOSIT_ALL &&

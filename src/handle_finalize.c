@@ -1,7 +1,6 @@
 #include "yearn_plugin.h"
 
-void handle_finalize(void *parameters) {
-    ethPluginFinalize_t *msg = (ethPluginFinalize_t *) parameters;
+void handle_finalize(ethPluginFinalize_t *msg) {
     context_t *context = (context_t *) msg->pluginContext;
     msg->numScreens = 2;  // At least 2, amount + vault
 
