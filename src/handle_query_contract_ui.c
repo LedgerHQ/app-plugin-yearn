@@ -47,7 +47,6 @@ static bool set_recipient_ui(ethQueryContractUI_t *msg, context_t *context) {
     uint64_t chainid = 0;
     return getEthAddressStringFromBinary(context->extra_address,
                                          msg->msg + 2,
-                                         msg->pluginSharedRW->sha3,
                                          chainid);
 }
 
