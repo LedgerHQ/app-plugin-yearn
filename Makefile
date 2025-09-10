@@ -19,7 +19,7 @@ APPNAME = "Yearn"
 
 # Application version
 APPVERSION_M = 1
-APPVERSION_N = 3
+APPVERSION_N = 4
 APPVERSION_P = 0
 
 include ethereum-plugin-sdk/standard_plugin.mk
