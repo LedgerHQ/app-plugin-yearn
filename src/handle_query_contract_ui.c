@@ -180,9 +180,8 @@ bool handle_query_contract_ui_track_in(ethQueryContractUI_t *msg, context_t *con
 bool handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *context) {
     bool ret = false;
     // Copy the vault address prior to any process
-    ethPluginSharedRO_t *pluginSharedRO = (ethPluginSharedRO_t *) msg->pluginSharedRO;
     copy_parameter(context->vault_address,
-                   pluginSharedRO->txContent->destination,
+                   msg->txContent->destination,
                    sizeof(context->vault_address));
 
     if (set_vault_information(msg, context)) {
@@ -220,8 +219,8 @@ bool handle_query_contract_ui_vaults(ethQueryContractUI_t *msg, context_t *conte
 }
 
 bool handle_query_contract_ui_zap_eth(ethQueryContractUI_t *msg) {
-    const uint8_t *eth_amount = msg->pluginSharedRO->txContent->value.value;
-    uint8_t eth_amount_size = msg->pluginSharedRO->txContent->value.length;
+    const uint8_t *eth_amount = msg->txContent->value.value;
+    uint8_t eth_amount_size = msg->txContent->value.length;
     bool ret = false;
 
     switch (msg->screenIndex) {
